@@ -265,6 +265,43 @@ export default async function CatchAllSlugPage({ params, searchParams }: CatchAl
           />
         </article>
 
+        <section
+          style={{
+            marginTop: '2rem',
+            background: 'var(--color-surface)',
+            border: '1px solid var(--color-border)',
+            borderRadius: 'var(--radius-lg)',
+            padding: '1.5rem 2rem',
+            boxShadow: 'var(--shadow-sm)',
+          }}
+        >
+          <h2 style={{ margin: '0 0 0.75rem', fontSize: '1.25rem', fontWeight: 900 }}>
+            💬 Thảo Luận & Hỏi Đáp ({post.comments.length})
+          </h2>
+          {post.comments.length === 0 ? (
+            <p style={{ margin: 0, color: 'var(--color-text-secondary)', fontSize: '0.92rem' }}>
+              Chưa có câu hỏi nào cho chuyên đề này. Ba mẹ và các em có thể luyện tập ngay trên các tiện ích tương tác của iMath.vn!
+            </p>
+          ) : (
+            <div style={{ display: 'grid', gap: '0.75rem' }}>
+              {post.comments.map((c) => (
+                <div
+                  key={c.id}
+                  style={{
+                    padding: '0.85rem 1rem',
+                    borderRadius: 'var(--radius-sm)',
+                    background: 'var(--color-surface-muted)',
+                    border: '1px solid var(--color-border)',
+                  }}
+                >
+                  <div style={{ fontWeight: 800, fontSize: '0.9rem', marginBottom: '0.25rem' }}>{c.authorName}</div>
+                  <div style={{ fontSize: '0.92rem', color: 'var(--color-text)' }}>{c.content}</div>
+                </div>
+              ))}
+            </div>
+          )}
+        </section>
+
         {relatedPosts.length > 0 && (
           <section style={{ marginTop: '2.5rem' }}>
             <h2 style={{ fontSize: '1.45rem', fontWeight: 900, marginBottom: '1rem' }}>

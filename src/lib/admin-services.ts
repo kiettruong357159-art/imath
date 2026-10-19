@@ -23,22 +23,35 @@ export async function ratePostAtomic(postId: string, stars: number, ipHash: stri
       throw new Error('POST_NOT_FOUND');
     }
 
-    await tx.postRating.create({
-      data: {
-        postId,
-        stars: clampedStars,
-        ipHash,
-      },
+    const existingRating = await tx.postRating.findFirst({
+      where: { postId, ipHash },
     });
+
+    if (existingRating) {
+      await tx.postRating.update({
+        where: { id: existingRating.id },
+        data: { stars: clampedStars },
+      });
+    } else {
+      await tx.postRating.create({
+        data: {
+          postId,
+          stars: clampedStars,
+          ipHash,
+        },
+      });
+    }
 
     const agg = await tx.postRating.aggregate({
       where: { postId },
-      _avg: { stars: true },
+      _sum: { stars: true },
       _count: { _all: true },
     });
 
-    const totalCount = agg._count._all;
-    const avg = agg._avg.stars ? Number(agg._avg.stars.toFixed(1)) : 5.0;
+    // Include baseline 1 vote of 5.0 stars seeded with each post
+    const totalCount = 1 + agg._count._all;
+    const sumStars = 5 + (agg._sum.stars || 0);
+    const avg = Number((sumStars / totalCount).toFixed(1));
 
     return tx.post.update({
       where: { id: postId },
@@ -57,8 +70,11 @@ export async function ratePostAtomic(postId: string, stars: number, ipHash: stri
 
 export async function deleteCategorySafe(categoryId: string) {
   return prisma.$transaction(async (tx) => {
-    const postCount = await tx.post.count({ where: { categoryId } });
-    if (postCount > 0) {
+    const [postCount, childCount] = await Promise.all([
+      tx.post.count({ where: { categoryId } }),
+      tx.category.count({ where: { parentId: categoryId } }),
+    ]);
+    if (postCount > 0 || childCount > 0) {
       throw new Error('CATEGORY_IN_USE');
     }
     return tx.category.delete({ where: { id: categoryId } });

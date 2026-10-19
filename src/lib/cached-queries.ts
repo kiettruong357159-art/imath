@@ -60,11 +60,10 @@ export const getCachedPostBySlug = cache(async (slug: string) => {
 export const getCachedCategoryByPathOrSlug = cache(async (slugOrPath: string) => {
   const clean = slugOrPath.replace(/^\/|\/$/g, '');
   const parts = clean.split('/');
-  const lastSlug = parts[parts.length - 1];
   return prisma.category.findFirst({
     where: {
       isActive: true,
-      OR: [{ fullPath: clean }, { slug: lastSlug }],
+      OR: parts.length === 1 ? [{ fullPath: clean }, { slug: clean }] : [{ fullPath: clean }],
     },
   });
 });

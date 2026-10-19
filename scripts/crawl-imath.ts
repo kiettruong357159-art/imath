@@ -161,6 +161,39 @@ async function crawlInteractiveTools(): Promise<void> {
 
   const downloadedAssets = new Set<string>();
 
+  async function downloadToolAssetRecursive(relAssetPath: string): Promise<void> {
+    const normalizedRel = relAssetPath.split('?')[0].replace(/^\/+/, '');
+    if (!normalizedRel || downloadedAssets.has(normalizedRel)) return;
+    downloadedAssets.add(normalizedRel);
+
+    const assetContent = await fetchText(`${BASE_URL}/tienich/${normalizedRel}`);
+    if (!assetContent) return;
+    await ensureFileSaved(`tienich/${normalizedRel}`, assetContent);
+
+    if (normalizedRel.endsWith('.js')) {
+      const assetDir = path.posix.dirname(normalizedRel);
+      const importMatches = Array.from(
+        assetContent.matchAll(/(?:from\s+|import\s*\(\s*)['"](\.[^'"]+\.js(?:\?[^'"]*)?)['"]/g)
+      ).map((m) => m[1]);
+
+      for (const imp of importMatches) {
+        const cleanImp = imp.split('?')[0];
+        const childRel = path.posix.normalize(path.posix.join(assetDir, cleanImp));
+        await downloadToolAssetRecursive(childRel);
+      }
+
+      // Also scan for data-lop-*.js or similar relative paths in string literals
+      const stringJsMatches = Array.from(
+        assetContent.matchAll(/['"](\.\.?\/[^'"]+\.(?:js|json)(?:\?[^'"]*)?)['"]/g)
+      ).map((m) => m[1]);
+      for (const strRef of stringJsMatches) {
+        const cleanRef = strRef.split('?')[0];
+        const childRel = path.posix.normalize(path.posix.join(assetDir, cleanRef));
+        await downloadToolAssetRecursive(childRel);
+      }
+    }
+  }
+
   for (let idx = 0; idx < toolFiles.length; idx++) {
     const t = toolFiles[idx];
     const url = `${BASE_URL}/tienich/${t.file}`;
@@ -180,14 +213,8 @@ async function crawlInteractiveTools(): Promise<void> {
     for (const ref of assetRefs) {
       if (ref.startsWith('http://') || ref.startsWith('https://') || ref.startsWith('//')) continue;
       const cleanRef = ref.split('?')[0].replace(/^\.\//, '');
-      const relAssetPath = baseDir === '.' ? cleanRef : path.posix.join(baseDir, cleanRef);
-      if (downloadedAssets.has(relAssetPath)) continue;
-      downloadedAssets.add(relAssetPath);
-
-      const assetContent = await fetchText(`${BASE_URL}/tienich/${relAssetPath}`);
-      if (assetContent) {
-        await ensureFileSaved(`tienich/${relAssetPath}`, assetContent);
-      }
+      const relAssetPath = baseDir === '.' ? cleanRef : path.posix.normalize(path.posix.join(baseDir, cleanRef));
+      await downloadToolAssetRecursive(relAssetPath);
     }
 
     const slug = t.file.replace(/\.html$/, '').replace(/\//g, '-');
@@ -212,6 +239,18 @@ async function crawlInteractiveTools(): Promise<void> {
         sortOrder: idx + 1,
       },
     });
+  }
+
+  // Explicitly ensure dynamic template-interpolated ES modules are downloaded
+  const dynamicModules = [
+    'cap2/js/data/data-lop-6.js',
+    'cap2/js/data/data-lop-7.js',
+    'cap2/js/data/data-lop-8.js',
+    'cap2/js/data/data-lop-9.js',
+    'js/hinh-hoc-dai-luong/core.js',
+  ];
+  for (const dm of dynamicModules) {
+    await downloadToolAssetRecursive(dm);
   }
 
   // Also register query-parameterized Grade 6-9 & CLC tools in InteractiveTool table so all 24 sitemap tools appear
