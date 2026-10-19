@@ -27,7 +27,10 @@ export function rewriteInternalUrls(html: string): string {
   );
   result = result.replace(
     /href=(["'])https?:\/\/edu\.imath\.vn\/?(#[^"']*)?\1/gi,
-    (_m, quote: string, hash?: string) => `href=${quote}/edu${hash || ''}${quote}`
+    (fullMatch, quote: string, hash?: string) => {
+      void fullMatch;
+      return `href=${quote}/edu${hash || ''}${quote}`;
+    }
   );
 
   return result;

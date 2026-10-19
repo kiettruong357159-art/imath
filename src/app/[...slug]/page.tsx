@@ -170,7 +170,8 @@ export default async function CatchAllSlugPage({ params, searchParams }: CatchAl
 
         {totalPages > 1 && (
           <div style={{ display: 'flex', justifyContent: 'center', gap: '0.5rem', marginTop: '2.5rem', flexWrap: 'wrap' }}>
-            {Array.from({ length: totalPages }).map((_, idx) => {
+            {Array.from({ length: totalPages }, (v, idx) => {
+              void v;
               const p = idx + 1;
               const active = p === currentPage;
               return (

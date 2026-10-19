@@ -6,8 +6,8 @@ export default function TaiLieuLoading() {
       <div className="skeleton-box" style={{ height: 52, width: '45%', marginBottom: '1rem' }} />
       <div className="skeleton-box" style={{ height: 72, width: '100%', marginBottom: '1.5rem' }} />
       <div className="grid-3col-safe">
-        {Array.from({ length: 6 }).map((_, idx) => (
-          <div key={idx} className="skeleton-box" style={{ height: 220 }} />
+        {[1, 2, 3, 4, 5, 6].map((item) => (
+          <div key={item} className="skeleton-box" style={{ height: 220 }} />
         ))}
       </div>
     </div>
