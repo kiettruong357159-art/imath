@@ -1,0 +1,161 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Role {
+  id          String   @id @default(cuid())
+  code        String   @unique
+  name        String
+  permissions String   // JSON array of permission strings e.g. '["*"]'
+  isActive    Boolean  @default(true)
+  users       User[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model User {
+  id           String    @id @default(cuid())
+  email        String    @unique
+  fullName     String
+  passwordHash String
+  grade        Int?
+  roleId       String
+  role         Role      @relation(fields: [roleId], references: [id], onDelete: Restrict)
+  isActive     Boolean   @default(true)
+  comments     Comment[]
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  @@index([email, isActive])
+  @@index([roleId])
+}
+
+model Category {
+  id          String     @id @default(cuid())
+  wpId        Int?       @unique
+  slug        String     @unique
+  fullPath    String     @unique
+  name        String
+  description String     @default("")
+  parentId    String?
+  parent      Category?  @relation("CategoryHierarchy", fields: [parentId], references: [id], onDelete: Restrict)
+  children    Category[] @relation("CategoryHierarchy")
+  isActive    Boolean    @default(true)
+  posts       Post[]
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  @@index([slug, isActive])
+  @@index([fullPath])
+}
+
+model Post {
+  id            String       @id @default(cuid())
+  wpId          Int?         @unique
+  slug          String       @unique
+  title         String
+  excerpt       String       @default("")
+  content       String       @default("")
+  featuredImage String       @default("")
+  gradeSlug     String       @default("")
+  categoryId    String?
+  category      Category?    @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  viewCount     Int          @default(0)
+  ratingAvg     Float        @default(5.0)
+  ratingCount   Int          @default(1)
+  status        String       @default("PUBLISHED") // PUBLISHED | DRAFT | ARCHIVED
+  publishedAt   DateTime     @default(now())
+  ratings       PostRating[]
+  comments      Comment[]
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+
+  @@index([slug, status])
+  @@index([categoryId, status, publishedAt])
+  @@index([gradeSlug, status])
+}
+
+model MathDocument {
+  id            String   @id @default(cuid())
+  wpId          Int?     @unique
+  slug          String   @unique
+  title         String
+  excerpt       String   @default("")
+  content       String   @default("")
+  featuredImage String   @default("")
+  downloadUrl   String   @default("")
+  gradeSlug     String   @default("")
+  gradeName     String   @default("")
+  topicSlug     String   @default("")
+  topicName     String   @default("")
+  viewCount     Int      @default(0)
+  downloadCount Int      @default(0)
+  ratingAvg     Float    @default(5.0)
+  ratingCount   Int      @default(1)
+  status        String   @default("PUBLISHED")
+  publishedAt   DateTime @default(now())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([slug, status])
+  @@index([gradeSlug, status, publishedAt])
+  @@index([topicSlug, status, publishedAt])
+}
+
+model InteractiveTool {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  description String   @default("")
+  groupCode   String   @default("BASIC") // BASIC | ADVANCED | CAP2 | PUZZLE
+  gradeSlug   String   @default("")
+  toolUrl     String
+  iconText    String   @default("🧮")
+  sortOrder   Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([groupCode, isActive, sortOrder])
+}
+
+model HubPage {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  description String   @default("")
+  mainHtml    String   @default("")
+  headCss     String   @default("")
+  updatedAt   DateTime @updatedAt
+}
+
+model PostRating {
+  id        String   @id @default(cuid())
+  postId    String
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  stars     Int
+  ipHash    String
+  createdAt DateTime @default(now())
+
+  @@index([postId])
+  @@index([postId, ipHash])
+}
+
+model Comment {
+  id         String   @id @default(cuid())
+  postId     String
+  post       Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  userId     String?
+  user       User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  authorName String
+  content    String
+  isApproved Boolean  @default(true)
+  createdAt  DateTime @default(now())
+
+  @@index([postId, isApproved])
+}

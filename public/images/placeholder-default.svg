@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" rx="24" fill="#EFF6FF"/>
+  <circle cx="400" cy="200" r="72" fill="#DBEAFE"/>
+  <path d="M368 220L396 168L432 220H368Z" fill="#3B82F6"/>
+  <circle cx="420" cy="176" r="12" fill="#F59E0B"/>
+  <text x="400" y="315" text-anchor="middle" font-family="Nunito, Arial, sans-serif" font-size="28" font-weight="800" fill="#1E40AF">iMath.vn — Học Toán Tư Duy Lớp 1 Đến 12</text>
+</svg>
