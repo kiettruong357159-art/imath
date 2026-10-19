@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Toán THCS - Luyện tập trực quan Lớp 6 đến Lớp 9 | iMath.vn</title>
+  <meta name="description" content="Hệ thống học và luyện tập Toán Cấp 2 (THCS) trực quan từ Lớp 6 đến Lớp 9. Phân tầng Khá, Nâng cao và HSG, có chấm điểm và xuất phiếu học tập Word/PDF.">
+  <link rel="stylesheet" href="vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="css/toan-cap-2.css?v=20260912-journey">
+</head>
+<body>
+
+  <!-- ================= SITE HEADER ================= -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="iMath - Trang chủ">
+        <img class="brand-logo" src="../giao-dien/logo-imath.webp" alt="Logo iMath" width="44" height="44" onerror="this.src='images/webp/mascot-cu-imath.webp'">
+        <div class="brand-text">
+          <strong>iMath.vn</strong>
+          <small>Học toán thông minh - Bứt phá tư duy</small>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Điều hướng chính">
+        <a class="nav-link" href="#"><span class="nav-ico">🏠</span><span>Trang chủ</span></a>
+        <a class="nav-link is-active" href="#"><span class="nav-ico">📖</span><span>Luyện tập</span></a>
+        <a class="nav-link" href="#"><span class="nav-ico">🎒</span><span>Học theo lớp</span><small class="nav-arrow">▾</small></a>
+        <a class="nav-link" href="#"><span class="nav-ico">👨‍👩‍👧</span><span>Góc phụ huynh</span></a>
+        <a class="nav-link" href="#"><span class="nav-ico">🏆</span><span>Đấu trường</span></a>
+        <a class="nav-link" href="#"><span class="nav-ico">🧩</span><span>Câu đố vui</span><small class="nav-arrow">▾</small></a>
+        <a class="nav-link" href="#"><span class="nav-ico">📑</span><span>Tài liệu</span></a>
+        <a class="nav-link" href="#"><span class="nav-ico">🗂️</span><span>Tiện ích</span><small class="nav-arrow">▾</small></a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn-search-icon" type="button" aria-label="Tìm kiếm">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+        <button class="btn-login" type="button">Vào học</button>
+        <div class="user-profile" title="Hồ sơ cá nhân">
+          <img class="user-avatar" src="images/webp/avatar-user.webp" alt="Avatar học sinh" width="36" height="36">
+          <span class="avatar-caret">▾</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO BANNER (FULL WIDTH TRÀN VIỀN) ================= -->
+  <section class="hero-banner-section" aria-label="Banner Toán THCS">
+    <div class="hero-banner-card">
+      
+      <!-- Câu trích dẫn bên trái cùng máy bay giấy vector -->
+      <div class="hero-quote-box">
+        <p class="hero-quote-text">
+          <span>Toán</span>
+          <span>mở ra thế giới</span>
+          <span>của những</span>
+          <span>khả năng!</span>
+        </p>
+        <div class="hero-plane-wrap">
+          <svg class="hero-plane-svg" width="54" height="40" viewBox="0 0 54 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 4 34 C 14 36, 22 26, 18 16 C 15 8, 30 10, 39 7" stroke="#0284c7" stroke-dasharray="3 2.5" stroke-width="1.8" fill="none"/>
+            <path d="M 37 9 L 51 2 L 44 16 L 41 11 Z" fill="#0070f3"/>
+            <path d="M 41 11 L 51 2 L 37 9 Z" fill="#38bdf8"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Khối chính: Tiêu đề siêu nét, phụ đề và 4 nút chọn lớp -->
+      <div class="hero-main-content">
+        <h1 class="hero-title">
+          <span class="title-dark">Toán</span> <span class="title-blue">THCS</span>
+        </h1>
+        <p class="hero-subtitle">Luyện tập theo lớp – theo chủ đề – tổng hợp kiến thức</p>
+        <p class="hero-tagline">Nắm chắc nền tảng – Tự tin chinh phục điểm cao!</p>
+        
+        <div class="hero-grade-pills" id="hero-grade-pills">
+          <button class="grade-pill-btn" type="button" onclick="window.IMathCap2?.switchGrade(6)">Lớp 6</button>
+          <button class="grade-pill-btn" type="button" onclick="window.IMathCap2?.switchGrade(7)">Lớp 7</button>
+          <button class="grade-pill-btn is-active" type="button" onclick="window.IMathCap2?.switchGrade(8)">Lớp 8</button>
+          <button class="grade-pill-btn" type="button" onclick="window.IMathCap2?.switchGrade(9)">Lớp 9</button>
+        </div>
+      </div>
+
+      <!-- Khẩu hiệu góc trên bên phải uốn lượn sắc nét -->
+      <div class="hero-slogan-right">
+        <span class="hero-slogan-line">Học hôm nay</span>
+        <span class="hero-slogan-line">vững tương lai!</span>
+        <svg class="hero-slogan-underline" width="96" height="14" viewBox="0 0 96 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 4 10 C 32 1, 64 2, 92 11" stroke="#0284c7" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <!-- Ký hiệu toán học bay lơ lửng sinh động trên nền trời -->
+      <div class="hero-floating-elements" aria-hidden="true">
+        <span class="hero-particle p-1">π</span>
+        <span class="hero-particle p-2">√x</span>
+        <span class="hero-particle p-3">y=x²</span>
+        <span class="hero-particle p-4">Δ</span>
+        <span class="hero-particle p-5">f(x)</span>
+      </div>
+
+    </div>
+  </section>
+
+  <main class="container">
+
+    <!-- ================= HÀNH TRÌNH 15 HOẠT ĐỘNG ================= -->
+    <section class="journey-track-section" aria-label="Thanh hành trình học tập">
+      <div class="journey-track-card">
+        <div class="journey-title-box">
+          <h2>Hành trình<br>15 hoạt động</h2>
+        </div>
+
+        <div class="journey-nodes-wrap" id="journey-nodes-wrap">
+          <div class="journey-group">
+            <div class="journey-tier-badge badge-kha">Khá (Câu 1 – 3)</div>
+            <div class="journey-nodes-row">
+              <button class="journey-node node-tier-kha is-current" type="button">1</button>
+              <button class="journey-node node-tier-kha" type="button">2</button>
+              <button class="journey-node node-tier-kha" type="button">3</button>
+            </div>
+          </div>
+          <div class="journey-divider-line"></div>
+          <div class="journey-group">
+            <div class="journey-tier-badge badge-nangCao">Nâng cao (Câu 4 – 10)</div>
+            <div class="journey-nodes-row">
+              <button class="journey-node node-tier-nangCao" type="button">4</button>
+              <button class="journey-node node-tier-nangCao" type="button">5</button>
+              <button class="journey-node node-tier-nangCao" type="button">6</button>
+              <button class="journey-node node-tier-nangCao" type="button">7</button>
+              <button class="journey-node node-tier-nangCao" type="button">8</button>
+              <button class="journey-node node-tier-nangCao" type="button">9</button>
+              <button class="journey-node node-tier-nangCao" type="button">10</button>
+            </div>
+          </div>
+          <div class="journey-divider-line"></div>
+          <div class="journey-group">
+            <div class="journey-tier-badge badge-hsg">HSG (Câu 11 – 15)</div>
+            <div class="journey-nodes-row">
+              <button class="journey-node node-tier-hsg" type="button">11</button>
+              <button class="journey-node node-tier-hsg" type="button">12</button>
+              <button class="journey-node node-tier-hsg" type="button">13</button>
+              <button class="journey-node node-tier-hsg" type="button">14</button>
+              <button class="journey-node node-tier-hsg" type="button">15</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="journey-trophy-box">
+          <img class="journey-trophy-img" src="images/webp/cup-vang.webp" alt="Cúp vàng" width="34" height="34">
+          <p>Mỗi bước tiến<br>là một phiên bản<br>tốt hơn của bạn!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= BỐ CỤC 3 CỘT ================= -->
+    <section class="learning-layout-section">
+      <div class="learning-grid">
+        
+        <!-- CỘT 1: SIDEBAR CHỦ ĐỀ -->
+        <aside class="sidebar-card" aria-label="Danh mục chủ đề">
+          <div class="sidebar-header">
+            <h3><span aria-hidden="true">📚</span> <span id="sidebar-heading-text">Chủ đề Lớp 8</span></h3>
+            <span style="color:#94a3b8; font-size:1rem; cursor:pointer;" title="Mở rộng">↗</span>
+          </div>
+
+          <nav class="topic-list" id="topic-list" aria-label="Các chủ đề">
+            <button class="topic-nav-item is-active" type="button">
+              <img class="topic-icon" src="images/webp/icon-tong-hop.webp" alt="" width="26" height="26">
+              <span class="topic-label">Tổng hợp kiến thức Lớp 8</span>
+              <span class="topic-arrow">›</span>
+            </button>
+            <button class="topic-nav-item" type="button">
+              <img class="topic-icon" src="images/webp/icon-phan-thuc.webp" alt="" width="26" height="26">
+              <span class="topic-label">Phân thức đại số</span>
+              <span class="topic-arrow">›</span>
+            </button>
+            <button class="topic-nav-item" type="button">
+              <img class="topic-icon" src="images/webp/icon-pt-bac-nhat.webp" alt="" width="26" height="26">
+              <span class="topic-label">Phương trình bậc nhất một ẩn</span>
+              <span class="topic-arrow">›</span>
+            </button>
+            <button class="topic-nav-item" type="button">
+              <img class="topic-icon" src="images/webp/icon-bpt-bac-nhat.webp" alt="" width="26" height="26">
+              <span class="topic-label">Bất phương trình bậc nhất</span>
+              <span class="topic-arrow">›</span>
+            </button>
+            <button class="topic-nav-item" type="button">
+              <img class="topic-icon" src="images/webp/icon-he-phuong-trinh.webp" alt="" width="26" height="26">
+              <span class="topic-label">Hệ phương trình</span>
+              <span class="topic-arrow">›</span>
+            </button>
+            <button class="topic-nav-item" type="button">
+              <img class="topic-icon" src="images/webp/icon-ham-so-do-thi.webp" alt="" width="26" height="26">
+              <span class="topic-label">Hàm số và đồ thị</span>
+              <span class="topic-arrow">›</span>
+            </button>
+            <button class="topic-nav-item" type="button">
+              <img class="topic-icon" src="images/webp/icon-hinh-hoc-phang.webp" alt="" width="26" height="26">
+              <span class="topic-label">Hình học phẳng</span>
+              <span class="topic-arrow">›</span>
+            </button>
+            <button class="topic-nav-item" type="button">
+              <img class="topic-icon" src="images/webp/icon-thales.webp" alt="" width="26" height="26">
+              <span class="topic-label">Định lí Thales</span>
+              <span class="topic-arrow">›</span>
+            </button>
+            <button class="topic-nav-item" type="button">
+              <img class="topic-icon" src="images/webp/icon-tam-giac-dong-dang.webp" alt="" width="26" height="26">
+              <span class="topic-label">Tam giác đồng dạng</span>
+              <span class="topic-arrow">›</span>
+            </button>
+            <button class="topic-nav-item" type="button">
+              <img class="topic-icon" src="images/webp/icon-lang-tru-chop.webp" alt="" width="26" height="26">
+              <span class="topic-label">Hình lăng trụ và hình chóp</span>
+              <span class="topic-arrow">›</span>
+            </button>
+            <button class="topic-nav-item" type="button">
+              <img class="topic-icon" src="images/webp/icon-xac-suat.webp" alt="" width="26" height="26">
+              <span class="topic-label">Số liệu và xác suất</span>
+              <span class="topic-arrow">›</span>
+            </button>
+          </nav>
+        </aside>
+
+        <!-- CỘT 2: KHUNG BÀI TẬP TRUNG TÂM -->
+        <main class="center-stage" aria-label="Khu vực luyện tập">
+          <div class="practice-stage-card">
+            <!-- Thanh tiêu đề bài tập -->
+            <div class="stage-top-bar">
+              <div class="stage-topic-info">
+                <span style="color:#0284c7; font-size:1.1rem;">📖</span>
+                <h3 id="stage-topic-title">Luyện tập: Tổng hợp kiến thức Lớp 8</h3>
+              </div>
+              <div class="stage-nav-controls">
+                <span class="stage-indicator" id="stage-indicator">Câu 1/15</span>
+                <button class="stage-nav-arrow" id="btn-prev-act" type="button" aria-label="Câu trước" disabled>‹</button>
+                <button class="stage-nav-arrow" id="btn-next-act" type="button" aria-label="Câu tiếp">›</button>
+              </div>
+            </div>
+
+            <!-- Huy hiệu tầng độ khó -->
+            <div class="stage-tier-badge tier-kha" id="stage-tier-badge">
+              ● Khá (1 – 3 bước)
+            </div>
+
+            <!-- Vùng hiển thị câu hỏi -->
+            <div class="activity-render-stage" id="activity-render-stage">
+              <div class="question-header">
+                <h3 class="question-title">
+                  <span class="question-num">Câu 1.</span> Quan sát đồ thị hàm số bậc nhất <span class="math-expr">y = ax + b</span> trong hình vẽ dưới đây.
+                </h3>
+              </div>
+
+              <div class="question-visual-box">
+                <svg class="math-svg" viewBox="0 0 460 200" width="100%" role="img" aria-label="Đồ thị hàm số y = ax + b">
+                  <defs>
+                    <pattern id="graph-grid" width="20" height="15" patternUnits="userSpaceOnUse">
+                      <path d="M 20 0 L 0 0 0 15" fill="none" stroke="#e2e8f0" stroke-width="0.8"/>
+                    </pattern>
+                    <marker id="axis-arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                      <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#1e293b"/>
+                    </marker>
+                  </defs>
+                  <rect width="460" height="200" rx="10" fill="#f0f5fa"/>
+                  <rect width="460" height="200" fill="url(#graph-grid)" rx="10"/>
+                  <line x1="25" y1="145" x2="435" y2="145" stroke="#1e293b" stroke-width="1.8" marker-end="url(#axis-arrow)"/>
+                  <text x="440" y="141" font-size="13" font-weight="bold" font-style="italic" fill="#0f172a">x</text>
+                  <line x1="200" y1="185" x2="200" y2="15" stroke="#1e293b" stroke-width="1.8" marker-end="url(#axis-arrow)"/>
+                  <text x="185" y="20" font-size="13" font-weight="bold" font-style="italic" fill="#0f172a">y</text>
+                  <text x="186" y="160" font-size="12" font-weight="bold" fill="#0f172a">0</text>
+                  <line x1="290" y1="141" x2="290" y2="149" stroke="#1e293b" stroke-width="1.5"/>
+                  <text x="290" y="162" font-size="12" font-weight="bold" fill="#0f172a" text-anchor="middle">2</text>
+                  <line x1="196" y1="65" x2="204" y2="65" stroke="#1e293b" stroke-width="1.5"/>
+                  <text x="186" y="69" font-size="12" font-weight="bold" fill="#0f172a" text-anchor="middle">3</text>
+                  <line x1="196" y1="105" x2="204" y2="105" stroke="#1e293b" stroke-width="1.5"/>
+                  <text x="186" y="109" font-size="12" font-weight="bold" fill="#0f172a" text-anchor="middle">3</text>
+                  <line x1="290" y1="145" x2="290" y2="65" stroke="#64748b" stroke-width="1.5" stroke-dasharray="3 3"/>
+                  <line x1="200" y1="65" x2="290" y2="65" stroke="#64748b" stroke-width="1.5" stroke-dasharray="3 3"/>
+                  <line x1="70" y1="163" x2="380" y2="25" stroke="#2563eb" stroke-width="2.6" stroke-linecap="round"/>
+                </svg>
+              </div>
+
+              <p class="question-sub-prompt">
+                Hệ số góc <span class="math-expr">a</span> và tung độ gốc <span class="math-expr">b</span> của hàm số lần lượt là:
+              </p>
+
+              <div class="options-container" role="radiogroup" aria-label="Phương án lựa chọn">
+                <button type="button" class="opt-choice-btn" data-letter="A">
+                  <span class="opt-letter-circle">A</span>
+                  <span class="opt-math-text">a = <span class="math-frac"><span class="math-num">2</span><span class="math-den">3</span></span>, b = 0</span>
+                </button>
+                <button type="button" class="opt-choice-btn" data-letter="B">
+                  <span class="opt-letter-circle">B</span>
+                  <span class="opt-math-text">a = <span class="math-frac"><span class="math-num">2</span><span class="math-den">3</span></span>, b = 0</span>
+                </button>
+                <button type="button" class="opt-choice-btn" data-letter="C">
+                  <span class="opt-letter-circle">C</span>
+                  <span class="opt-math-text">a = <span class="math-frac"><span class="math-num">2</span><span class="math-den">3</span></span>, b = 3</span>
+                </button>
+                <button type="button" class="opt-choice-btn" data-letter="D">
+                  <span class="opt-letter-circle">D</span>
+                  <span class="opt-math-text">a = <span class="math-frac"><span class="math-num">2</span><span class="math-den">3</span></span>, b = 3</span>
+                </button>
+              </div>
+
+              <div class="feedback-panel" id="feedback-panel" style="display:none;"></div>
+            </div>
+
+            <!-- Thanh nút hành động làm bài -->
+            <div class="stage-actions-bar">
+              <button class="btn-report-flag" type="button" onclick="alert('Đã ghi nhận phản hồi về câu hỏi. Cảm ơn bạn!')">
+                ⚑ Báo lỗi đề bài
+              </button>
+              <div class="stage-action-group" role="group" aria-label="Chuyển câu hỏi">
+                <button class="btn-stage-secondary" id="btn-prev-act-bottom" type="button" disabled>
+                  ← Câu trước
+                </button>
+                <button class="btn-stage-secondary" id="btn-next-act-bottom" type="button" disabled>
+                  Câu sau →
+                </button>
+              </div>
+              <div class="stage-action-group">
+                <button class="btn-stage-skip" id="btn-skip-act" type="button">
+                  ⏭ Bỏ qua câu này
+                </button>
+                <button class="btn-stage-primary" id="btn-submit-act" type="button">
+                  Nộp đáp án →
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Khối công cụ giáo viên & phụ huynh -->
+          <div class="teacher-tools-card">
+            <div class="teacher-tools-info">
+              <span style="font-size: 1.4rem; color: #0284c7;">📄</span>
+              <div>
+                <h4>Công cụ cho giáo viên &amp; phụ huynh</h4>
+                <p>Xuất đề bài, đáp án và lời giải để sử dụng ngoại tuyến</p>
+              </div>
+            </div>
+            <div class="teacher-tools-buttons">
+              <button class="btn-export-tool btn-pdf" id="btn-export-pdf" type="button">
+                <img src="images/webp/icon-pdf.webp" alt="" width="20" height="20">
+                Xuất PDF
+              </button>
+              <button class="btn-export-tool btn-word" id="btn-export-word" type="button">
+                <img src="images/webp/icon-word-docx.webp" alt="" width="20" height="20">
+                Xuất Word (.docx)
+              </button>
+            </div>
+          </div>
+        </main>
+
+        <!-- CỘT 3: THIẾT LẬP & TIẾN ĐỘ -->
+        <aside class="right-rail" aria-label="Tùy chọn và tiến độ">
+          <!-- Card Thiết lập bài học -->
+          <div class="rail-card">
+            <div class="rail-heading">
+              <h3>⚙ Thiết lập bài học</h3>
+              <strong id="clc-timer" aria-live="polite"></strong>
+            </div>
+            <form id="form-settings" onsubmit="event.preventDefault();">
+              <div class="form-group">
+                <label for="field-select-mode">Chế độ</label>
+                <select class="form-select" id="field-select-mode">
+                  <option value="practice" selected>Luyện tập theo lớp</option>
+                  <option value="clc">Thi vào lớp 10 CLC</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <div id="clc-school-settings" hidden>
+                  <label for="field-school-search">Tìm trường mục tiêu</label>
+                  <input class="form-select" id="field-school-search" type="search" placeholder="Gõ tên trường để lọc danh sách" autocomplete="off">
+                  <label for="field-select-school">Trường mục tiêu</label>
+                  <select class="form-select" id="field-select-school" aria-describedby="clc-school-notice"></select>
+                  <p id="clc-school-search-status" role="status"></p>
+                  <p id="clc-school-notice">Đề ôn luyện do iMath biên soạn; không đại diện cho cấu trúc tuyển sinh riêng của trường.</p>
+                </div>
+                <label for="field-select-grade">Lớp</label>
+                <select class="form-select" id="field-select-grade">
+                  <option value="6">Lớp 6</option>
+                  <option value="7">Lớp 7</option>
+                  <option value="8" selected>Lớp 8</option>
+                  <option value="9">Lớp 9</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="field-select-topic">Chủ đề</label>
+                <select class="form-select" id="field-select-topic">
+                  <option value="all" selected>Tổng hợp kiến thức Lớp 8</option>
+                  <option value="phan-thuc">Phân thức đại số</option>
+                  <option value="pt-bac-nhat">Phương trình bậc nhất một ẩn</option>
+                  <option value="bpt-bac-nhat">Bất phương trình bậc nhất</option>
+                  <option value="he-pt">Hệ phương trình</option>
+                  <option value="ham-so">Hàm số và đồ thị</option>
+                  <option value="hinh-phang">Hình học phẳng</option>
+                  <option value="thales">Định lí Thales</option>
+                  <option value="tam-giac-dong-dang">Tam giác đồng dạng</option>
+                  <option value="lang-tru-chop">Hình lăng trụ và hình chóp</option>
+                  <option value="xac-suat">Số liệu và xác suất</option>
+                </select>
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label>Phân tầng độ khó</label>
+                  <select class="form-select">
+                    <option selected>Khá – HSG (cân bằng)</option>
+                    <option>Chỉ câu Khá</option>
+                    <option>Chỉ câu Nâng cao</option>
+                    <option>Chỉ câu Thi HSG</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Số hoạt động</label>
+                  <select class="form-select">
+                    <option selected>15 hoạt động</option>
+                    <option>10 hoạt động</option>
+                    <option>20 hoạt động</option>
+                  </select>
+                </div>
+              </div>
+
+              <button class="btn-create-session" id="btn-create-15" type="button">
+                ✦ Tạo 15 hoạt động
+              </button>
+            </form>
+          </div>
+
+          <!-- Card Tiến độ của bạn -->
+          <div class="rail-card">
+            <div class="rail-heading">
+              <h3>📊 Tiến độ của bạn</h3>
+              <strong style="color: #0f3b73; font-size: 1rem;" id="progress-fraction">0/15</strong>
+            </div>
+
+            <div class="stats-boxes-grid">
+              <div class="stat-box box-kha">
+                <strong id="stat-box-kha">3</strong>
+                <small>Khá</small>
+              </div>
+              <div class="stat-box box-nangCao">
+                <strong id="stat-box-nangCao">7</strong>
+                <small>Nâng cao</small>
+              </div>
+              <div class="stat-box box-hsg">
+                <strong id="stat-box-hsg">5</strong>
+                <small>HSG</small>
+              </div>
+            </div>
+
+            <div class="rail-goal-msg">
+              <span>🚩</span>
+              <span>Hoàn thành để chinh phục thử thách!</span>
+            </div>
+
+            <!-- Chú cú mascot động viên -->
+            <div class="mascot-motivation-box">
+              <div class="mascot-speech-bubble">
+                Cố lên!<br>Bạn làm được mà! 💪
+              </div>
+              <img class="mascot-img" src="images/webp/mascot-cu-imath.webp" alt="Cú iMath cổ vũ" width="70" height="70">
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal Kết quả bài làm -->
+  <dialog class="result-dialog" id="result-modal">
+    <div class="result-header">
+      <h3 style="color:#0f3b73; font-size:1.25rem;">KẾT QUẢ BÀI LÀM</h3>
+      <div class="result-score-big" id="result-score-num">0/10</div>
+      <p id="result-detail-text" style="color:#64748b; font-weight:700;"></p>
+    </div>
+    <div class="result-q-grid" id="result-q-grid"></div>
+    <div style="text-align: center; margin-top: 18px;">
+      <button class="btn-stage-primary" type="button" onclick="document.getElementById('result-modal').close();">
+        Xem lại bài làm
+      </button>
+    </div>
+  </dialog>
+
+  <!-- Scripts khởi động -->
+  <script>
+    // Temporary UI restriction only; downloaded assets are not protected by this.
+    (() => {
+      document.addEventListener('contextmenu', (event) => event.preventDefault());
+      document.addEventListener('keydown', (event) => {
+        const key = event.key.toLowerCase();
+        const viewSource = (event.ctrlKey && key === 'u') ||
+          (event.metaKey && event.altKey && key === 'u');
+        const devTools = key === 'f12' ||
+          (event.ctrlKey && event.shiftKey && ['i', 'j', 'c'].includes(key)) ||
+          (event.metaKey && event.altKey && ['i', 'j', 'c'].includes(key));
+        if (viewSource || devTools) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+        }
+      }, true);
+    })();
+  </script>
+  <script type="module" src="js/core/core-cap2.js?v=20260913-l8-bo-sung-34"></script>
+  <script src="vendor/docx-9.6.1.js" defer></script>
+  <script src="js/toan-cap-2-export.js?v=20260914-pagination-answer" defer></script>
+</body>
+</html>

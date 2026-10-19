@@ -1,0 +1,1015 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Luyện xem đồng hồ & xem lịch - Học toán thông minh, bứt phá tư duy</title>
+  <meta name="description" content="iMath giúp học sinh tiểu học học Toán trực quan, luyện tư duy logic và tự tin tiến bộ mỗi ngày. Đồng hành cùng phụ huynh từ lớp 1 đến lớp 5.">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"><meta name="referrer" content="strict-origin-when-cross-origin"><meta name="theme-color" content="#149fe3"><link rel="canonical" href="/tienich/07-xem-gio.html">
+  <meta property="og:locale" content="vi_VN"><meta property="og:type" content="website"><meta property="og:site_name" content="iMath.vn"><meta property="og:title" content="Luyện xem đồng hồ & xem lịch - Học toán thông minh, bứt phá tư duy"><meta property="og:description" content="Đọc giờ, xem lịch, đổi đơn vị và giải bài toán về thời gian cho học sinh tiểu học."><meta property="og:url" content="https://imath.vn/tienich/07-xem-gio.html"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Luyện xem đồng hồ & xem lịch"><meta name="twitter:description" content="Công cụ luyện xem giờ và xem lịch miễn phí cho học sinh tiểu học.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'none'; object-src 'none'; media-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Luyện xem đồng hồ và xem lịch","description":"Đọc giờ, xem lịch, đổi đơn vị và giải bài toán về thời gian cho học sinh tiểu học.","url":"https://imath.vn/tienich/07-xem-gio.html","applicationCategory":"EducationalApplication","operatingSystem":"Mọi hệ điều hành có trình duyệt web","browserRequirements":"JavaScript","inLanguage":"vi-VN","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"VND"}}</script>
+  <style>
+    :root{--ink:#20313e;--muted:#637584;--blue:#149fe3;--blue-dark:#0877ba;--green:#56bd12;--green-dark:#378c00;--yellow:#ffcc29;--red:#e63946;--line:#cfe8e0;--paper:#fff;--shadow:0 7px 0 rgba(35,100,77,.1);--font:"Nunito","Quicksand","Aptos","Segoe UI",Arial,sans-serif}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 8% 7%,#d7f6df 0 2px,transparent 3px) 0 0/28px 28px,linear-gradient(135deg,#effcf6,#effaff 56%,#fff9df);color:var(--ink);font:16px/1.5 var(--font)}button,input,select{font:inherit}button{cursor:pointer}.app{width:min(1500px,calc(100% - 32px));margin:22px auto 44px}.hero,.settings,.worksheet,.results,.answer-key,.interactive-box{border:2px solid var(--line);border-radius:22px;background:var(--paper);box-shadow:var(--shadow)}
+    .hero{position:relative;overflow:hidden;padding:24px 28px;background:linear-gradient(110deg,#fff 0%,#f6fff8 60%,#e7f8ff)}.hero:after{content:'◷  12:30  ◴';position:absolute;right:28px;bottom:-30px;color:#c7eed5;font-size:65px;font-weight:900;letter-spacing:4px;transform:rotate(-8deg)}.brand{position:relative;z-index:1;display:inline-flex;gap:7px;align-items:center;padding:5px 11px;border-radius:999px;background:#e3f7ff;color:var(--blue-dark);font-size:13px;font-weight:900}.brand b{display:grid;place-items:center;width:21px;height:21px;border-radius:7px;background:var(--blue);color:#fff;font-size:16px}.hero h1{position:relative;z-index:1;margin:12px 0 3px;font-size:clamp(29px,5vw,43px);line-height:1.1;letter-spacing:-1px}.hero h1 em{font-style:normal;color:var(--green-dark)}.hero p{position:relative;z-index:1;max-width:690px;margin:0;color:var(--muted)}.legend-strip{position:relative;z-index:1;display:inline-flex;gap:14px;align-items:center;margin-top:10px;padding:6px 14px;border-radius:12px;background:#fff;border:1px solid #c9e8f5;font-size:13px;font-weight:800}.legend-item{display:flex;align-items:center;gap:6px}.dot-hour{width:12px;height:12px;border-radius:50%;background:#e63946;display:inline-block}.dot-minute{width:12px;height:12px;border-radius:50%;background:#149fe3;display:inline-block}
+    
+    /* Structured & Balanced Settings Panel */
+    .settings{display:flex;flex-direction:column;gap:16px;margin-top:16px;padding:20px;background:#fff}
+    .settings-fields{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .field{display:grid;gap:6px}.field label{font-size:13px;font-weight:900;color:#2c3e50}.field select{width:100%;min-height:48px;padding:8px 10px;border:2px solid #bcded3;border-radius:13px;background:#fff;color:var(--ink);font-size:14px;font-weight:700;outline:none}.field select:focus{border-color:var(--blue)}
+    
+    .settings-actions{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-top:14px;border-top:2px dashed #d7e9e4}
+    .action-group{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    .btn{min-height:46px;padding:9px 15px;border:0;border-bottom:4px solid transparent;border-radius:13px;font-size:14px;font-weight:900;white-space:nowrap;transition:transform .12s,filter .12s;display:inline-flex;align-items:center;justify-content:center;gap:5px}.btn:hover{filter:brightness(1.03)}.btn:active{transform:translateY(2px);border-bottom-width:2px}
+    .primary{border-bottom-color:var(--blue-dark);background:var(--blue);color:#fff}
+    .success{border-bottom-color:var(--green-dark);background:var(--green);color:#fff}
+    .outline{border:2px solid #9fd3e9;border-bottom-width:4px;background:#fff;color:var(--blue-dark)}
+    .quiet{border:2px solid #cde6d4;border-bottom-width:4px;background:#f7fff4;color:var(--green-dark)}
+    .accent{border-bottom-color:#c2185b;background:#e91e63;color:#fff}
+    .sound-btn{border:2px solid #f9d8a5;border-bottom-width:4px;background:#fff9eb;color:#b45309}
+    
+    .worksheet{margin-top:16px;padding:24px}.sheet-head{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin-bottom:18px}.sheet-head h2{margin:0;font-size:clamp(23px,4vw,30px);line-height:1.2}.sheet-head p{margin:4px 0 0;color:var(--muted);font-size:14px}.counter{flex:0 0 auto;padding:7px 11px;border-radius:999px;background:#e7f8ff;color:var(--blue-dark);font-size:13px;font-weight:900}.questions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.question{position:relative;min-width:0;padding:14px;border:2px solid #d7e9e4;border-radius:18px;background:#fff}.q-top{display:flex;align-items:flex-start;gap:9px}.qnum{display:grid;place-items:center;flex:0 0 30px;width:30px;height:30px;border-radius:10px;background:#e7f8ff;color:var(--blue-dark);font-size:13px;font-weight:900}.prompt{margin:2px 0 8px;font-size:16px;font-weight:900;line-height:1.4}.clock-wrap{display:flex;justify-content:center;margin:6px 0}.clock{width:min(190px,100%);height:auto;filter:drop-shadow(0 3px 0 rgba(30,98,124,.08))}.clock-face{fill:#fffef9;stroke:#73c6e8;stroke-width:3}.clock-tick{stroke:#78909c;stroke-width:1.2}.clock-tick.major{stroke:#35576d;stroke-width:2.3}.clock-number{fill:#244e66;font-family:var(--font);font-size:16px;font-weight:900;text-anchor:middle;dominant-baseline:middle}.min-num{fill:#149fe3;font-size:10px;font-weight:800;text-anchor:middle;dominant-baseline:middle}.hand-hour{stroke:#e63946;stroke-width:7.5;stroke-linecap:round}.hand-minute{stroke:#149fe3;stroke-width:4.5;stroke-linecap:round}.hand-center{fill:#ffcb27;stroke:#fff;stroke-width:3}
+    
+    /* Calendar Card Component */
+    .calendar-card{width:160px;margin:10px auto;border:3px solid #ef5350;border-radius:16px;background:#fff;overflow:hidden;box-shadow:0 6px 15px rgba(0,0,0,0.08);text-align:center}.cal-month{background:#ef5350;color:#fff;font-weight:900;font-size:14px;padding:6px;text-transform:uppercase;letter-spacing:1px}.cal-day{font-size:48px;font-weight:900;color:#20313e;line-height:1.1;padding:6px 0 2px}.cal-dow{font-size:14px;font-weight:900;color:#0877ba;padding-bottom:8px;background:#f0f8ff}
+    
+    .answer-input{display:block;width:100%;min-height:48px;margin-top:8px;padding:7px 10px;border:2px solid #a9d7e9;border-radius:12px;color:var(--ink);font-size:18px;font-weight:900;text-align:center;outline:none}.answer-input:focus{border-color:var(--blue);box-shadow:0 0 0 4px #dff4ff}.answer-input::placeholder{color:#7f909b;font-size:13px;font-weight:700}.choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-top:8px}.choice{position:relative;display:grid;place-items:center;min-height:110px;padding:4px;border:2px solid #cfe5e8;border-radius:13px;background:#fbfeff;cursor:pointer}.choice input{position:absolute;opacity:0}.choice:has(input:checked){border-color:var(--blue);background:#e8f8ff;box-shadow:0 3px 0 #bde7f7}.choice .clock{width:105px}.choice-label{position:absolute;top:5px;left:6px;color:var(--blue-dark);font-size:12px;font-weight:900}.digital{display:flex;justify-content:center;align-items:center;min-height:82px;margin:9px 0;padding:8px;border:3px solid #d0e9f7;border-radius:15px;background:#edfaff;color:#175778;font-family:ui-monospace,"Cascadia Mono",monospace;font-size:clamp(29px,5vw,40px);font-weight:900;letter-spacing:2px}.question.correct{border-color:#83cf80;background:#f5fff1}.question.wrong{border-color:#f29b9e;background:#fff2f2}.question.correct .answer-input{border-color:var(--green);color:var(--green-dark)}.question.wrong .answer-input{border-color:var(--red);color:#c93e45}.question .mark{display:block;min-height:21px;margin-top:5px;font-size:13px;font-weight:900;text-align:center}.correct .mark{color:var(--green-dark)}.wrong .mark{color:#c93e45}.hint-box{margin-top:8px;padding:8px 10px;border-radius:10px;background:#fffde7;border:1px solid #ffe082;font-size:13px;color:#795548;font-weight:700;line-height:1.4}
+    .bottom-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:22px}.answer-key{margin-top:16px;padding:18px}.answer-key h2{margin:0 0 10px;font-size:21px}.answer-list{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.answer-item{padding:9px 10px;border-radius:11px;background:#f4fbff;color:#31516a;font-weight:800}.answer-item b{color:var(--blue-dark)}
+    .results{margin-top:16px;padding:22px}.results-head{display:flex;align-items:center;gap:13px}.trophy{display:grid;place-items:center;flex:0 0 54px;width:54px;height:54px;border-radius:17px;background:#fff4c9;font-size:31px}.results h2{margin:0;font-size:25px}.results-head p{margin:2px 0 0;color:var(--muted)}.score-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}.metric{padding:12px 8px;border:2px solid #d9ece4;border-radius:13px;background:#fbfffd;text-align:center}.metric b{display:block;font-size:25px;line-height:1.15}.metric.good b{color:var(--green-dark)}.metric.bad b{color:#ce464b}.metric.score b{color:var(--blue-dark)}.result-table-wrap{overflow-x:auto;border:2px solid #dbeae5;border-radius:14px}.result-table{width:100%;min-width:700px;border-collapse:collapse;font-size:14px}.result-table th{padding:11px 10px;background:#ecf9f4;color:#355364;text-align:left}.result-table td{padding:10px;border-top:1px solid #dbeae5;vertical-align:middle}.result-table tr.is-wrong{background:#fff4f4}.result-table tr.is-correct{background:#f7fff4}.status-good{color:var(--green-dark);font-weight:900}.status-bad{color:#cf3f47;font-weight:900}.result-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.hidden{display:none!important}
+    
+    /* Interactive & Game Modals */
+    .modal-overlay{position:fixed;inset:0;background:rgba(20,35,46,0.6);backdrop-filter:blur(3px);z-index:999;display:flex;justify-content:center;align-items:center;padding:16px}.modal-card{background:#fff;border-radius:24px;max-width:560px;width:100%;max-height:88vh;overflow-y:auto;padding:24px;box-shadow:0 20px 40px rgba(0,0,0,0.2);position:relative;border:3px solid var(--blue)}.modal-close{position:absolute;top:16px;right:16px;background:#f0f4f8;border:0;width:36px;height:36px;border-radius:50%;font-size:20px;font-weight:bold;cursor:pointer;color:var(--ink);display:grid;place-items:center;z-index:10}.demo-clock-box{display:flex;flex-direction:column;align-items:center;gap:12px;margin:16px 0}.demo-time-display{font-size:28px;font-weight:900;color:var(--blue-dark);background:#e7f8ff;padding:8px 24px;border-radius:999px;border:2px solid #bce6f8}.demo-controls{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;width:100%}.demo-btn{padding:10px;border-radius:12px;border:2px solid #bcded3;background:#f4fbf7;font-weight:900;color:var(--green-dark);cursor:pointer;transition:0.15s}.demo-btn:hover{background:#e2f7eb}.demo-btn.btn-m{border-color:#bce6f8;background:#f0fbff;color:var(--blue-dark)}.demo-btn.btn-m:hover{background:#dcf3ff}
+    
+    /* Speed Game & Timer Styling */
+    .speed-header{display:flex;justify-content:space-between;align-items:center;background:#fff5f7;padding:12px 18px;border-radius:16px;border:2px solid #ffcdd2;margin-bottom:16px}.speed-timer{font-size:24px;font-weight:900;color:#e91e63}.speed-score{font-size:20px;font-weight:900;color:#0877ba}.speed-choice-btn{width:100%;padding:12px;border-radius:14px;border:2px solid #bbdefb;background:#f0f8ff;font-size:16px;font-weight:900;color:#1565c0;cursor:pointer;transition:0.15s;margin-top:8px}.speed-choice-btn:hover{background:#e3f2fd;transform:translateY(-2px)}
+    
+    .timer-ring{width:160px;height:160px;margin:12px auto;display:grid;place-items:center;border-radius:50%;background:conic-gradient(var(--blue) var(--prog,0deg),#e2e8f0 0deg);padding:10px}.timer-inner{width:140px;height:140px;border-radius:50%;background:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;font-size:32px;font-weight:900;color:var(--blue-dark)}
+    
+    /* Feature Component Styling */
+    .badge-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px}
+    .badge-card{display:flex;align-items:center;gap:10px;padding:10px 12px;border:2px solid #e0e0e0;border-radius:14px;background:#f8f9fa;opacity:0.65;transition:0.2s}
+    .badge-card.earned{border-color:#ffd54f;background:#fffde7;opacity:1;box-shadow:0 4px 10px rgba(255,193,7,0.15)}
+    .badge-icon{font-size:28px}
+    .badge-info h4{margin:0;font-size:14px;color:#20313e}.badge-info p{margin:2px 0 0;font-size:11px;color:#637584}
+    
+    .stat-card{padding:12px;border-radius:14px;border:2px solid #b3e5fc;background:#e1f5fe;text-align:center}
+    .stat-card b{display:block;font-size:26px;color:#0288d1;margin-bottom:2px}
+    .stat-card label{font-size:12px;font-weight:800;color:#01579b}
+    .analytics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+    
+    .converter-box{background:#f0fbff;border:2px solid #bce6f8;border-radius:16px;padding:16px;margin-top:12px}
+    .conv-row{display:flex;gap:8px;align-items:center;margin-bottom:10px}
+    .conv-input{width:70px;padding:8px;border:2px solid #81d4fa;border-radius:10px;text-align:center;font-weight:900;font-size:16px}
+    .conv-result{font-size:18px;font-weight:900;color:#0277bd;background:#fff;padding:10px;border-radius:12px;border:1px dashed #4fc3f7;text-align:center;margin-top:10px}
+    
+    /* Feature 3: Certificate Styling */
+    .cert-card{background:linear-gradient(135deg,#fffdf0,#fff);border:6px double #ffb300;border-radius:20px;padding:24px;text-align:center;position:relative;box-shadow:0 15px 35px rgba(255,179,0,0.2)}
+    .cert-title{font-size:24px;font-weight:900;color:#b78103;margin:8px 0 2px;letter-spacing:1px}
+    .cert-input-name{font-size:24px;font-weight:900;color:#0877ba;margin:10px 0;border:0;border-bottom:2px dashed #ffb300;background:transparent;text-align:center;outline:none;width:80%;max-width:320px}
+    .cert-score-box{display:flex;justify-content:center;gap:15px;margin:14px 0}
+    .cert-stat{background:#fff8e1;border:1.5px solid #ffe082;padding:8px 16px;border-radius:12px;font-size:14px;font-weight:900;color:#8d6e63}
+
+    /* Feature 4: 20 World Clocks Styling */
+    .world-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+    .world-card{background:#f4fbff;border:2px solid #bce6f8;border-radius:14px;padding:10px 6px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px}
+    .world-city{font-size:13px;font-weight:900;color:#0877ba;display:flex;align-items:center;gap:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+    .world-diff{font-size:10px;font-weight:800;color:#546e7a;background:#e1f5fe;padding:2px 6px;border-radius:999px;white-space:nowrap}
+    .world-time{font-family:ui-monospace,monospace;font-size:17px;font-weight:900;color:#20313e;margin-top:2px}
+
+    canvas#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:9999}
+    
+    /* Print Header (Print Only) */
+    .print-header{display:none;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid #000}.print-header-title{font-size:20px;font-weight:bold;text-align:center;margin-bottom:10px}.print-info-grid{display:grid;grid-template-columns:2fr 1fr 1.5fr 1fr;gap:10px;font-size:14px;font-weight:bold}
+    
+    @media(max-width:1150px){.settings-fields{grid-template-columns:repeat(2,1fr)}.settings-actions{flex-direction:column;align-items:stretch}.action-group{width:100%;justify-content:center}.questions{grid-template-columns:repeat(2,minmax(0,1fr))}.world-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:680px){.app{width:min(100% - 14px,1500px);margin-top:10px}.hero{padding:22px 18px}.hero:after{right:-28px;font-size:48px}.settings,.worksheet,.results{padding:16px;border-radius:18px}.settings-fields{grid-template-columns:1fr}.action-group{display:grid;grid-template-columns:1fr 1fr}.questions{grid-template-columns:1fr}.sheet-head{display:block}.counter{display:inline-block;margin-top:8px}.choice .clock{width:110px}.answer-list{grid-template-columns:repeat(2,1fr)}.result-actions .btn{width:100%}.badge-grid,.world-grid{grid-template-columns:1fr}}
+    
+    @media print{
+      @page{size:A4;margin:12mm}
+      body{background:#fff;font-size:13px}
+      .app{width:100%;margin:0}
+      .hero,.settings,.bottom-actions,.results,.answer-key,.interactive-box,.legend-strip,.sound-btn,.modal-overlay,.hint-box{display:none!important}
+      .print-header{display:block!important}
+      .worksheet{margin:0;padding:0;border:0;box-shadow:none}
+      .sheet-head{margin-bottom:12px}
+      .questions{grid-template-columns:repeat(3,1fr);gap:10px}
+      .question{padding:8px;border:1px solid #777;border-radius:8px;break-inside:avoid}
+      .prompt{font-size:13px;margin-bottom:4px}
+      .qnum{width:22px;height:22px;border-radius:6px;font-size:11px}
+      .clock{width:130px}
+      .choice{min-height:75px}
+      .choice .clock{width:75px}
+      .answer-input{min-height:30px;margin-top:6px;padding:0;border:0;border-bottom:1.5px solid #000;border-radius:0;color:transparent!important;box-shadow:none!important;background:transparent}
+      .answer-input::placeholder{color:transparent}
+      .question.correct,.question.wrong{border-color:#777;background:#fff}
+      .question .mark{display:none}
+      .digital{min-height:45px;margin:4px 0;font-size:22px}
+      .clock-face{stroke-width:2}
+      .clock-number{font-size:12px}
+      .answer-key{display:block!important;break-before:page;border:0;box-shadow:none;padding:0;margin-top:0}
+      .answer-key h2{font-size:18px;border-bottom:2px solid #000;padding-bottom:5px}
+      .answer-list{grid-template-columns:repeat(3,1fr);gap:8px}
+
+      /* Print Certificate Support */
+      .cert-print-mode .modal-card{border:0;box-shadow:none;padding:0}
+      .cert-print-mode .modal-close,.cert-print-mode .cert-btn-box{display:none!important}
+      .cert-print-mode .cert-card{border:4px double #ffb300;background:#fff}
+    }
+  </style>
+</head>
+<body>
+  <canvas id="confetti-canvas"></canvas>
+  <main class="app">
+    <header class="hero">
+      <div class="brand"><b>◷</b> iMath · Luyện toán mỗi ngày</div>
+      <h1>Luyện <em>Xem Giờ & Xem Lịch</em></h1>
+      <p>Quan sát kim đồng hồ, xem lịch ngày tháng và thử thách khả năng quản lý thời gian mỗi ngày.</p>
+      <div class="legend-strip">
+        <div class="legend-item"><span class="dot-hour"></span> <b>Kim ngắn màu đỏ</b> = Giờ</div>
+        <div class="legend-item"><span class="dot-minute"></span> <b>Kim dài màu xanh</b> = Phút</div>
+      </div>
+    </header>
+
+    <!-- Balanced & Structured Settings Section -->
+    <section class="settings" aria-label="Chọn dạng bài và thao tác">
+      <!-- Hàng 1: Các tùy chọn đề học -->
+      <div class="settings-fields">
+        <div class="field">
+          <label for="exercise-type">Dạng bài muốn luyện</label>
+          <select id="exercise-type">
+            <option value="read">A — Đọc giờ trên đồng hồ kim</option>
+            <option value="set">B — Chọn đồng hồ đúng theo giờ cho trước</option>
+            <option value="convert">C — Đồng hồ kim và điện tử</option>
+            <option value="daytime">D — Giờ chiều tối và cách nói 24 giờ</option>
+            <option value="duration">E — Tính khoảng thời gian</option>
+            <option value="units">F — Đổi đơn vị đo thời gian</option>
+            <option value="story">G — Bài toán có lời văn về thời gian</option>
+            <option value="calendar">H — Luyện xem lịch ngày tháng (Lớp 2)</option>
+            <option value="english">I — Read the clock in English (Toán Tiếng Anh)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="level">Mức độ đọc giờ</label>
+          <select id="level">
+            <option value="1">Mức 1 — Giờ đúng (Lớp 1)</option>
+            <option value="2">Mức 2 — Giờ đúng & giờ rưỡi (Lớp 2)</option>
+            <option value="3">Mức 3 — Chính xác 5 phút (Lớp 3)</option>
+            <option value="4">Mức 4 — Chính xác từng phút</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="clock-theme">Giao diện mặt đồng hồ</label>
+          <select id="clock-theme">
+            <option value="standard">Mặc định — Chuẩn học đường</option>
+            <option value="helper">Mặt số học sinh — Hiện số phút</option>
+            <option value="cute">Đáng yêu — Nổi bật rực rỡ</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="question-count">Số lượng câu hỏi</label>
+          <select id="question-count">
+            <option value="10">10 câu (Luyện nhanh)</option>
+            <option value="15" selected>15 câu (Chuẩn)</option>
+            <option value="20">20 câu (Luyện sâu)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Hàng 2: Thanh công cụ thao tác cân đối -->
+      <div class="settings-actions">
+        <!-- Nhóm thao tác chính -->
+        <div class="action-group">
+          <button class="btn primary" id="generate" type="button">↻ Tạo đề mới</button>
+          <button class="btn success" id="check" type="button">✓ Kiểm tra</button>
+          <button class="btn outline" id="answers" type="button">☰ Xem đáp án</button>
+          <button class="btn quiet" id="reset-inputs" type="button">🧹 Xóa bài làm</button>
+          <button class="btn quiet" id="print" type="button">▣ In đề (A4)</button>
+          <button class="btn quiet" id="top-cert-btn" type="button">🏆 Phiếu khen</button>
+        </div>
+
+        <!-- Nhóm trò chơi & tiện ích tương tác -->
+        <div class="action-group">
+          <button class="btn accent" id="speed-btn" type="button">⚡ Thử thách 60s</button>
+          <button class="btn quiet" id="badge-btn" type="button">🏅 Huy hiệu</button>
+          <button class="btn quiet" id="stats-btn" type="button">📊 Thống kê</button>
+          <button class="btn quiet" id="calc-btn" type="button">🧮 Đổi đơn vị</button>
+          <button class="btn quiet" id="world-btn" type="button">🌍 20 Múi giờ</button>
+          <button class="btn quiet" id="demo-btn" type="button">🕐 Xoay kim thử</button>
+          <button class="btn quiet" id="timer-btn" type="button">⏳ Canh giờ học</button>
+          <button class="btn sound-btn" id="sound-toggle" type="button">🔊 Âm thanh ON</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Khung thông tin học sinh khi in ấn -->
+    <div class="print-header">
+      <div class="print-header-title">PHIẾU BÀI TẬP: LUYỆN XEM ĐỒNG HỒ & XEM LỊCH</div>
+      <div class="print-info-grid">
+        <div>Họ và tên: ........................................</div>
+        <div>Lớp: .............</div>
+        <div>Ngày làm: ......./......./202...</div>
+        <div>Điểm: ........ / 10</div>
+      </div>
+    </div>
+
+    <section class="worksheet">
+      <div class="sheet-head">
+        <div>
+          <h2 id="sheet-title">Đọc giờ trên đồng hồ kim</h2>
+          <p id="sheet-description">Quan sát mặt đồng hồ và điền giờ theo dạng 8:15, 8 giờ 15 phút hoặc giờ kém.</p>
+        </div>
+        <span class="counter" id="sheet-counter">15 câu hỏi</span>
+      </div>
+      <div class="questions" id="questions"></div>
+      <div class="bottom-actions">
+        <button class="btn success" id="check-bottom" type="button">✓ Kiểm tra bài làm</button>
+        <button class="btn outline" id="answers-bottom" type="button">☰ Xem đáp án</button>
+      </div>
+    </section>
+
+    <section class="answer-key hidden" id="answer-key" aria-live="polite">
+      <h2>Đáp án của đề này</h2>
+      <div class="answer-list" id="answer-list"></div>
+    </section>
+
+    <section class="results hidden" id="results" aria-live="polite"></section>
+  </main>
+
+  <!-- Modal Đồng Hồ Tương Tác -->
+  <div id="demo-modal" class="modal-overlay hidden">
+    <div class="modal-card">
+      <button class="modal-close" id="demo-close" type="button">&times;</button>
+      <h2 style="margin:0;color:var(--blue-dark);font-size:22px;text-align:center;">🕐 Đồng Hồ Tương Tác Xoay Kim</h2>
+      <p style="margin:4px 0 12px;color:var(--muted);font-size:14px;text-align:center;">Bấm các nút bên dưới để điều chỉnh thời gian và quan sát kim quay.</p>
+      <div class="demo-clock-box">
+        <div id="demo-clock-svg"></div>
+        <div class="demo-time-display" id="demo-time-text">8:15 — 8 giờ 15 phút</div>
+      </div>
+      <div class="demo-controls">
+        <button class="demo-btn" id="h-minus" type="button">◀ -1 Giờ</button>
+        <button class="demo-btn" id="h-plus" type="button">+1 Giờ ▶</button>
+        <button class="demo-btn btn-m" id="m-minus" type="button">◀ -5 Phút</button>
+        <button class="demo-btn btn-m" id="m-plus" type="button">+5 Phút ▶</button>
+        <button class="demo-btn btn-m" id="m-minus15" type="button">◀ -15 Phút</button>
+        <button class="demo-btn btn-m" id="m-plus15" type="button">+15 Phút ▶</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Game Thử Thách 60s -->
+  <div id="speed-modal" class="modal-overlay hidden">
+    <div class="modal-card" style="max-width:480px;">
+      <button class="modal-close" id="speed-close" type="button">&times;</button>
+      <h2 style="margin:0;color:#e91e63;font-size:24px;text-align:center;">⚡ Thử Thách 60 Giây</h2>
+      <p style="margin:4px 0 12px;color:var(--muted);font-size:13px;text-align:center;">Đọc giờ thật nhanh trước khi hết giờ! Kỷ lục: <b id="high-score-val" style="color:#0877ba;">0 điểm</b></p>
+      <div class="speed-header">
+        <div class="speed-timer" id="speed-time-left">60s</div>
+        <div class="speed-score" id="speed-score-val">0 điểm</div>
+      </div>
+      <div id="speed-game-body" style="display:flex;flex-direction:column;align-items:center;">
+        <div id="speed-clock-wrap"></div>
+        <div id="speed-options" style="width:100%;margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:8px;"></div>
+      </div>
+      <button class="btn accent" id="speed-start-btn" type="button" style="width:100%;margin-top:14px;justify-content:center;">▶ BẮT ĐẦU CHƠI NGAY</button>
+    </div>
+  </div>
+
+  <!-- Modal Đồng Hồ Canh Giờ Học (Study Timer) -->
+  <div id="timer-modal" class="modal-overlay hidden">
+    <div class="modal-card" style="max-width:420px;text-align:center;">
+      <button class="modal-close" id="timer-close" type="button">&times;</button>
+      <h2 style="margin:0;color:var(--blue-dark);font-size:22px;">⏳ Canh Giờ Học Tập</h2>
+      <p style="margin:4px 0 14px;color:var(--muted);font-size:13px;">Đặt đồng hồ đếm lùi để tập trung rèn luyện toán tại nhà.</p>
+      <div class="timer-ring" id="timer-ring-box">
+        <div class="timer-inner" id="timer-display">20:00</div>
+      </div>
+      <div style="display:flex;justify-content:center;gap:8px;margin:14px 0;">
+        <button class="btn outline" id="set-t15" type="button">15 phút</button>
+        <button class="btn outline" id="set-t20" type="button">20 phút</button>
+        <button class="btn outline" id="set-t25" type="button">25 phút</button>
+      </div>
+      <div style="display:flex;gap:10px;justify-content:center;">
+        <button class="btn success" id="timer-toggle-btn" type="button" style="flex:1;justify-content:center;">▶ Bắt đầu đếm</button>
+        <button class="btn quiet" id="timer-reset-btn" type="button">↺ Đặt lại</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Huy hiệu & Danh hiệu -->
+  <div id="badge-modal" class="modal-overlay hidden">
+    <div class="modal-card" style="max-width:500px;">
+      <button class="modal-close" id="badge-close" type="button">&times;</button>
+      <h2 style="margin:0;color:#ff8f00;font-size:22px;text-align:center;">🏅 Bộ Sưu Tập Danh Hiệu</h2>
+      <p style="margin:4px 0 12px;color:var(--muted);font-size:13px;text-align:center;">Cố gắng rèn luyện để mở khóa trọn bộ huy hiệu danh giá nhé!</p>
+      <div class="badge-grid" id="badge-list-box"></div>
+    </div>
+  </div>
+
+  <!-- Modal Thống kê năng lực -->
+  <div id="stats-modal" class="modal-overlay hidden">
+    <div class="modal-card" style="max-width:480px;">
+      <button class="modal-close" id="stats-close" type="button">&times;</button>
+      <h2 style="margin:0;color:#0288d1;font-size:22px;text-align:center;">📊 Thống Kê Năng Lực Học Tập</h2>
+      <p style="margin:4px 0 12px;color:var(--muted);font-size:13px;text-align:center;">Báo cáo tổng quan về quá trình luyện tập của con trong phiên này.</p>
+      <div class="analytics-grid">
+        <div class="stat-card"><b id="st-total">0</b><label>Câu đã làm</label></div>
+        <div class="stat-card"><b id="st-acc">0%</b><label>Tỷ lệ đúng</label></div>
+        <div class="stat-card"><b id="st-sheets">0</b><label>Đề hoàn thành</label></div>
+      </div>
+      <div style="background:#f4fbff;padding:12px;border-radius:14px;border:1px solid #b3e5fc;font-size:14px;line-height:1.5;">
+        <div style="margin-bottom:6px;">🌟 <b>Đánh giá chung:</b> <span id="st-eval">Hãy bắt đầu làm bộ đề đầu tiên!</span></div>
+        <div>💡 <b>Khuyên dùng:</b> Rèn luyện đều đặn 10-15 phút mỗi ngày để phản xạ đọc giờ tốt hơn.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Máy tính đổi đơn vị thời gian -->
+  <div id="calc-modal" class="modal-overlay hidden">
+    <div class="modal-card" style="max-width:440px;">
+      <button class="modal-close" id="calc-close" type="button">&times;</button>
+      <h2 style="margin:0;color:#0277bd;font-size:22px;text-align:center;">🧮 Đổi Đơn Vị Thời Gian</h2>
+      <p style="margin:4px 0 12px;color:var(--muted);font-size:13px;text-align:center;">Gõ số vào các ô bên dưới để xem sơ đồ quy đổi tự động.</p>
+      <div class="converter-box">
+        <div class="conv-row">
+          <input type="number" id="cv-h" class="conv-input" value="2" min="0" max="100"> <span>giờ</span>
+          <input type="number" id="cv-m" class="conv-input" value="15" min="0" max="59"> <span>phút</span>
+        </div>
+        <div class="conv-result" id="cv-output">2 giờ 15 phút = 135 phút</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Feature 3: Phiếu khen thưởng thành tích học tập -->
+  <div id="cert-modal" class="modal-overlay hidden">
+    <div class="modal-card" style="max-width:520px;">
+      <button class="modal-close" id="cert-close" type="button">&times;</button>
+      <div class="cert-card">
+        <div style="font-size:36px;">🏆</div>
+        <div class="cert-title">PHIẾU KHEN THƯỞNG HỌC TẬP</div>
+        <div style="font-size:13px;color:#795548;font-weight:700;">HỆ THỐNG LUYỆN TOÁN THÔNG MINH iMath.vn</div>
+        <div style="margin:10px 0;">
+          <input type="text" id="cert-input-name-field" class="cert-input-name" value="Học Sinh Xuất Sắc" placeholder="Gõ tên học sinh tại đây">
+        </div>
+        <p style="margin:4px 0 12px;font-size:14px;color:#5d4037;font-weight:700;" id="cert-desc-text">Đã hoàn thành xuất sắc bộ đề Luyện Xem Đồng Hồ với kết quả ấn tượng!</p>
+        <div class="cert-score-box">
+          <div class="cert-stat">Điểm số: <b id="cert-score-val" style="color:#e63946;font-size:18px;">10.0 / 10</b></div>
+          <div class="cert-stat">Số câu đúng: <b id="cert-right-val" style="color:#2e7d32;font-size:18px;">15/15</b></div>
+        </div>
+        <div style="font-size:12px;color:#8d6e63;margin-top:10px;" id="cert-date-text">Ngày hoàn thành: 14/08/2026</div>
+      </div>
+      <div class="cert-btn-box" style="display:flex;gap:10px;justify-content:center;margin-top:14px;">
+        <button class="btn primary" id="cert-print-btn" type="button">🖨️ In / Lưu Phiếu Khen (A4)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Feature 4: 20 Múi giờ thế giới -->
+  <div id="world-modal" class="modal-overlay hidden">
+    <div class="modal-card" style="max-width:880px;">
+      <button class="modal-close" id="world-close" type="button">&times;</button>
+      <h2 style="margin:0;color:#0877ba;font-size:22px;text-align:center;">🌍 Khám Phá 20 Múi Giờ Thế Giới Real-time</h2>
+      <p style="margin:4px 0 12px;color:var(--muted);font-size:13px;text-align:center;">Quan sát sự chênh lệch thời gian trực tiếp giữa các thủ đô trên thế giới chuẩn từng giây.</p>
+      <div class="world-grid" id="world-grid-box"></div>
+    </div>
+  </div>
+
+  <script>
+  (()=>{'use strict';
+    const STORAGE='imath-xem-gio-used-v1', HIGH_STORAGE='imath-xem-gio-highscore-v1', BADGE_STORAGE='imath-xem-gio-badges-v2', STATS_STORAGE='imath-xem-gio-stats-v2', $=id=>document.getElementById(id);
+    const state={questions:[],used:new Set(),started:false,graded:false,soundOn:true,demoH:8,demoM:15,speedActive:false,speedScore:0,speedTime:60,speedTimer:null,speedCurrentQ:null,timerSec:1200,timerTotal:1200,timerRunning:false,timerInterval:null,totalDone:0,totalRight:0,sheetsDone:0,lastScore:'10.0',lastRight:15,lastTotal:15,worldTimer:null};
+    
+    function getTotalQuestions(){return Number($('question-count')?$('question-count').value:15);}
+
+    // Web Audio Synthesizer
+    let audioCtx = null;
+    function getAudioContext(){if(!audioCtx){const AC=window.AudioContext||window.webkitAudioContext;if(AC)audioCtx=new AC();}if(audioCtx&&audioCtx.state==='suspended'){audioCtx.resume();}return audioCtx;}
+    function playTone(freq,type,duration,delay=0){
+      if(!state.soundOn)return;
+      try{
+        const ctx=getAudioContext();if(!ctx)return;
+        setTimeout(()=>{
+          const osc=ctx.createOscillator(),gain=ctx.createGain();
+          osc.type=type;osc.frequency.setValueAtTime(freq,ctx.currentTime);
+          gain.gain.setValueAtTime(0.15,ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+duration);
+          osc.connect(gain);gain.connect(ctx.destination);
+          osc.start();osc.stop(ctx.currentTime+duration);
+        },delay);
+      }catch(e){}
+    }
+    function playCorrectSound(){playTone(523.25,'sine',0.15,0);playTone(659.25,'sine',0.25,120);}
+    function playWrongSound(){playTone(220,'sawtooth',0.25,0);}
+    function playFanfareSound(){playTone(523.25,'triangle',0.15,0);playTone(659.25,'triangle',0.15,120);playTone(783.99,'triangle',0.3,240);}
+
+    // Confetti Animation
+    function triggerConfetti(){
+      const canvas=$('confetti-canvas'),ctx=canvas.getContext('2d');
+      canvas.width=window.innerWidth;canvas.height=window.innerHeight;
+      const pieces=[];const colors=['#149fe3','#56bd12','#ffcc29','#ef6065','#f72585'];
+      for(let i=0;i<80;i++){
+        pieces.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height-canvas.height,r:Math.random()*6+4,d:Math.random()*3+2,color:colors[Math.floor(Math.random()*colors.length)],tilt:Math.random()*10});
+      }
+      let frames=0;
+      function draw(){
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        pieces.forEach(p=>{
+          ctx.beginPath();ctx.lineWidth=p.r;ctx.strokeStyle=p.color;
+          ctx.moveTo(p.x+p.tilt,p.y);ctx.lineTo(p.x,p.y+p.tilt+p.r);ctx.stroke();
+          p.y+=p.d;p.tilt+=Math.sin(frames/10)*0.5;
+        });
+        frames++;if(frames<150)requestAnimationFrame(draw);else ctx.clearRect(0,0,canvas.width,canvas.height);
+      }
+      draw();
+    }
+
+    const escapeHTML=value=>String(value).replace(/[&<>"']/g,character=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
+    const rnd=(min,max)=>Math.floor(Math.random()*(max-min+1))+min;
+    const pad=n=>String(n).padStart(2,'0');
+    const clockText=(h,m)=>`${h}:${pad(m)}`;
+    const wordsTime=(h,m)=>m===0?`${h} giờ`:`${h} giờ ${m} phút`;
+    const normalize=s=>String(s).toLowerCase().trim().replace(/[.]/g,'').replace(/\s+/g,' ');
+
+    function readUsed(){try{return new Set(JSON.parse(sessionStorage.getItem(STORAGE)||'[]'))}catch(e){return new Set()}}
+    function saveUsed(){try{sessionStorage.setItem(STORAGE,JSON.stringify([...state.used].slice(-1800)))}catch(e){}}
+    function getHighScore(){return Number(localStorage.getItem(HIGH_STORAGE)||'0');}
+    function saveHighScore(s){if(s>getHighScore()){localStorage.setItem(HIGH_STORAGE,String(s));unlockBadge('speed');}}
+
+    // Badges Storage & Logic
+    const BADGES = [
+      {id:'perfect',icon:'🌟',title:'Ngôi Sao Thời Gian',desc:'Đạt điểm tuyệt đối 10/10 trong một bộ đề.'},
+      {id:'speed',icon:'⚡',title:'Thần Tốc 60s',desc:'Đạt từ 50 điểm trở lên trong Thử thách 60 giây.'},
+      {id:'master',icon:'🛡️',title:'Dũng Sĩ Chăm Chỉ',desc:'Hoàn thành 3 bộ đề làm bài trở lên.'},
+      {id:'calendar',icon:'📅',title:'Nhà Thông Thái Lịch',desc:'Hoàn thành xuất sắc bài tập Luyện xem lịch.'}
+    ];
+
+    function getEarnedBadges(){try{return new Set(JSON.parse(localStorage.getItem(BADGE_STORAGE)||'[]'));}catch(e){return new Set();}}
+    function unlockBadge(id){
+      const set = getEarnedBadges();
+      if(!set.has(id)){
+        set.add(id);
+        try{localStorage.setItem(BADGE_STORAGE,JSON.stringify([...set]));}catch(e){}
+      }
+    }
+
+    function renderBadges(){
+      const earned = getEarnedBadges();
+      $('badge-list-box').innerHTML = BADGES.map(b=>{
+        const isOk = earned.has(b.id);
+        return `<div class="badge-card ${isOk?'earned':''}"><div class="badge-icon">${b.icon}</div><div class="badge-info"><h4>${b.title} ${isOk?'✓':''}</h4><p>${b.desc}</p></div></div>`;
+      }).join('');
+    }
+
+    // SVG Clock Generator
+    function clockSVG(hour,minute,small=false){
+      const theme=$('clock-theme')?$('clock-theme').value:'standard';
+      const ticks=Array.from({length:60},(_,i)=>{
+        const a=i*6*Math.PI/180,x1=100+Math.sin(a)*(i%5?84:80),y1=100-Math.cos(a)*(i%5?84:80),x2=100+Math.sin(a)*90,y2=100-Math.cos(a)*90;
+        return `<line class="clock-tick ${i%5===0?'major':''}" x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}"/>`
+      }).join('');
+      
+      const nums=Array.from({length:12},(_,i)=>{
+        const n=i+1,a=n*30*Math.PI/180,x=100+Math.sin(a)*67,y=100-Math.cos(a)*67;
+        let helperMinute='';
+        if(theme==='helper'&&!small){
+          const mVal=pad(n*5%60);
+          const mx=100+Math.sin(a)*82,my=100-Math.cos(a)*82;
+          helperMinute=`<text class="min-num" x="${mx.toFixed(1)}" y="${my.toFixed(1)}">${mVal}</text>`;
+        }
+        return `<text class="clock-number" x="${x.toFixed(1)}" y="${y.toFixed(1)}">${n}</text>${helperMinute}`
+      }).join('');
+
+      const hourAngle=(hour%12)*30+minute*.5,minuteAngle=minute*6;
+      const faceStroke=theme==='cute'?'#ff7043':'#73c6e8';
+      const faceFill=theme==='cute'?'#fffde7':'#fffef9';
+
+      return `<svg class="clock${small?' clock-small':''}" viewBox="0 0 200 200" role="img" aria-label="Đồng hồ chỉ ${wordsTime(hour,minute)}"><circle class="clock-face" cx="100" cy="100" r="93" style="stroke:${faceStroke};fill:${faceFill};"/>${ticks}${nums}<line class="hand-hour" x1="100" y1="104" x2="100" y2="58" transform="rotate(${hourAngle} 100 100)"/><line class="hand-minute" x1="100" y1="107" x2="100" y2="29" transform="rotate(${minuteAngle} 100 100)"/><circle class="hand-center" cx="100" cy="100" r="7"/></svg>`;
+    }
+
+    // Calendar Card Component
+    function calendarSVG(month,day,dowText){
+      return `<div class="calendar-card"><div class="cal-month">Tháng ${month}</div><div class="cal-day">${day}</div><div class="cal-dow">${dowText}</div></div>`;
+    }
+
+    function timeForLevel(level){const h=rnd(1,12);let m;if(level===1)m=0;else if(level===2)m=Math.random()<.5?0:30;else if(level===3)m=rnd(0,11)*5;else m=rnd(0,59);return {h,m}}
+    function distinctTimes(correct,count,step=5){const all=[correct],keys=new Set([clockText(correct.h,correct.m)]);while(all.length<count){const shift=(rnd(1,11)*step+rnd(0,3))%60;const h=((correct.h-1+rnd(0,11))%12)+1,m=(correct.m+shift)%60,k=clockText(h,m);if(!keys.has(k)){keys.add(k);all.push({h,m})}}return all.sort(()=>Math.random()-.5)}
+
+    // Question Generators
+    function qRead(level){const t=timeForLevel(level),variant=level===1?rnd(0,1):0,prompt=variant?'Viết giờ mà đồng hồ đang chỉ.':'Đồng hồ chỉ mấy giờ?';return {key:`read-${level}-${clockText(t.h,t.m)}-${variant}`,type:'clockInput',prompt,time:t,answer:clockText(t.h,t.m),answerText:wordsTime(t.h,t.m),hint:getStepHint(t.h,t.m)}}
+    function qSet(){const t=timeForLevel(rnd(1,4));return {key:`set-${clockText(t.h,t.m)}`,type:'clockChoice',prompt:`Chọn đồng hồ đúng theo giờ cho trước: <b>${wordsTime(t.h,t.m)}</b>`,time:t,options:distinctTimes(t,4),answer:clockText(t.h,t.m),answerText:wordsTime(t.h,t.m),hint:`Quan sát kim ngắn chỉ qua số ${t.h} và kim dài chỉ số ${t.m/5}.` }}
+    function qConvert(){const t=timeForLevel(rnd(2,4));if(Math.random()<.5)return {key:`convert-read-${clockText(t.h,t.m)}`,type:'clockInput',prompt:'Viết giờ trên đồng hồ theo dạng số (VD: 8:15).',time:t,answer:clockText(t.h,t.m),answerText:clockText(t.h,t.m),hint:getStepHint(t.h,t.m)};return {key:`convert-digital-${clockText(t.h,t.m)}`,type:'clockChoice',prompt:'Chọn đồng hồ kim đúng với giờ điện tử sau.',digital:clockText(t.h,t.m),time:t,options:distinctTimes(t,4),answer:clockText(t.h,t.m),answerText:clockText(t.h,t.m),hint:`Tìm đồng hồ có kim đỏ chỉ số ${t.h} và kim xanh chỉ số ${t.m/5}.` }}
+    function qDaytime(){const periods=[{name:'sáng',start:5,end:10},{name:'trưa',start:11,end:12},{name:'chiều',start:13,end:17},{name:'tối',start:18,end:21},{name:'đêm',start:22,end:23}];const p=periods[rnd(0,periods.length-1)],h24=rnd(p.start,p.end),h12=h24>12?h24-12:h24;if(Math.random()<.5)return {key:`daytime-to24-${h24}`,type:'text',prompt:`${h12} giờ ${p.name} viết theo cách nói 24 giờ là:`,answer:String(h24),answerText:`${h24} giờ`,validator:v=>parseHour(v)===h24,hint:`Giờ ${p.name} quy đổi 24h = ${h12} + 12 = ${h24} giờ.`};return {key:`daytime-from24-${h24}`,type:'text',prompt:`${h24} giờ là mấy giờ buổi nào?`,answer:`${h12} giờ ${p.name}`,answerText:`${h12} giờ ${p.name}`,validator:v=>{const x=normalize(v);return x.includes(String(h12))&&x.includes(p.name)},hint:`${h24} giờ trừ đi 12 bằng ${h12} giờ ${p.name}.` }}
+    function qDuration(){const kind=rnd(0,2),startH=rnd(6,19),startM=rnd(0,11)*5,start=startH*60+startM,duration=rnd(25,180);let prompt,answer,answerText,validator,key,hint;if(kind===0){const end=start+duration,eh=Math.floor(end/60)%24,em=end%60;prompt=`Từ ${wordsTime(startH,startM)} đến ${wordsTime(eh,em)} là bao lâu?`;answer=clockText(Math.floor(duration/60),duration%60);answerText=`${Math.floor(duration/60)} giờ ${duration%60} phút`;validator=v=>parseDuration(v)===duration;key=`duration-between-${start}-${end}`;hint=`Lấy thời điểm sau trừ đi thời điểm trước.`}else if(kind===1){prompt=`Bây giờ là ${wordsTime(startH,startM)}. Sau ${duration} phút nữa là mấy giờ?`;const end=start+duration,eh=Math.floor(end/60)%24,em=end%60;answer=clockText(eh,em);answerText=wordsTime(eh,em);validator=v=>sameTime(v,eh,em);key=`duration-after-${start}-${duration}`;hint=`Lấy ${startM} phút cộng thêm ${duration} phút.`}else{const end=start+duration,eh=Math.floor(end/60)%24,em=end%60;prompt=`Phim bắt đầu lúc ${wordsTime(startH,startM)}, kéo dài ${duration} phút. Phim kết thúc lúc mấy giờ?`;answer=clockText(eh,em);answerText=wordsTime(eh,em);validator=v=>sameTime(v,eh,em);key=`duration-film-${start}-${duration}`;hint=`Thời điểm kết thúc = Thời điểm bắt đầu + thời lượng phim.`}return {key,type:'text',prompt,answer,answerText,validator,hint}}
+    function qUnits(){const type=rnd(0,3);let prompt,answer,answerText,key,hint;if(type===0){const h=rnd(1,5),m=rnd(1,11)*5;answer=h*60+m;prompt=`${h} giờ ${m} phút = ... phút`;answerText=`${answer} phút`;key=`unit-hm-min-${h}-${m}`;hint=`1 giờ = 60 phút. Lấy ${h} x 60 + ${m} = ${answer} phút.`}else if(type===1){const seconds=rnd(2,20)*60;answer=seconds/60;prompt=`${seconds} giây = ... phút`;answerText=`${answer} phút`;key=`unit-sec-min-${seconds}`;hint=`1 phút = 60 giây. Lấy ${seconds} : 60 = ${answer} phút.`}else if(type===2){const minutes=rnd(2,20);answer=minutes*60;prompt=`${minutes} phút = ... giây`;answerText=`${answer} giây`;key=`unit-min-sec-${minutes}`;hint=`1 phút = 60 giây. Lấy ${minutes} x 60 = ${answer} giây.`}else{const hours=rnd(1,8);answer=hours*60;prompt=`${hours} giờ = ... phút`;answerText=`${answer} phút`;key=`unit-hour-min-${hours}`;hint=`1 giờ = 60 phút. Lấy ${hours} x 60 = ${answer} phút.`}return {key,type:'text',prompt,answer:String(answer),answerText,validator:v=>Number(String(v).replace(/\s|phút|phut|giây|giay/gi,''))===answer,hint}}
+    function qStory(){const stories=[['Bạn Lan bắt đầu học',18,20],['Minh bắt đầu nấu ăn',16,18],['Xe buýt khởi hành',6,8],['Bộ phim bắt đầu',17,20],['Nam bắt đầu làm bài tập',19,21]],s=stories[rnd(0,stories.length-1)],h=rnd(s[1],s[2]),m=rnd(0,11)*5,duration=rnd(3,12)*15,start=h*60+m,end=start+duration,eh=Math.floor(end/60)%24,em=end%60;return {key:`story-${s[0]}-${start}-${duration}`,type:'text',prompt:`${s[0]} lúc ${wordsTime(h,m)} và thực hiện trong ${duration} phút. Hỏi xong lúc mấy giờ?`,answer:clockText(eh,em),answerText:wordsTime(eh,em),validator:v=>sameTime(v,eh,em),hint:`Cộng thêm ${duration} phút vào mốc ${wordsTime(h,m)}.`}}
+
+    function qCalendar(){
+      const dows=['Thứ Hai','Thứ Ba','Thứ Tư','Thứ Năm','Thứ Sáu','Thứ Bảy','Chủ Nhật'];
+      const month=rnd(1,12);
+      const day=rnd(1,28);
+      const dowIdx=rnd(0,6);
+      const dowText=dows[dowIdx];
+      const kind=rnd(0,2);
+      let prompt,answer,answerText,validator,hint;
+
+      if(kind===0){
+        prompt=`Quan sát tờ lịch bên dưới. Tờ lịch chỉ ngày bao nhiêu, tháng mấy, thứ mấy?`;
+        answer=`Thứ ${dowText.replace('Thứ ','')}, ngày ${day} tháng ${month}`;
+        answerText=`${dowText}, ngày ${day} tháng ${month}`;
+        validator=v=>{const x=normalize(v);return x.includes(String(day))&&x.includes(String(month));};
+        hint=`Đọc thông tin ghi trên tờ lịch từ trên xuống dưới.`;
+      }else if(kind===1){
+        const nextDay=day+1;
+        const nextDow=dows[(dowIdx+1)%7];
+        prompt=`Nếu tờ lịch dưới chỉ ngày ${day} tháng ${month} là ${dowText}, thì ngày ${nextDay} tháng ${month} là Thứ mấy?`;
+        answer=nextDow;
+        answerText=nextDow;
+        validator=v=>normalize(v).includes(normalize(nextDow));
+        hint=`Ngày liền sau của ${dowText} là ${nextDow}.`;
+      }else{
+        const prevDay=day-1 > 0 ? day-1 : 1;
+        const prevDow=dows[(dowIdx+6)%7];
+        prompt=`Biết tờ lịch dưới chỉ ${dowText} ngày ${day} tháng ${month}. Hỏi Thứ liền trước đó là ngày mấy?`;
+        answer=String(prevDay);
+        answerText=`Ngày ${prevDay}`;
+        validator=v=>normalize(v).includes(String(prevDay));
+        hint=`Ngày liền trước của ngày ${day} là ngày ${prevDay}.`;
+      }
+      return {key:`cal-${month}-${day}-${dowIdx}-${kind}`,type:'calendarInput',prompt,month,day,dowText,answer,answerText,validator,hint};
+    }
+
+    function qEnglish(){
+      const t = timeForLevel(rnd(1,3));
+      const numWords=['','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve'];
+      let engStr='';
+      if(t.m===0) engStr = `It's ${numWords[t.h]} o'clock`;
+      else if(t.m===15) engStr = `It's quarter past ${numWords[t.h]}`;
+      else if(t.m===30) engStr = `It's half past ${numWords[t.h]}`;
+      else if(t.m===45) {const nextH = t.h===12?1:t.h+1; engStr = `It's quarter to ${numWords[nextH]}`;}
+      else engStr = `${t.h}:${pad(t.m)}`;
+
+      const options = [engStr];
+      while(options.length < 4){
+        const ot = timeForLevel(rnd(1,3));
+        let oStr = '';
+        if(ot.m===0) oStr = `It's ${numWords[ot.h]} o'clock`;
+        else if(ot.m===15) oStr = `It's quarter past ${numWords[ot.h]}`;
+        else if(ot.m===30) oStr = `It's half past ${numWords[ot.h]}`;
+        else if(ot.m===45) {const nextH = ot.h===12?1:ot.h+1; oStr = `It's quarter to ${numWords[nextH]}`;}
+        else oStr = `${ot.h}:${pad(ot.m)}`;
+
+        if(!options.includes(oStr)) options.push(oStr);
+      }
+      options.sort(()=>Math.random()-.5);
+
+      return {
+        key:`eng-${t.h}-${t.m}`,
+        type:'textChoice',
+        prompt:`Read the clock in English: <b>What time is it?</b>`,
+        time:t,
+        options:options,
+        answer:engStr,
+        answerText:engStr,
+        hint:`Look at the hour hand (${numWords[t.h]}) and minute hand (${t.m} mins).`
+      };
+    }
+
+    function getStepHint(h,m){
+      let numText=m/5;
+      if(m===0) return `Kim đỏ chỉ đúng số ${h}, Kim xanh chỉ đúng số 12 $\rightarrow$ <b>${h} giờ đúng</b>.`;
+      if(m===30) return `Kim đỏ qua số ${h}, Kim xanh chỉ đúng số 6 $\rightarrow$ <b>${h} giờ 30 phút</b> (hoặc <b>${h} giờ rưỡi</b>).`;
+      let kemText=m>=35?` (hoặc <b>${(h%12)+1} giờ kém ${60-m} phút</b>)`:'';
+      return `Kim ngắn màu đỏ qua <b>số ${h}</b>. Kim dài màu xanh chỉ <b>số ${numText}</b> (${numText} x 5 = ${m} phút) $\rightarrow$ <b>${h} giờ ${m} phút</b>${kemText}.`;
+    }
+
+    function makeQuestion(mode){
+      if(mode==='read')return qRead(Number($('level').value));
+      if(mode==='set')return qSet();
+      if(mode==='convert')return qConvert();
+      if(mode==='daytime')return qDaytime();
+      if(mode==='duration')return qDuration();
+      if(mode==='units')return qUnits();
+      if(mode==='calendar')return qCalendar();
+      if(mode==='english')return qEnglish();
+      return qStory();
+    }
+
+    function parseHour(value){const m=normalize(value).match(/\d{1,2}/);return m?Number(m[0]):NaN}
+    
+    function parseTime(value){
+      const s=normalize(value).replace(/phút|phut/g,'').replace(/giờ|gio/g,':').replace(/h/g,':').replace(/g/g,':').replace(/p/g,'').replace(/\s+/g,'');
+      const sRaw = normalize(value);
+      if(sRaw.includes('kém') || sRaw.includes('kem')){
+        const parts = sRaw.split(/kém|kem/);
+        if(parts.length === 2){
+          const hPart = Number(parts[0].replace(/\D/g,''));
+          const kemMin = Number(parts[1].replace(/\D/g,''));
+          if(hPart >= 1 && hPart <= 12 && kemMin >= 1 && kemMin < 60){
+            const targetH = hPart === 1 ? 12 : hPart - 1;
+            const targetMin = 60 - kemMin;
+            return {h: targetH, min: targetMin};
+          }
+        }
+      }
+
+      let m=s.match(/^(\d{1,2}):(\d{1,2})$/);
+      if(m){const h=Number(m[1]),min=Number(m[2]);return h>=0&&h<=23&&min>=0&&min<60?{h,min}:null}
+      m=s.match(/^(\d{1,2}):?$/);
+      return m?{h:Number(m[1]),min:0}:null;
+    }
+
+    function sameTime(value,h,m){
+      const t=parseTime(value);
+      if(!t)return false;
+      const hNorm = (h % 12) === 0 ? 12 : (h % 12);
+      const tHNorm = (t.h % 12) === 0 ? 12 : (t.h % 12);
+      return tHNorm === hNorm && t.min === m;
+    }
+
+    function parseDuration(value){const s=normalize(value).replace(/giờ|gio/g,'h').replace(/phút|phut/g,'m').replace(/\s+/g,'');let x=s.match(/^(\d+)h(?:(\d+)m?)?$/);if(x)return Number(x[1])*60+Number(x[2]||0);x=s.match(/^(\d+):(\d{1,2})$/);if(x)return Number(x[1])*60+Number(x[2]);x=s.match(/^(\d+)m?$/);return x?Number(x[1]):NaN}
+    function isCorrect(q,value){if(q.type==='clockChoice'||q.type==='textChoice'){const checked=document.querySelector(`input[name="q-${q.index}"]:checked`);return !!checked&&checked.value===q.answer}if(q.type==='clockInput')return sameTime(value,q.time.h,q.time.m);return q.validator?q.validator(value):normalize(value)===normalize(q.answer)}
+
+    function renderQuestion(q,i){
+      q.index=i;
+      const top=`<div class="q-top"><span class="qnum">${i+1}</span><div class="prompt">${q.prompt}</div></div>`;
+      const hintHTML = q.hint ? `<div class="hint-box hidden" id="hint-${i}">💡 <b>Gợi ý:</b> ${q.hint}</div>` : '';
+
+      if(q.type==='clockInput') return `<article class="question" data-index="${i}">${top}${q.digital?`<div class="digital">${q.digital}</div>`:`<div class="clock-wrap">${clockSVG(q.time.h,q.time.m)}</div>`}<input class="answer-input" data-answer="${i}" type="text" autocomplete="off" inputmode="text" placeholder="Ví dụ: 8:15 hoặc 8 giờ 15 phút"><span class="mark"></span>${hintHTML}</article>`;
+      if(q.type==='clockChoice') return `<article class="question" data-index="${i}">${top}${q.digital?`<div class="digital">${q.digital}</div>`:''}<div class="choice-grid">${q.options.map((t,j)=>`<label class="choice"><input type="radio" name="q-${i}" value="${clockText(t.h,t.m)}" data-choice="${i}"><span class="choice-label">${String.fromCharCode(65+j)}</span>${clockSVG(t.h,t.m,true)}</label>`).join('')}</div><span class="mark"></span>${hintHTML}</article>`;
+      if(q.type==='textChoice') return `<article class="question" data-index="${i}">${top}<div class="clock-wrap">${clockSVG(q.time.h,q.time.m)}</div><div style="display:grid;grid-template-columns:1fr;gap:6px;margin-top:8px;">${q.options.map((optText,j)=>`<label style="display:flex;align-items:center;gap:8px;padding:10px;border:2px solid #bce6f8;border-radius:12px;cursor:pointer;font-weight:900;background:#f0fbff;"><input type="radio" name="q-${i}" value="${optText}" data-choice="${i}"> ${String.fromCharCode(65+j)}. ${optText}</label>`).join('')}</div><span class="mark"></span>${hintHTML}</article>`;
+      if(q.type==='calendarInput') return `<article class="question" data-index="${i}">${top}<div class="clock-wrap">${calendarSVG(q.month,q.day,q.dowText)}</div><input class="answer-input" data-answer="${i}" type="text" autocomplete="off" inputmode="text" placeholder="Nhập đáp án"><span class="mark"></span>${hintHTML}</article>`;
+
+      return `<article class="question" data-index="${i}">${top}<input class="answer-input" data-answer="${i}" type="text" autocomplete="off" inputmode="text" placeholder="Nhập đáp án"><span class="mark"></span>${hintHTML}</article>`;
+    }
+
+    function render(){
+      const mode=$('exercise-type').value,names={read:'Đọc giờ trên đồng hồ kim',set:'Chọn đồng hồ đúng theo giờ cho trước',convert:'Đồng hồ kim và đồng hồ điện tử',daytime:'Giờ chiều tối và cách nói 24 giờ',duration:'Tính khoảng thời gian',units:'Đổi đơn vị đo thời gian',story:'Bài toán có lời văn về thời gian',calendar:'Luyện xem lịch ngày tháng (Lớp 2)',english:'Read the clock in English (Toán Tiếng Anh)'};
+      const totalCount = getTotalQuestions();
+      $('sheet-title').textContent=names[mode];
+      $('sheet-description').textContent=mode==='read'?'Quan sát mặt đồng hồ và điền giờ theo dạng 8:15, 8 giờ 15 phút hoặc giờ kém.':'Quan sát kĩ bài tập rồi điền đáp án chuẩn xác.';
+      $('sheet-counter').textContent=`${totalCount} câu hỏi`;
+      $('questions').innerHTML=state.questions.map(renderQuestion).join('');
+      document.querySelectorAll('.answer-input').forEach(el=>el.addEventListener('input',()=>{if(el.value.trim())state.started=true}));
+      document.querySelectorAll('[data-choice]').forEach(el=>el.addEventListener('change',()=>state.started=true));
+    }
+
+    function generateSheet(){
+      const mode=$('exercise-type').value,questions=[],local=new Set();let tries=0;
+      const totalCount = getTotalQuestions();
+      while(questions.length<totalCount&&tries<12000){
+        const q=makeQuestion(mode);tries++;
+        if(!state.used.has(q.key)&&!local.has(q.key)){
+          state.used.add(q.key);local.add(q.key);questions.push(q);
+        }
+      }
+      if(questions.length<totalCount){
+        state.used.clear();saveUsed();tries=0;
+        while(questions.length<totalCount&&tries<12000){
+          const q=makeQuestion(mode);tries++;
+          if(!local.has(q.key)){
+            state.used.add(q.key);local.add(q.key);questions.push(q);
+          }
+        }
+      }
+      state.questions=questions;state.started=false;state.graded=false;saveUsed();
+      $('results').classList.add('hidden');$('answer-key').classList.add('hidden');render();
+    }
+    
+    function check(){
+      let correct=0,rows=[];
+      const totalCount = getTotalQuestions();
+      state.questions.forEach((q,i)=>{
+        const input=document.querySelector(`[data-answer="${i}"]`),value=input?input.value.trim():(document.querySelector(`input[name="q-${i}"]:checked`)?.value||'—'),ok=isCorrect(q,value),card=document.querySelector(`.question[data-index="${i}"]`);
+        if(ok){correct++;playCorrectSound();}else{playWrongSound();}
+        card.classList.remove('correct','wrong');card.classList.add(ok?'correct':'wrong');
+        card.querySelector('.mark').textContent=ok?'✓ Đúng':'✕ Chưa đúng';
+        
+        const hintEl = $(`hint-${i}`);
+        if(hintEl){
+          if(!ok) hintEl.classList.remove('hidden');
+          else hintEl.classList.add('hidden');
+        }
+        rows.push({q,value,ok})
+      });
+      
+      state.graded=true;
+      state.totalDone += totalCount;
+      state.totalRight += correct;
+      state.sheetsDone += 1;
+      state.lastScore = (correct / totalCount * 10).toFixed(1).replace('.0','');
+      state.lastRight = correct;
+      state.lastTotal = totalCount;
+
+      if(correct === totalCount) unlockBadge('perfect');
+      if(state.sheetsDone >= 3) unlockBadge('master');
+      if($('exercise-type').value==='calendar' && correct>=Math.floor(totalCount*0.8)) unlockBadge('calendar');
+
+      if(correct >= Math.floor(totalCount * 0.8)){setTimeout(playFanfareSound,300);setTimeout(triggerConfetti,200);}
+      showResults(correct,rows);
+      $('results').scrollIntoView({behavior:'smooth',block:'start'})
+    }
+
+    function praise(c){
+      const totalCount = getTotalQuestions();
+      const pct = c / totalCount;
+      if(pct >= 0.9)return 'Xuất sắc! Con xem giờ rất chính xác.';
+      if(pct >= 0.7)return 'Rất giỏi! Con chỉ cần xem lại vài câu nhỏ thôi.';
+      if(pct >= 0.5)return 'Con làm tốt lắm! Cùng xem lại các câu chưa đúng nhé.';
+      return 'Con đã rất cố gắng rồi! Làm lại từ từ, con sẽ giỏi hơn ngay.';
+    }
+
+    function showResults(correct,rows){
+      const totalCount = getTotalQuestions();
+      const wrong=totalCount-correct,score=(correct/totalCount*10).toFixed(1).replace('.0','');
+      $('results').innerHTML=`<div class="results-head"><div class="trophy">${correct>=Math.floor(totalCount*0.8)?'🏆':'🌟'}</div><div><h2>${praise(correct)}</h2><p>Đây là kết quả của đề vừa làm.</p></div></div><div class="score-grid"><div class="metric good"><b>${correct}/${totalCount}</b>Đúng</div><div class="metric bad"><b>${wrong}/${totalCount}</b>Sai</div><div class="metric score"><b>${score}/10</b>Điểm số</div></div><div class="result-table-wrap"><table class="result-table"><thead><tr><th>Câu</th><th>Đề bài</th><th>Con trả lời</th><th>Đáp án đúng</th><th>Kết quả</th></tr></thead><tbody>${rows.map((r,i)=>`<tr class="${r.ok?'is-correct':'is-wrong'}"><td>${i+1}</td><td>${r.q.prompt.replace(/<[^>]*>/g,'')}</td><td>${escapeHTML(r.value)}</td><td><b>${r.q.answerText}</b></td><td class="${r.ok?'status-good':'status-bad'}">${r.ok?'✓ Đúng':'✕ Sai'}</td></tr>`).join('')}</tbody></table></div><div class="result-actions"><button class="btn outline" id="retry" type="button">↺ Làm lại đề này</button><button class="btn primary" id="new-result" type="button">↻ Làm đề mới</button><button class="btn accent" id="open-cert-btn" type="button">🏆 In Phiếu Khen Thưởng</button></div>`;
+      $('results').classList.remove('hidden');
+      $('retry').addEventListener('click',retry);
+      $('new-result').addEventListener('click',generateSheet);
+      $('open-cert-btn').addEventListener('click',openCertModal);
+    }
+    
+    function showAnswers(){
+      $('answer-list').innerHTML=state.questions.map((q,i)=>`<div class="answer-item"><b>Câu ${i+1}:</b> ${q.answerText}</div>`).join('');
+      $('answer-key').classList.remove('hidden');
+      $('answer-key').scrollIntoView({behavior:'smooth',block:'nearest'});
+      document.querySelectorAll('.hint-box').forEach(el=>el.classList.remove('hidden'));
+    }
+
+    function retry(){
+      state.graded=false;state.started=false;
+      document.querySelectorAll('.answer-input').forEach(e=>e.value='');
+      document.querySelectorAll('input[type="radio"]').forEach(e=>e.checked=false);
+      document.querySelectorAll('.question').forEach(e=>{e.classList.remove('correct','wrong');e.querySelector('.mark').textContent='' });
+      document.querySelectorAll('.hint-box').forEach(e=>e.classList.add('hidden'));
+      $('results').classList.add('hidden');$('answer-key').classList.add('hidden');
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+
+    function resetInputsOnly(){
+      document.querySelectorAll('.answer-input').forEach(e=>e.value='');
+      document.querySelectorAll('input[type="radio"]').forEach(e=>e.checked=false);
+      document.querySelectorAll('.question').forEach(e=>{e.classList.remove('correct','wrong');e.querySelector('.mark').textContent='' });
+      document.querySelectorAll('.hint-box').forEach(e=>e.classList.add('hidden'));
+      $('results').classList.add('hidden');$('answer-key').classList.add('hidden');
+      state.graded=false;state.started=false;
+    }
+
+    function newSheet(){if(state.started&&!state.graded&&!confirm('Con đang làm bài dở. Nếu tạo đề mới, toàn bộ bài làm sẽ mất. Con có chắc chắn muốn tiếp tục không?'))return;generateSheet();window.scrollTo({top:0,behavior:'smooth'})}
+    function syncLevel(){const read=$('exercise-type').value==='read';$('level').disabled=!read;$('level').closest('.field').style.opacity=read?'1':'.55'}
+    
+    // Feature 3: Certificate Modal Logic
+    function openCertModal(){
+      $('cert-score-val').textContent = `${state.lastScore} / 10`;
+      $('cert-right-val').textContent = `${state.lastRight} / ${state.lastTotal}`;
+      const now = new Date();
+      $('cert-date-text').textContent = `Ngày hoàn thành: ${pad(now.getDate())}/${pad(now.getMonth()+1)}/${now.getFullYear()}`;
+      $('cert-modal').classList.remove('hidden');
+    }
+
+    // Feature 4: 20 World Clocks Real-time Generator
+    function updateWorldClocks(){
+      const cities = [
+        {name:'Hà Nội, Việt Nam',flag:'🇻🇳',offset:7,diff:'Giờ chuẩn (UTC+7)'},
+        {name:'Tokyo, Nhật Bản',flag:'🇯🇵',offset:9,diff:'+2h so với Hà Nội'},
+        {name:'Seoul, Hàn Quốc',flag:'🇰🇷',offset:9,diff:'+2h so với Hà Nội'},
+        {name:'Bắc Kinh, Trung Quốc',flag:'🇨🇳',offset:8,diff:'+1h so với Hà Nội'},
+        {name:'Singapore',flag:'🇸🇬',offset:8,diff:'+1h so với Hà Nội'},
+        {name:'Bangkok, Thái Lan',flag:'🇹🇭',offset:7,diff:'Cùng giờ Hà Nội'},
+        {name:'Jakarta, Indonesia',flag:'🇮🇩',offset:7,diff:'Cùng giờ Hà Nội'},
+        {name:'New Delhi, Ấn Độ',flag:'🇮🇳',offset:5.5,diff:'-1.5h so với Hà Nội'},
+        {name:'Dubai, UAE',flag:'🇦🇪',offset:4,diff:'-3h so với Hà Nội'},
+        {name:'Moskva, Nga',flag:'🇷🇺',offset:3,diff:'-4h so với Hà Nội'},
+        {name:'Cairo, Ai Cập',flag:'🇪🇬',offset:2,diff:'-5h so với Hà Nội'},
+        {name:'Paris, Pháp',flag:'🇫🇷',offset:1,diff:'-6h so với Hà Nội'},
+        {name:'Berlin, Đức',flag:'🇩🇪',offset:1,diff:'-6h so với Hà Nội'},
+        {name:'London, Vương Quốc Anh',flag:'🇬🇧',offset:1,diff:'-6h so với Hà Nội'},
+        {name:'Rio de Janeiro, Brasil',flag:'🇧🇷',offset:-3,diff:'-10h so với Hà Nội'},
+        {name:'New York, Mỹ',flag:'🇺🇸',offset:-4,diff:'-11h so với Hà Nội'},
+        {name:'Toronto, Canada',flag:'🇨🇦',offset:-4,diff:'-11h so với Hà Nội'},
+        {name:'Los Angeles, Mỹ',flag:'🇺🇸',offset:-7,diff:'-14h so với Hà Nội'},
+        {name:'Sydney, Úc',flag:'🇦🇺',offset:10,diff:'+3h so với Hà Nội'},
+        {name:'Auckland, New Zealand',flag:'🇳🇿',offset:12,diff:'+5h so với Hà Nội'}
+      ];
+
+      const nowUtc = new Date().getTime() + (new Date().getTimezoneOffset() * 60000);
+      
+      $('world-grid-box').innerHTML = cities.map(c=>{
+        const cityTime = new Date(nowUtc + (3600000 * c.offset));
+        const h = cityTime.getHours();
+        const m = cityTime.getMinutes();
+        const s = cityTime.getSeconds();
+        return `<div class="world-card"><div class="world-city"><span>${c.flag}</span> ${c.name}</div><div class="world-diff">${c.diff}</div>${clockSVG(h,m,true)}<div class="world-time">${pad(h)}:${pad(m)}:${pad(s)}</div></div>`;
+      }).join('');
+    }
+
+    // Interactive Demo Clock Controls
+    function renderDemoClock(){
+      $('demo-clock-svg').innerHTML = clockSVG(state.demoH, state.demoM);
+      $('demo-time-text').textContent = `${state.demoH}:${pad(state.demoM)} — ${wordsTime(state.demoH, state.demoM)}`;
+    }
+    function changeDemoTime(dh, dm){
+      let totalM = state.demoH * 60 + state.demoM + dh * 60 + dm;
+      if(totalM < 0) totalM += 12 * 60;
+      let newH = Math.floor(totalM / 60) % 12;
+      if(newH === 0) newH = 12;
+      let newM = totalM % 60;
+      state.demoH = newH;
+      state.demoM = newM;
+      renderDemoClock();
+    }
+
+    // Speed Challenge 60s Game Logic
+    function startSpeedGame(){
+      state.speedScore = 0;
+      state.speedTime = 60;
+      state.speedActive = true;
+      $('high-score-val').textContent = getHighScore() + ' điểm';
+      $('speed-score-val').textContent = '0 điểm';
+      $('speed-time-left').textContent = '60s';
+      $('speed-start-btn').style.display = 'none';
+      nextSpeedQuestion();
+
+      if(state.speedTimer) clearInterval(state.speedTimer);
+      state.speedTimer = setInterval(()=>{
+        state.speedTime--;
+        $('speed-time-left').textContent = state.speedTime + 's';
+        if(state.speedTime <= 0){
+          clearInterval(state.speedTimer);
+          state.speedActive = false;
+          saveHighScore(state.speedScore);
+          $('high-score-val').textContent = getHighScore() + ' điểm';
+          playFanfareSound();
+          triggerConfetti();
+          $('speed-clock-wrap').innerHTML = `<h3 style="color:#0877ba;">🎉 HẾT GIỜ! BÉ ĐẠT ${state.speedScore} ĐIỂM!</h3>`;
+          $('speed-options').innerHTML = '';
+          $('speed-start-btn').style.display = 'block';
+          $('speed-start-btn').textContent = '↻ CHƠI LẠI THỬ THÁCH';
+        }
+      },1000);
+    }
+
+    function nextSpeedQuestion(){
+      if(!state.speedActive) return;
+      const t = timeForLevel(rnd(1,3));
+      state.speedCurrentQ = t;
+      $('speed-clock-wrap').innerHTML = clockSVG(t.h, t.m);
+      const opts = distinctTimes(t, 4);
+      $('speed-options').innerHTML = opts.map(o=>`<button class="speed-choice-btn" data-val="${clockText(o.h,o.m)}">${wordsTime(o.h,o.m)}</button>`).join('');
+      document.querySelectorAll('.speed-choice-btn').forEach(btn=>{
+        btn.addEventListener('click',()=>{
+          if(!state.speedActive) return;
+          const chosen = btn.getAttribute('data-val');
+          if(chosen === clockText(t.h,t.m)){
+            state.speedScore += 10;
+            playCorrectSound();
+          }else{
+            playWrongSound();
+          }
+          $('speed-score-val').textContent = state.speedScore + ' điểm';
+          nextSpeedQuestion();
+        });
+      });
+    }
+
+    // Converter Calculator Logic
+    function updateConverter(){
+      const h = Number($('cv-h').value||0);
+      const m = Number($('cv-m').value||0);
+      const totalM = h * 60 + m;
+      const totalS = totalM * 60;
+      $('cv-output').innerHTML = `<b>${h} giờ ${m} phút</b> = <b>${totalM} phút</b> (${totalS.toLocaleString()} giây)<br><span style="font-size:13px;color:#0288d1;font-weight:normal;">Chi tiết: ${h} x 60 + ${m} = ${totalM} phút</span>`;
+    }
+
+    // Stats Update Logic
+    function updateStatsModal(){
+      $('st-total').textContent = state.totalDone;
+      const acc = state.totalDone > 0 ? Math.round((state.totalRight / state.totalDone) * 100) : 0;
+      $('st-acc').textContent = acc + '%';
+      $('st-sheets').textContent = state.sheetsDone;
+      let evalText = 'Hãy tiếp tục cố gắng nhé!';
+      if(acc >= 90) evalText = 'Con xem giờ và làm toán vô cùng xuất sắc! 🏆';
+      else if(acc >= 70) evalText = 'Con có kĩ năng khá tốt, hãy phát huy nhé! 🌟';
+      else if(state.totalDone > 0) evalText = 'Hãy rèn luyện thêm vài bộ đề để nâng cao kết quả!';
+      $('st-eval').textContent = evalText;
+    }
+
+    // Study Timer Logic
+    function updateTimerUI(){
+      const m = Math.floor(state.timerSec / 60);
+      const s = state.timerSec % 60;
+      $('timer-display').textContent = `${pad(m)}:${pad(s)}`;
+      const prog = ((state.timerTotal - state.timerSec) / state.timerTotal) * 360;
+      $('timer-ring-box').style.setProperty('--prog', prog + 'deg');
+    }
+
+    function toggleTimer(){
+      if(state.timerRunning){
+        clearInterval(state.timerInterval);
+        state.timerRunning = false;
+        $('timer-toggle-btn').textContent = '▶ Bắt đầu đếm';
+      }else{
+        state.timerRunning = true;
+        $('timer-toggle-btn').textContent = '⏸ Tạm dừng';
+        state.timerInterval = setInterval(()=>{
+          if(state.timerSec > 0){
+            state.timerSec--;
+            updateTimerUI();
+          }else{
+            clearInterval(state.timerInterval);
+            state.timerRunning = false;
+            $('timer-toggle-btn').textContent = '▶ Bắt đầu đếm';
+            playFanfareSound();
+            alert('🎉 Hết giờ học rồi! Bé hãy nghỉ ngơi chút nhé!');
+          }
+        },1000);
+      }
+    }
+
+    function setTimerMinutes(mins){
+      if(state.timerRunning){clearInterval(state.timerInterval);state.timerRunning=false;$('timer-toggle-btn').textContent='▶ Bắt đầu đếm';}
+      state.timerTotal = mins * 60;
+      state.timerSec = mins * 60;
+      updateTimerUI();
+    }
+
+    window.addEventListener('beforeunload',e=>{if(state.started&&!state.graded){const m='Con đang làm bài dở. Nếu thoát bây giờ, toàn bộ bài làm sẽ mất. Con có chắc chắn muốn thoát không?';e.preventDefault();e.returnValue=m;return m}});
+    state.used=readUsed();
+    $('exercise-type').addEventListener('change',()=>{syncLevel();generateSheet();});
+    $('clock-theme').addEventListener('change',()=>render());
+    $('level').addEventListener('change',()=>generateSheet());
+    $('question-count').addEventListener('change',()=>generateSheet());
+    $('generate').addEventListener('click',newSheet);
+    $('check').addEventListener('click',check);
+    $('check-bottom').addEventListener('click',check);
+    $('answers').addEventListener('click',showAnswers);
+    $('answers-bottom').addEventListener('click',showAnswers);
+    $('reset-inputs').addEventListener('click',resetInputsOnly);
+    $('print').addEventListener('click',()=>window.print());
+    
+    // Top Certificate Button Handler
+    $('top-cert-btn').addEventListener('click',openCertModal);
+    $('cert-close').addEventListener('click',()=>$('cert-modal').classList.add('hidden'));
+    $('cert-print-btn').addEventListener('click',()=>{
+      document.body.classList.add('cert-print-mode');
+      window.print();
+      document.body.classList.remove('cert-print-mode');
+    });
+
+    $('world-btn').addEventListener('click',()=>{$('world-modal').classList.remove('hidden');updateWorldClocks();if(!state.worldTimer)state.worldTimer=setInterval(updateWorldClocks,1000);});
+    $('world-close').addEventListener('click',()=>{if(state.worldTimer){clearInterval(state.worldTimer);state.worldTimer=null;}$('world-modal').classList.add('hidden');});
+
+    // Feature Event Handlers
+    $('badge-btn').addEventListener('click',()=>{$('badge-modal').classList.remove('hidden');renderBadges();});
+    $('badge-close').addEventListener('click',()=>$('badge-modal').classList.add('hidden'));
+
+    $('stats-btn').addEventListener('click',()=>{$('stats-modal').classList.remove('hidden');updateStatsModal();});
+    $('stats-close').addEventListener('click',()=>$('stats-modal').classList.add('hidden'));
+
+    $('calc-btn').addEventListener('click',()=>{$('calc-modal').classList.remove('hidden');updateConverter();});
+    $('calc-close').addEventListener('click',()=>$('calc-modal').classList.add('hidden'));
+    $('cv-h').addEventListener('input',updateConverter);
+    $('cv-m').addEventListener('input',updateConverter);
+
+    // Event Handlers
+    $('sound-toggle').addEventListener('click',()=>{
+      state.soundOn = !state.soundOn;
+      $('sound-toggle').textContent = state.soundOn ? '🔊 Âm thanh ON' : '🔇 Âm thanh OFF';
+    });
+    
+    // Interactive Demo Clock Modal
+    $('demo-btn').addEventListener('click',()=>{
+      $('demo-modal').classList.remove('hidden');
+      renderDemoClock();
+    });
+    $('demo-close').addEventListener('click',()=>$('demo-modal').classList.add('hidden'));
+    $('h-plus').addEventListener('click',()=>changeDemoTime(1,0));
+    $('h-minus').addEventListener('click',()=>changeDemoTime(-1,0));
+    $('m-plus').addEventListener('click',()=>changeDemoTime(0,5));
+    $('m-minus').addEventListener('click',()=>changeDemoTime(0,-5));
+    $('m-plus15').addEventListener('click',()=>changeDemoTime(0,15));
+    $('m-minus15').addEventListener('click',()=>changeDemoTime(0,-15));
+
+    // Speed Game Modal
+    $('speed-btn').addEventListener('click',()=>{
+      $('speed-modal').classList.remove('hidden');
+      $('high-score-val').textContent = getHighScore() + ' điểm';
+    });
+    $('speed-close').addEventListener('click',()=>{
+      if(state.speedTimer) clearInterval(state.speedTimer);
+      state.speedActive = false;
+      $('speed-modal').classList.add('hidden');
+    });
+    $('speed-start-btn').addEventListener('click',startSpeedGame);
+
+    // Study Timer Modal
+    $('timer-btn').addEventListener('click',()=>{$('timer-modal').classList.remove('hidden');updateTimerUI();});
+    $('timer-close').addEventListener('click',()=>$('timer-modal').classList.add('hidden'));
+    $('set-t15').addEventListener('click',()=>setTimerMinutes(15));
+    $('set-t20').addEventListener('click',()=>setTimerMinutes(20));
+    $('set-t25').addEventListener('click',()=>setTimerMinutes(25));
+    $('timer-toggle-btn').addEventListener('click',toggleTimer);
+    $('timer-reset-btn').addEventListener('click',()=>setTimerMinutes(20));
+
+    syncLevel();generateSheet();
+  })();
+  </script>
+</body>
+</html>

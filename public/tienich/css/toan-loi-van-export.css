@@ -1,0 +1,83 @@
+/* A dedicated paper layout; web cards and learning controls never enter export. */
+.wp-export-root[hidden] { display:none !important; }
+body.wp-export-open > :not(#wp-export-root) { display:none !important; }
+.wp-export-root { position:fixed; inset:0; z-index:20000; display:flex; flex-direction:column; background:#e9edf2; color:#111; }
+.wp-export-toolbar { flex:none; padding:16px 24px 12px; background:white; border-bottom:1px solid #d4dde7; display:flex; flex-wrap:wrap; align-items:center; gap:12px 28px; box-shadow:0 2px 12px #00000008; }
+.wp-export-title h2 { margin:0; font-size:20px; color:#153b69; }
+.wp-export-title p { margin:3px 0 0; font-size:12px; color:#57708a; }
+.wp-export-options { display:flex; align-items:center; gap:20px; flex-wrap:wrap; margin-left:auto; font-size:13px; }
+.wp-export-options select { margin-left:6px; padding:8px; border:1px solid #b7c8dc; border-radius:6px; background:#fff; color:#17375e; }
+.wp-export-check { display:flex; align-items:center; gap:7px; }
+.wp-export-check input { width:17px; height:17px; accent-color:#1769e0; }
+.wp-export-copyright { color:#406d59; font-weight:700; font-size:12px; }
+.wp-export-actions { display:flex; gap:8px; }
+.wp-export-actions button { font:700 13px Arial,sans-serif; padding:11px 16px; border:1px solid #c3d1e0; border-radius:7px; background:#fff; color:#234261; cursor:pointer; }
+#wp-export-print { background:#1769e0; border-color:#1769e0; color:white; }
+#wp-export-word { background:#123f82; border-color:#123f82; color:white; }
+.wp-export-actions button:disabled { opacity:.45; cursor:not-allowed; }
+.wp-export-root :focus-visible { outline:3px solid #f4a300; outline-offset:3px; }
+.wp-export-note { flex-basis:100%; margin:0; color:#596b7e; font:12px/1.5 Arial,sans-serif; }
+.wp-export-scroll { flex:1; min-height:0; overflow:auto; padding:24px; }
+#wp-export-frame { margin:auto; overflow:hidden; }
+#wp-export-pages { width:210mm; margin:0; display:flow-root; transform-origin:top left; }
+.wp-paper, .wp-paper * { box-sizing:border-box; }
+.wp-paper { --paper-blue:#1263ba; --paper-ink:#123b65; --paper-green:#158263; width:210mm; height:297mm; padding:12mm 16mm 10mm; background:#fff; margin:0 0 24px; box-shadow:0 4px 22px #15284020; display:flex; flex-direction:column; color:#111; font:13pt/1.45 Arial,sans-serif; letter-spacing:normal; position:relative; isolation:isolate; }
+.wp-paper::before { content:''; position:absolute; left:16mm; right:16mm; top:0; height:2mm; background:linear-gradient(90deg,#1769ce 0 75%,#36b88a 75% 90%,#f6c559 90%); }
+.wp-paper-header { position:relative; z-index:1; flex:none; margin-bottom:2mm; }
+.wp-paper-brand { color:var(--paper-ink); font-size:17pt; line-height:1; margin:0 0 5mm; display:flex; align-items:baseline; }
+.wp-paper-brand strong { letter-spacing:-.6pt; }
+.wp-paper-brand > span { color:var(--paper-green); font-weight:700; }
+.wp-paper-brand small { margin-left:auto; color:#677d90; font-size:7.5pt; letter-spacing:1.1pt; font-weight:700; }
+.wp-paper-title-block { position:relative; padding-right:30mm; margin-bottom:4mm; }
+.wp-paper-eyebrow { margin:0 0 1.2mm; font-size:8pt; color:var(--paper-green); font-weight:700; letter-spacing:1.2pt; }
+.wp-paper h1 { color:var(--paper-ink); font:700 28pt/1.1 Arial,sans-serif; margin:0 0 2.5mm; letter-spacing:-.5pt; }
+.wp-paper-meta { font-size:10pt; margin:0; color:#586c7e; }
+.wp-paper-grade { position:absolute; right:0; top:0; width:23mm; height:25mm; border:1px solid #c9deee; background:#f1f8fd; border-radius:5mm 5mm 5mm 1mm; text-align:center; display:flex; flex-direction:column; justify-content:center; color:var(--paper-blue); }
+.wp-paper-grade span { font-size:8pt; font-weight:700; letter-spacing:2pt; }
+.wp-paper-grade b { font-size:31pt; line-height:1.1; }
+.wp-pupil-fields { position:relative; padding:3mm 29mm 3mm 4mm; border:1px solid #d4e0eb; border-radius:2.5mm; font-size:10pt; margin:0 0 2.5mm; background:#fbfdff; }
+.wp-pupil-fields > p { margin:1mm 0 2mm; }
+.wp-pupil-fields > p:last-of-type { margin-bottom:1mm; }
+.wp-pupil-score { position:absolute; right:0; top:0; bottom:0; width:25mm; border-left:1px solid #d4e0eb; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1.5mm; }
+.wp-pupil-score small { color:#6a7c8c; font-size:7.5pt; font-weight:700; letter-spacing:1pt; }
+.wp-pupil-score b { font-size:13pt; color:var(--paper-ink); }
+.wp-paper-instruction { font-size:9pt; margin:1mm 0 2mm; color:#436875; }
+.wp-paper-code { font-size:7.5pt; line-height:1.4; margin:0 0 2mm; overflow-wrap:anywhere; color:#6a7a87; }
+.wp-paper-running { font-size:11pt; font-weight:700; margin:0 0 3mm; color:var(--paper-ink); }
+.wp-paper-body { position:relative; z-index:1; flex:1; min-height:0; overflow:visible; }
+.wp-paper-question { margin:0; padding:2.8mm 0; break-inside:avoid; }
+.wp-paper h2.wp-question-heading { margin:0 0 2mm; display:flex; align-items:center; gap:2.5mm; font:700 10.5pt/1.3 Arial,sans-serif; }
+.wp-question-number { display:inline-block; border-radius:1.5mm; background:#eaf3fc; color:#125596; border:1px solid #c8dcf0; padding:1mm 2.5mm; }
+.wp-question-tier { color:#497653; font-size:8.5pt; font-weight:700; }
+.wp-paper-question[data-tier="Giỏi"] .wp-question-tier { color:#97700e; }
+.wp-paper-question[data-tier="Thử thách"] .wp-question-tier { color:#705591; }
+.wp-question-text { margin:0 0 1mm; color:#172536; font:12.5pt/1.42 Arial,sans-serif; overflow-wrap:break-word; }
+.wp-question-text sup, .wp-question-text sub { font-size:.75em; line-height:0; }
+.wp-question-visual { display:block; width:440px; height:auto; max-width:100%; margin:2mm auto; object-fit:contain; }
+.wp-workspace { margin-top:2mm; }
+.wp-workspace-label { display:block; font:700 7pt/1.2 Arial,sans-serif; color:#8798a7; letter-spacing:.7pt; }
+.wp-writing-line { height:7.5mm; border-bottom:1px dotted #b9c7d3; }
+.wp-paper-footer { position:relative; z-index:1; flex:none; display:flex; justify-content:space-between; padding-top:3mm; margin-top:2mm; border-top:1px solid #cfdfed; color:#667c8e; font:8pt/1.3 Arial,sans-serif; }
+.wp-page-number { color:#245484; font-weight:700; }
+.wp-paper-watermark { position:absolute; z-index:0; pointer-events:none; left:0; right:0; top:46%; text-align:center; transform:rotate(-28deg); font:700 65pt/1 Arial,sans-serif; color:#eef3f8; white-space:nowrap; user-select:none; }
+.wp-paper[data-paper-kind="solutions"] .wp-question-text:last-child { margin-top:1.5mm; }
+@media (max-width:700px) {
+  .wp-export-toolbar { padding:12px; gap:10px; }
+  .wp-export-options { margin:0; gap:10px; }
+  .wp-export-actions { flex-wrap:wrap; }
+  .wp-export-actions button { padding:10px 12px; }
+  .wp-export-scroll { padding:12px; }
+  #wp-export-pages { margin:0; }
+}
+@media print {
+  @page { size:A4; margin:0; }
+  html:has(body.wp-export-open), body.wp-export-open { width:auto !important; height:auto !important; margin:0 !important; padding:0 !important; overflow:visible !important; background:white !important; }
+  body.wp-export-open > :not(#wp-export-root) { display:none !important; }
+  body.wp-export-open > #wp-export-root { position:static !important; display:block !important; background:white; }
+  .wp-export-toolbar { display:none !important; }
+  .wp-export-scroll { overflow:visible; display:block; padding:0; }
+  #wp-export-frame { width:auto !important; height:auto !important; overflow:visible; margin:0; }
+  #wp-export-pages { width:210mm; margin:0; transform:none !important; }
+  .wp-paper { margin:0; box-shadow:none; break-after:page; page-break-after:always; break-inside:avoid; print-color-adjust:exact; -webkit-print-color-adjust:exact; }
+  .wp-paper:last-child { break-after:auto; page-break-after:auto; }
+}

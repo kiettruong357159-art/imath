@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cộng Trừ - Học toán thông minh, bứt phá tư duy</title>
+  <meta name="description" content="iMath giúp học sinh tiểu học học Toán trực quan, luyện tư duy logic và tự tin tiến bộ mỗi ngày. Đồng hành cùng phụ huynh từ lớp 1 đến lớp 5.">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <meta name="referrer" content="strict-origin-when-cross-origin"><meta name="theme-color" content="#159ee2">
+  <link rel="canonical" href="/tienich/02-cong-tru.html">
+  <meta property="og:locale" content="vi_VN"><meta property="og:type" content="website"><meta property="og:site_name" content="iMath.vn"><meta property="og:title" content="Cộng Trừ - Học toán thông minh, bứt phá tư duy"><meta property="og:description" content="Luyện cộng, trừ, tìm thành phần chưa biết và phân số cho học sinh lớp 1 đến lớp 5."><meta property="og:url" content="https://imath.vn/tienich/02-cong-tru.html">
+  <meta name="twitter:card" content="summary"><meta name="twitter:title" content="Luyện cộng trừ trực tuyến"><meta name="twitter:description" content="Công cụ luyện cộng trừ miễn phí cho học sinh tiểu học.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'none'; object-src 'none'; media-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Luyện cộng trừ trực tuyến","description":"Luyện cộng, trừ, tìm thành phần chưa biết và phân số cho học sinh tiểu học.","url":"https://imath.vn/tienich/02-cong-tru.html","applicationCategory":"EducationalApplication","operatingSystem":"Mọi hệ điều hành có trình duyệt web","browserRequirements":"JavaScript","inLanguage":"vi-VN","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"VND"},"audience":{"@type":"EducationalAudience","educationalRole":"student"}}</script>
+  <style>
+    :root{--bg:#edf9f5;--paper:#fff;--ink:#20313e;--muted:#60717d;--blue:#159ee2;--blue-dark:#0876c0;--green:#58bd13;--green-dark:#378b00;--yellow:#ffcb27;--red:#ed5c61;--red-soft:#fff0f0;--line:#cfe6df;--shadow:0 7px 0 rgba(37,103,77,.10);--font:"Nunito","Quicksand","Aptos","Segoe UI",Arial,sans-serif}
+    *{box-sizing:border-box} body{margin:0;min-height:100vh;background:radial-gradient(circle at 8% 7%,#d7f6df 0 2px,transparent 3px) 0 0/28px 28px,linear-gradient(135deg,#effcf6,#effaff 56%,#fff9df);color:var(--ink);font:16px/1.5 var(--font)} button,input,select{font:inherit} button{cursor:pointer}
+    .app{width:calc(100% - 48px);max-width:none;margin:22px auto 44px}.hero,.settings,.worksheet,.results,.answer-key{border:2px solid var(--line);border-radius:22px;background:var(--paper);box-shadow:var(--shadow)}
+    .hero{position:relative;overflow:hidden;padding:24px 28px;background:linear-gradient(110deg,#fff 0%,#f6fff8 60%,#e7f8ff)}.hero:after{content:'+  −  =';position:absolute;right:24px;bottom:-27px;color:#c7eed5;font-size:80px;font-weight:900;letter-spacing:4px;transform:rotate(-8deg)}
+    .brand{position:relative;z-index:1;display:inline-flex;align-items:center;gap:7px;padding:5px 11px;border-radius:999px;background:#e3f7ff;color:var(--blue-dark);font-size:13px;font-weight:900}.brand b{display:grid;place-items:center;width:21px;height:21px;border-radius:7px;background:var(--blue);color:#fff;font-size:17px}.hero h1{position:relative;z-index:1;margin:12px 0 3px;font-size:clamp(29px,5vw,43px);line-height:1.1;letter-spacing:-1px}.hero h1 em{font-style:normal;color:var(--green-dark)}.hero p{position:relative;z-index:1;max-width:620px;margin:0;color:var(--muted)}
+    .settings{display:grid;gap:14px;margin-top:16px;padding:18px}.settings-fields{display:grid;gap:14px}.field{display:grid;gap:6px}.field label{font-size:14px;font-weight:900}.field select{width:100%;min-height:52px;border:2px solid #bcded3;border-radius:13px;background:#fff;color:var(--ink);padding:8px 12px;font-size:16px;font-weight:700}.controls{display:flex;gap:10px;flex-wrap:wrap}.btn{min-height:51px;border:0;border-bottom:5px solid transparent;border-radius:14px;padding:10px 17px;font-size:16px;font-weight:900;transition:transform .12s,filter .12s}.btn:hover{filter:brightness(1.03)}.btn:active{transform:translateY(3px);border-bottom-width:2px}.primary{border-bottom-color:var(--blue-dark);background:var(--blue);color:#fff}.success{border-bottom-color:var(--green-dark);background:var(--green);color:#fff}.outline{border:2px solid #9fd3e9;border-bottom-width:4px;background:#fff;color:var(--blue-dark)}.quiet{border:2px solid #cde6d4;border-bottom-width:4px;background:#f7fff4;color:var(--green-dark)}
+    .learning-layout{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:22px;align-items:start;margin-top:16px}.study-sidebar{position:sticky;top:16px;width:max-content;padding:19px 17px;border:2px solid #cde8d9;border-radius:20px;background:linear-gradient(160deg,#fff,#f4fffa);box-shadow:var(--shadow)}.study-sidebar-head{display:flex;align-items:center;gap:9px;margin-bottom:12px}.study-sidebar-icon{display:grid;place-items:center;flex:0 0 34px;width:34px;height:34px;border-radius:11px;background:#e3f7ff;font-size:18px}.study-sidebar h2{margin:0;color:#21536e;font-size:19px}.study-sidebar p{margin:2px 0 0;color:var(--muted);font-size:12px}.study-links{display:grid;gap:3px;margin:0;padding:0;list-style:none;counter-reset:study-links}.study-links li{counter-increment:study-links}.study-links a{display:block;padding:8px 6px;border-radius:9px;color:var(--blue-dark);font-size:13px;font-weight:700;line-height:1.42;text-decoration:none;white-space:nowrap}.study-links a:before{content:counter(study-links) ". ";font-weight:900}.study-links a:hover,.study-links a:focus-visible{background:#e8f8ff;color:#066aa9;text-decoration:underline}.practice-column{width:100%;min-width:0}.practice-column .worksheet{margin-top:0}
+    .worksheet{margin-top:16px;padding:22px}.sheet-head{display:flex;justify-content:space-between;gap:15px;align-items:flex-start;margin-bottom:18px}.sheet-head h2{margin:0;font-size:clamp(22px,4vw,29px);line-height:1.2}.sheet-head p{margin:4px 0 0;color:var(--muted);font-size:14px}.counter{flex:0 0 auto;padding:7px 11px;border-radius:999px;background:#e7f8ff;color:var(--blue-dark);font-size:13px;font-weight:900}.questions{display:grid;grid-template-columns:repeat(1,minmax(0,1fr));gap:11px}.question{display:grid;grid-template-columns:36px minmax(0,1fr);gap:11px;align-items:center;min-height:87px;padding:12px;border:2px solid #d8e9e4;border-radius:16px;background:#fff;transition:border-color .15s,background .15s}.qnum{display:grid;place-items:center;width:32px;height:32px;border-radius:10px;background:#e7f8ff;color:var(--blue-dark);font-size:14px;font-weight:900}.math-line{display:flex;align-items:center;gap:9px;justify-content:space-between;flex-wrap:wrap}.math{font-size:clamp(21px,4.5vw,28px);font-weight:900;letter-spacing:.2px;line-height:1.25;font-variant-numeric:tabular-nums}.answer-input{width:118px;min-height:47px;border:2px solid #a9d7e9;border-radius:12px;background:#fff;color:var(--ink);padding:6px 8px;font-size:21px;font-weight:900;text-align:center;outline:none}.answer-input:focus{border-color:var(--blue);box-shadow:0 0 0 4px #dff4ff}.answer-input::placeholder{font-size:13px;font-weight:700;color:#83919a}.question.correct{border-color:#82ce7f;background:#f5fff1}.question.correct .answer-input{border-color:var(--green);color:var(--green-dark)}.question.wrong{border-color:#f19b9e;background:var(--red-soft)}.question.wrong .answer-input{border-color:var(--red);color:#c53d44}.question .mark{font-weight:900}.correct .mark{color:var(--green-dark)}.wrong .mark{color:#c93e45}.fraction{display:inline-grid;grid-template-rows:auto 2px auto;min-width:25px;margin:0 2px;vertical-align:middle;line-height:1;text-align:center;font-size:.78em}.fraction i{display:block;border-top:2px solid currentColor}.fraction span:first-child{padding:0 3px 2px}.fraction span:last-child{padding:2px 3px 0}.underlined{display:inline-block;min-width:35px;border-bottom:2px solid currentColor;text-align:center}
+    .bottom-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:21px}.answer-key{margin-top:16px;padding:18px}.answer-key h2{margin:0 0 10px;font-size:21px}.answer-list{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.answer-item{padding:9px 10px;border-radius:11px;background:#f4fbff;color:#31516a;font-weight:800}.answer-item b{color:var(--blue-dark)}
+    .results{margin-top:16px;padding:22px}.results-head{display:flex;align-items:center;gap:13px}.trophy{display:grid;place-items:center;flex:0 0 54px;width:54px;height:54px;border-radius:17px;background:#fff4c9;font-size:31px}.results h2{margin:0;font-size:25px}.results-head p{margin:2px 0 0;color:var(--muted)}.score-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}.metric{padding:12px 8px;border:2px solid #d9ece4;border-radius:13px;background:#fbfffd;text-align:center}.metric b{display:block;font-size:25px;line-height:1.15}.metric.good b{color:var(--green-dark)}.metric.bad b{color:#ce464b}.metric.score b{color:var(--blue-dark)}.result-table-wrap{overflow-x:auto;border:2px solid #dbeae5;border-radius:14px}.result-table{width:100%;min-width:700px;border-collapse:collapse;font-size:14px}.result-table th{padding:11px 10px;background:#ecf9f4;color:#355364;text-align:left}.result-table td{padding:10px;border-top:1px solid #dbeae5;vertical-align:middle}.result-table tr.is-wrong{background:#fff4f4}.result-table tr.is-correct{background:#f7fff4}.status-good{color:var(--green-dark);font-weight:900}.status-bad{color:#cf3f47;font-weight:900}.result-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.hidden{display:none!important}
+    @media(min-width:680px){.settings{grid-template-columns:minmax(0,1fr) auto;align-items:end}.controls{justify-content:flex-end}.questions{grid-template-columns:repeat(2,minmax(0,1fr))}.question{min-height:101px;padding:10px}.answer-input{width:96px}.worksheet{padding:26px}.questions.questions-long{grid-template-columns:1fr}}@media(min-width:920px){.settings-fields{grid-template-columns:minmax(230px,1fr) minmax(175px,220px)}}@media(min-width:1150px){.questions{grid-template-columns:repeat(3,minmax(0,1fr))}.questions.questions-long{grid-template-columns:repeat(2,minmax(0,1fr))}.questions.questions-long .math-line{flex-wrap:nowrap}.questions.questions-long .answer-input{flex:0 0 112px;width:112px}}
+    @media(max-width:1050px){.learning-layout{grid-template-columns:1fr}.study-sidebar{position:static;width:auto}.study-links{grid-template-columns:repeat(2,minmax(0,1fr));gap:4px}.study-links a{font-size:13px;white-space:normal}}
+    @media(max-width:510px){.app{width:min(100% - 14px,1080px);margin-top:10px}.hero{padding:22px 18px}.hero:after{right:-20px;font-size:57px}.settings,.worksheet,.results,.study-sidebar{padding:16px;border-radius:18px}.controls{display:grid;grid-template-columns:1fr 1fr}.controls .btn:first-child{grid-column:1/-1}.btn{padding:9px 10px;font-size:14px}.study-links{grid-template-columns:1fr}.sheet-head{display:block}.counter{display:inline-block;margin-top:8px}.question{grid-template-columns:29px minmax(0,1fr);gap:8px}.qnum{width:28px;height:28px;font-size:12px}.math-line{align-items:flex-start;flex-direction:column}.answer-input{width:100%;font-size:20px}.answer-list{grid-template-columns:repeat(2,1fr)}.score-grid{gap:7px}.metric{font-size:12px}.metric b{font-size:21px}.results-head h2{font-size:21px}.result-actions .btn{width:100%}}
+    @media print{@page{size:A4;margin:12mm}body{background:#fff}.app{width:100%;margin:0}.hero,.settings,.study-sidebar,.bottom-actions,.results,.answer-key{display:none!important}.learning-layout{display:block;margin:0}.worksheet{margin:0;padding:0;border:0;box-shadow:none}.sheet-head{margin-bottom:12px}.questions{grid-template-columns:repeat(3,1fr);gap:8px}.question{min-height:74px;padding:8px;border:1px solid #89969d;border-radius:8px;break-inside:avoid}.qnum{width:22px;height:22px;border-radius:7px;font-size:11px}.math{font-size:18px}.answer-input{width:70px;min-height:28px;padding:0;border:0;border-bottom:1px solid #444;border-radius:0;color:transparent!important;box-shadow:none!important;background:transparent}.answer-input::placeholder{color:transparent}.question.correct,.question.wrong{border-color:#89969d;background:#fff}.question .mark{display:none}.fraction i{border-top-width:1px}}
+    @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+  </style>
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <div class="brand"><b>+</b> iMath · Luyện toán mỗi ngày</div>
+      <h1>Luyện <em>Cộng &amp; Trừ</em></h1>
+      <p>Chọn dạng bài, làm 15 câu thật tập trung và xem con đã tiến bộ đến đâu nhé!</p>
+    </header>
+
+    <section class="settings" aria-label="Chọn dạng bài">
+      <div class="settings-fields">
+        <div class="field">
+          <label for="exercise-type">Dạng bài muốn luyện</label>
+          <select id="exercise-type">
+            <optgroup label="Nhóm A — Cộng trừ không nhớ">
+              <option value="nocarry-1">1 chữ số</option><option value="nocarry-2">2 chữ số</option><option value="nocarry-3">3 chữ số</option>
+            </optgroup>
+            <optgroup label="Nhóm B — Cộng trừ có nhớ">
+              <option value="carry-2">2 chữ số</option><option value="carry-3">3 chữ số</option><option value="carry-4">4 chữ số</option><option value="carry-5">5 chữ số</option><option value="carry-6">6 chữ số</option>
+            </optgroup>
+            <optgroup label="Nhóm C — Tìm thành phần chưa biết">
+              <option value="unknown-1">Phạm vi 1 chữ số</option><option value="unknown-2">Phạm vi 2 chữ số</option><option value="unknown-3">Phạm vi 3 chữ số</option><option value="unknown-4">Phạm vi 4 chữ số</option><option value="unknown-5">Phạm vi 5 chữ số</option><option value="unknown-6">Phạm vi 6 chữ số</option>
+            </optgroup>
+            <optgroup label="Nhóm D — Cộng trừ phân số">
+              <option value="fraction-same">Cùng mẫu số</option><option value="fraction-different">Khác mẫu số</option>
+            </optgroup>
+            <optgroup label="Nhóm E — Nhân chia">
+              <option value="muldiv-1">Phạm vi 1 chữ số</option><option value="muldiv-2">Phạm vi 2 chữ số</option><option value="muldiv-3">Phạm vi 3 chữ số</option><option value="muldiv-4">Phạm vi 4 chữ số</option><option value="muldiv-5">Phạm vi 5 chữ số</option><option value="muldiv-6">Phạm vi 6 chữ số</option>
+            </optgroup>
+          </select>
+        </div>
+        <div class="field">
+          <label for="operation-filter">Phép tính</label>
+          <select id="operation-filter">
+            <option value="mixed">Tổng hợp cộng &amp; trừ</option><option value="add">Chỉ phép cộng</option><option value="subtract">Chỉ phép trừ</option>
+          </select>
+        </div>
+      </div>
+      <div class="controls">
+        <button class="btn primary" id="generate" type="button">↻ Tạo đề mới</button>
+        <button class="btn success" id="check" type="button">✓ Kiểm tra</button>
+        <button class="btn outline" id="answers" type="button">☰ Xem đáp án</button>
+        <button class="btn quiet" id="print" type="button">▣ In đề</button>
+      </div>
+    </section>
+
+    <div class="learning-layout">
+      <aside class="study-sidebar" aria-labelledby="study-sidebar-title">
+        <div class="study-sidebar-head"><span class="study-sidebar-icon" aria-hidden="true">📚</span><div><h2 id="study-sidebar-title">Mục lục</h2><p>Đọc thêm theo từng lớp</p></div></div>
+        <ol class="study-links">
+          <li><a href="/toan-lop-1-hoc-nhung-gi-noi-dung-va-cach-hoc-hieu-qua" target="_blank" rel="noopener">Toán Lớp 1 Học Những Gì? Nội Dung Và Cách Học Hiệu Quả</a></li>
+          <li><a href="/toan-lop-2-hoc-gi-can-biet-de-dong-hanh-cung-con" target="_blank" rel="noopener">Toán Lớp 2 Học Gì? Cần Biết Để Đồng Hành Cùng Con</a></li>
+          <li><a href="/toan-lop-3-hoc-gi-noi-dung-chuong-trinh-cach-hoc-tot" target="_blank" rel="noopener">Toán Lớp 3 Học Gì? Nội Dung Chương Trình Cách Học Tốt</a></li>
+          <li><a href="/toan-lop-4-hoc-gi-tron-bo-kien-thuc-va-cach-hoc-hieu-qua" target="_blank" rel="noopener">Toán Lớp 4 Học Gì? Trọn Bộ Kiến Thức Và Cách Học Hiệu Quả</a></li>
+          <li><a href="/toan-lop-5-hoc-gi-tron-bo-kien-thuc-va-cach-hoc-hieu-qua" target="_blank" rel="noopener">Toán Lớp 5 Học Gì? Trọn Bộ Kiến Thức Và Cách Học Hiệu Quả</a></li>
+        </ol>
+      </aside>
+
+      <div class="practice-column">
+    <section class="worksheet" aria-live="polite">
+      <div class="sheet-head"><div><h2 id="sheet-title">Đề luyện tập</h2><p id="sheet-description">Điền đáp án vào từng ô rồi bấm “Kiểm tra”.</p></div><span class="counter">15 câu hỏi</span></div>
+      <div class="questions" id="questions"></div>
+      <div class="bottom-actions"><button class="btn success" id="check-bottom" type="button">✓ Kiểm tra bài làm</button><button class="btn outline" id="answers-bottom" type="button">☰ Xem đáp án</button></div>
+    </section>
+
+        <section class="answer-key hidden" id="answer-key" aria-live="polite"><h2>Đáp án của đề này</h2><div class="answer-list" id="answer-list"></div></section>
+        <section class="results hidden" id="results" aria-live="polite"></section>
+      </div>
+    </div>
+  </main>
+
+  <script>
+  (() => {
+    'use strict';
+    const TOTAL = 15;
+    const STORAGE_KEY = 'imath-cong-tru-used-v1';
+    const $ = id => document.getElementById(id);
+    const state = { questions: [], started: false, graded: false, used: new Set() };
+    const escapeHTML = value => String(value).replace(/[&<>"']/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
+
+    function readUsed() { try { return new Set(JSON.parse(sessionStorage.getItem(STORAGE_KEY) || '[]')); } catch (e) { return new Set(); } }
+    function saveUsed() { try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify([...state.used].slice(-1800))); } catch (e) {} }
+    function random(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+    function formatNumber(number) { return String(number).replace(/\B(?=(\d{3})+(?!\d))/g, ' '); }
+    function gcd(a, b) { a = Math.abs(a); b = Math.abs(b); while (b) [a, b] = [b, a % b]; return a || 1; }
+    function reduce(n, d) { if (n === 0) return { n: 0, d: 1 }; const g = gcd(n, d); return { n: n / g, d: d / g }; }
+    function fracHTML(n, d) { return d === 1 ? String(n) : `<span class="fraction"><span>${n}</span><i></i><span>${d}</span></span>`; }
+    function fracText(n, d) { return d === 1 ? String(n) : `${n}/${d}`; }
+    function digitCount(n) { return String(Math.abs(n)).length; }
+    const BASIC_OPERATION_OPTIONS = [
+      ['mixed', 'Tổng hợp cộng & trừ'], ['add', 'Chỉ phép cộng'], ['subtract', 'Chỉ phép trừ']
+    ];
+    const MULDIV_OPERATION_OPTIONS = [
+      ['muldiv-mixed', 'Tổng hợp nhân & chia'], ['multiply', 'Chỉ phép nhân'], ['divide', 'Chỉ phép chia']
+    ];
+    function isMulDivMode(mode) { return mode.startsWith('muldiv-'); }
+    function syncOperationOptions() {
+      const filter = $('operation-filter'), choices = isMulDivMode($('exercise-type').value) ? MULDIV_OPERATION_OPTIONS : BASIC_OPERATION_OPTIONS;
+      const family = choices === MULDIV_OPERATION_OPTIONS ? 'muldiv' : 'basic';
+      if (filter.dataset.family === family) return;
+      const previous = filter.value;
+      filter.innerHTML = choices.map(([value, label]) => `<option value="${value}">${label}</option>`).join('');
+      filter.value = choices.some(([value]) => value === previous) ? previous : choices[0][0];
+      filter.dataset.family = family;
+    }
+    function modeLabel() { return $('exercise-type').selectedOptions[0].text; }
+    function operationLabel() { return $('operation-filter').selectedOptions[0].text; }
+    function titleFor(mode, operation) {
+      if (isMulDivMode(mode)) return operation === 'multiply' ? 'Phép nhân' : operation === 'divide' ? 'Phép chia' : 'Nhân và chia';
+      if (mode.startsWith('nocarry')) return operation === 'add' ? 'Phép cộng không nhớ' : operation === 'subtract' ? 'Phép trừ không nhớ' : 'Cộng trừ không nhớ';
+      if (mode.startsWith('carry')) return operation === 'add' ? 'Phép cộng có nhớ' : operation === 'subtract' ? 'Phép trừ có mượn' : 'Cộng trừ có nhớ';
+      if (mode.startsWith('unknown')) return operation === 'add' ? 'Tìm số hạng chưa biết' : operation === 'subtract' ? 'Tìm số bị trừ, số trừ' : 'Tìm thành phần chưa biết';
+      return operation === 'add' ? 'Cộng phân số' : operation === 'subtract' ? 'Trừ phân số' : 'Cộng trừ phân số';
+    }
+
+    function noCarryNumber(digits, isTop) {
+      const ds = [];
+      for (let i = 0; i < digits; i++) ds.push(random(i === 0 && isTop ? 1 : 0, 9));
+      return ds;
+    }
+    function digitsToNumber(ds) { return Number(ds.join('')); }
+    function generateNoCarry(digits, operation) {
+      const add = operation === 'add' || (operation !== 'subtract' && Math.random() < .5);
+      let a = noCarryNumber(digits, true), b = [];
+      // Hai số hạng/số trừ đều có đúng số chữ số đã chọn; vẫn không phát sinh nhớ hoặc mượn.
+      a[0] = add ? random(1, 8) : random(2, 9);
+      for (let i = 0; i < digits; i++) b.push(add ? random(i === 0 ? 1 : 0, 9 - a[i]) : random(i === 0 ? 1 : 0, a[i]));
+      const left = digitsToNumber(a), right = digitsToNumber(b), answer = add ? left + right : left - right;
+      const sign = add ? '+' : '−';
+      return { key: `nocarry-${digits}:${left}${sign}${right}`, html: `${formatNumber(left)} ${sign} ${formatNumber(right)} =`, plain: `${formatNumber(left)} ${sign} ${formatNumber(right)} =`, answer: String(answer), answerText: formatNumber(answer), kind: 'number' };
+    }
+    function hasAdditionCarry(a, b) { while (a || b) { if ((a % 10) + (b % 10) >= 10) return true; a = Math.floor(a / 10); b = Math.floor(b / 10); } return false; }
+    function hasSubtractionBorrow(a, b) { while (a || b) { if ((a % 10) < (b % 10)) return true; a = Math.floor(a / 10); b = Math.floor(b / 10); } return false; }
+    function generateCarry(digits, operation) {
+      const min = 10 ** (digits - 1), max = 10 ** digits - 1, add = operation === 'add' || (operation !== 'subtract' && Math.random() < .5);
+      let a, b;
+      do { a = random(min, max); b = random(min, max); if (!add && b > a) [a, b] = [b, a]; } while (add ? !hasAdditionCarry(a, b) : !hasSubtractionBorrow(a, b));
+      const sign = add ? '+' : '−';
+      const answer = add ? a + b : a - b;
+      return { key: `carry-${digits}:${a}${sign}${b}`, html: `${formatNumber(a)} ${sign} ${formatNumber(b)} =`, plain: `${formatNumber(a)} ${sign} ${formatNumber(b)} =`, answer: String(answer), answerText: formatNumber(answer), kind: 'number' };
+    }
+    function generateUnknown(digits, operation) {
+      const min = digits === 1 ? 1 : 10 ** (digits - 1), max = 10 ** digits - 1;
+      const forms = operation === 'add' ? [0] : operation === 'subtract' ? [1, 2] : [0, 1, 2];
+      const form = forms[random(0, forms.length - 1)];
+      let a, b, c, html, plain, answer;
+      if (form === 0) { // A + b = c
+        c = random(min * 2, max); b = random(min, c - min); a = c - b;
+        html = `<span class="underlined">A</span> + ${formatNumber(b)} = ${formatNumber(c)}`; plain = `A + ${formatNumber(b)} = ${formatNumber(c)}`; answer = String(a);
+      } else if (form === 1) { // A - b = c
+        a = random(min * 2, max); b = random(min, a - min); c = a - b;
+        html = `<span class="underlined">A</span> − ${formatNumber(b)} = ${formatNumber(c)}`; plain = `A − ${formatNumber(b)} = ${formatNumber(c)}`; answer = String(a);
+      } else { // a - B = c
+        a = random(min * 2, max); c = random(min, a - min); b = a - c;
+        html = `${formatNumber(a)} − <span class="underlined">B</span> = ${formatNumber(c)}`; plain = `${formatNumber(a)} − B = ${formatNumber(c)}`; answer = String(b);
+      }
+      return { key: `unknown-${digits}:${plain}`, html, plain, answer, answerText: formatNumber(answer), kind: 'number' };
+    }
+    function fractionOperands(same) {
+      let d1 = random(2, 12), d2 = same ? d1 : random(2, 12);
+      while (!same && d2 === d1) d2 = random(2, 12);
+      return { d1, d2, n1: random(1, d1 - 1), n2: random(1, d2 - 1) };
+    }
+    function generateFraction(same, operation) {
+      let d1, d2, n1, n2, add = operation === 'add' || (operation !== 'subtract' && Math.random() < .5);
+      ({ d1, d2, n1, n2 } = fractionOperands(same));
+      if (!add && n1 * d2 < n2 * d1) { [n1, n2] = [n2, n1]; [d1, d2] = [d2, d1]; }
+      const numerator = add ? n1 * d2 + n2 * d1 : n1 * d2 - n2 * d1;
+      const result = reduce(numerator, d1 * d2), sign = add ? '+' : '−';
+      const leftText = `${n1}/${d1}`, rightText = `${n2}/${d2}`;
+      const answer = fracText(result.n, result.d);
+      return { key: `fraction-${same ? 'same' : 'different'}:${leftText}${sign}${rightText}`, html: `${fracHTML(n1, d1)} ${sign} ${fracHTML(n2, d2)} =`, plain: `${leftText} ${sign} ${rightText} =`, answer, answerText: answer, fraction: result, kind: 'fraction' };
+    }
+    function generateMulDiv(digits, operation) {
+      const min = digits === 1 ? 2 : 10 ** (digits - 1), max = 10 ** digits - 1;
+      const multiply = operation === 'multiply' || (operation !== 'divide' && Math.random() < .5);
+      let left, right, answer, sign;
+      if (multiply) {
+        left = random(min, max); right = random(2, 9); answer = left * right; sign = '×';
+      } else {
+        right = random(2, 9); answer = random(min, max); left = right * answer; sign = '÷';
+      }
+      return { key: `muldiv-${digits}:${left}${sign}${right}`, html: `${formatNumber(left)} ${sign} ${formatNumber(right)} =`, plain: `${formatNumber(left)} ${sign} ${formatNumber(right)} =`, answer: String(answer), answerText: formatNumber(answer), kind: 'number' };
+    }
+    function generateOne(mode, operation) {
+      const [group, value] = mode.split('-');
+      if (group === 'nocarry') return generateNoCarry(Number(value), operation);
+      if (group === 'carry') return generateCarry(Number(value), operation);
+      if (group === 'unknown') return generateUnknown(Number(value), operation);
+      if (group === 'muldiv') return generateMulDiv(Number(value), operation);
+      return generateFraction(value === 'same', operation);
+    }
+    function generateSheet() {
+      syncOperationOptions();
+      const mode = $('exercise-type').value, operation = $('operation-filter').value, selected = [], inSheet = new Set();
+      const fillSheet = () => {
+        selected.length = 0; inSheet.clear(); let attempts = 0;
+        while (selected.length < TOTAL && attempts < 10000) {
+          const q = generateOne(mode, operation); attempts++;
+          if (!state.used.has(q.key) && !inSheet.has(q.key)) { selected.push(q); inSheet.add(q.key); }
+        }
+      };
+      fillSheet();
+      // Một số dạng cơ bản (như cộng trừ một chữ số) có số phép tính hữu hạn.
+      // Khi đã dùng hết riêng dạng này, bắt đầu vòng đề mới thay vì chặn học sinh bằng hộp thoại.
+      if (selected.length < TOTAL) {
+        [...state.used].forEach(key => { if (key.startsWith(`${mode}:`)) state.used.delete(key); });
+        fillSheet();
+      }
+      if (selected.length < TOTAL) return false;
+      selected.forEach(q => state.used.add(q.key)); saveUsed();
+      state.questions = selected; state.started = false; state.graded = false;
+      $('results').classList.add('hidden'); $('answer-key').classList.add('hidden');
+      renderSheet(); return true;
+    }
+    function renderSheet() {
+      const mode = $('exercise-type').value, operation = $('operation-filter').value;
+      $('sheet-title').textContent = titleFor(mode, operation);
+      $('sheet-description').textContent = `${modeLabel()} · ${operationLabel()} · Điền đáp án vào từng ô rồi bấm “Kiểm tra”.`;
+      const questionsBox = $('questions');
+      questionsBox.classList.toggle( 'questions-long', /^(nocarry|carry|unknown|muldiv)-[3-6]$/.test( mode ) );
+      questionsBox.innerHTML = state.questions.map((q, i) => `<article class="question" data-index="${i}"><span class="qnum">${i + 1}</span><div class="math-line"><span class="math">${q.html}</span><input class="answer-input" data-answer="${i}" type="text" inputmode="${q.kind === 'fraction' ? 'text' : 'numeric'}" autocomplete="off" aria-label="Đáp án câu ${i + 1}" placeholder="Đáp án"><span class="mark" aria-live="polite"></span></div></article>`).join('');
+      document.querySelectorAll('.answer-input').forEach(input => input.addEventListener('input', () => { if (input.value.trim()) state.started = true; }));
+    }
+    function isCorrect(q, raw) {
+      const value = raw.trim().replace(/\s+/g, '');
+      if (!value) return false;
+      if (q.kind === 'number') return /^\d+$/.test(value) && Number(value) === Number(q.answer);
+      if (/^\d+$/.test(value)) return q.fraction.d === 1 && Number(value) === q.fraction.n;
+      const match = value.match(/^(\d+)\/(\d+)$/); if (!match || Number(match[2]) === 0) return false;
+      const reduced = reduce(Number(match[1]), Number(match[2]));
+      return reduced.n === q.fraction.n && reduced.d === q.fraction.d;
+    }
+    function checkAnswers() {
+      let correct = 0; const rows = [];
+      state.questions.forEach((q, i) => {
+        const input = document.querySelector(`[data-answer="${i}"]`), card = input.closest('.question'), ok = isCorrect(q, input.value);
+        correct += ok ? 1 : 0; card.classList.remove('correct', 'wrong'); card.classList.add(ok ? 'correct' : 'wrong'); card.querySelector('.mark').textContent = ok ? '✓ Đúng' : '✕ Chưa đúng';
+        rows.push({ q, value: input.value.trim() || '—', ok });
+      });
+      state.graded = true; showResults(correct, rows); $('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    function encouragement(correct) { if (correct >= 14) return 'Xuất sắc! Con tính rất cẩn thận và chính xác.'; if (correct >= 11) return 'Rất giỏi! Con chỉ cần xem lại vài câu nhỏ thôi.'; if (correct >= 8) return 'Con làm tốt lắm! Cùng xem lại những câu chưa đúng để tiến bộ hơn nhé.'; return 'Con đã rất cố gắng rồi! Làm lại từng câu chậm rãi, con sẽ giỏi hơn ngay.'; }
+    function showResults(correct, rows) {
+      const wrong = TOTAL - correct, score = (correct / TOTAL * 10).toFixed(1).replace('.0', '');
+      $('results').innerHTML = `<div class="results-head"><div class="trophy">${correct >= 11 ? '🏆' : '🌟'}</div><div><h2>${encouragement(correct)}</h2><p>Đây là kết quả của đề vừa làm.</p></div></div><div class="score-grid"><div class="metric good"><b>${correct}/15</b>Đúng</div><div class="metric bad"><b>${wrong}/15</b>Sai</div><div class="metric score"><b>${score}/10</b>Điểm số</div></div><div class="result-table-wrap"><table class="result-table"><thead><tr><th>Câu</th><th>Đề bài</th><th>Con trả lời</th><th>Đáp án đúng</th><th>Kết quả</th></tr></thead><tbody>${rows.map((row, i) => `<tr class="${row.ok ? 'is-correct' : 'is-wrong'}"><td>${i + 1}</td><td class="math">${row.q.html}</td><td>${escapeHTML(row.value)}</td><td><b>${row.q.answerText}</b></td><td class="${row.ok ? 'status-good' : 'status-bad'}">${row.ok ? '✓ Đúng' : '✕ Sai'}</td></tr>`).join('')}</tbody></table></div><div class="result-actions"><button class="btn outline" id="retry" type="button">↺ Làm lại đề này</button><button class="btn primary" id="new-from-result" type="button">↻ Làm đề mới</button></div>`;
+      $('results').classList.remove('hidden'); $('retry').addEventListener('click', retrySameSheet); $('new-from-result').addEventListener('click', generateSheet);
+    }
+    function showAnswers() { $('answer-list').innerHTML = state.questions.map((q, i) => `<div class="answer-item"><b>Câu ${i + 1}:</b> ${q.answerText}</div>`).join(''); $('answer-key').classList.remove('hidden'); $('answer-key').scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
+    function retrySameSheet() { state.graded = false; state.started = false; document.querySelectorAll('.answer-input').forEach(input => { input.value = ''; const card = input.closest('.question'); card.classList.remove('correct', 'wrong'); card.querySelector('.mark').textContent = ''; }); $('results').classList.add('hidden'); $('answer-key').classList.add('hidden'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    function requestNewSheet() { if (state.started && !state.graded && !confirm('Con đang làm bài dở. Nếu tạo đề mới, toàn bộ bài làm sẽ mất. Con có chắc chắn muốn tiếp tục không?')) return; generateSheet(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    function warnBeforeExit(event) { if (state.started && !state.graded) { const message = 'Con đang làm bài dở. Nếu thoát bây giờ, toàn bộ bài làm sẽ mất. Con có chắc chắn muốn thoát không?'; event.preventDefault(); event.returnValue = message; return message; } }
+
+    state.used = readUsed();
+    syncOperationOptions();
+    $('exercise-type').addEventListener('change', syncOperationOptions);
+    $('generate').addEventListener('click', requestNewSheet); $('check').addEventListener('click', checkAnswers); $('check-bottom').addEventListener('click', checkAnswers); $('answers').addEventListener('click', showAnswers); $('answers-bottom').addEventListener('click', showAnswers); $('print').addEventListener('click', () => window.print());
+    window.addEventListener('beforeunload', warnBeforeExit);
+    generateSheet();
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!doctype html>
+<!--
+  index.html — Cửa vào giao diện học sinh mới và thứ tự nạp script dùng chung.
+  Dùng giao-dien-moi-app/; các liên kết ngoài luôn mở tab mới bằng rel="noopener".
+-->
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>iMath.vn | Học toán thông minh · Bứt phá tư duy</title>
+  <link rel="icon" type="image/webp" href="giao-dien-moi-app/dang-nhap/img/logo-imath.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/katex/katex.min.css">
+  <link rel="stylesheet" href="giao-dien-moi-app/app.css?v=3">
+  <link rel="stylesheet" href="giao-dien-moi-app/theme.css?v=20261017-single-answer">
+  <link rel="stylesheet" href="giao-dien-moi-app/catalog-rows.css?v=20261013">
+  <link rel="stylesheet" href="giao-dien-moi-app/thanh-dieu-huong.css?v=20261011-menu-anchor">
+  <link rel="stylesheet" href="giao-dien-moi-app/cham-ngon-hoc-tap.css?v=20261011-proverbs-3d">
+  <link rel="stylesheet" href="giao-dien-moi-app/dang-nhap/dang-nhap.css?v=20261011-grade-login">
+  <link rel="stylesheet" href="giao-dien-moi-app/giao-vien-hoc-sinh.css?v=20261009-csrf-consent">
+  <script defer src="giao-dien-moi-app/js/api-security.js?v=20261013-timo-route"></script>
+  <script defer src="giao-dien-moi-app/dang-nhap/dang-nhap.js?v=20261011-grade-login"></script>
+  <script defer src="assets/katex/katex.min.js"></script>
+  <script defer src="assets/katex/contrib/auto-render.min.js"></script>
+  <script defer src="js/question-media-renderer.js?v=20261011-svg-size"></script>
+  <script defer src="js/math-render.js?v=20261018-dollar-math"></script>
+  <script defer src="giao-dien-moi-app/chuyen-muc.js?v=14"></script>
+  <script defer src="giao-dien-moi-app/i18n.js?v=20261018-report-fixes"></script>
+  <script defer src="giao-dien-moi-app/speech.js?v=3"></script>
+  <script defer src="giao-dien-moi-app/js/student-route.js?v=20261014-hsg-clock"></script>
+  <script defer src="giao-dien-moi-app/js/core.js?v=20261014-fast-back-header"></script>
+  <script defer src="giao-dien-moi-app/js/cai-dat-ngon-ngu.js?v=4"></script>
+  <script defer src="giao-dien-moi-app/js/tien-ich.js?v=20261011-menu-anchor"></script>
+  <script defer src="giao-dien-moi-app/js/thoi-gian-cau-hoi.js?v=20261008-math"></script>
+  <script defer src="giao-dien-moi-app/js/cau-go-dap-so.js?v=2"></script>
+  <script defer src="giao-dien-moi-app/js/cham-ngon-hoc-tap.js?v=20261011-proverbs"></script>
+  <script defer src="giao-dien-moi-app/js/phien-hoc-sinh.js?v=20261014-fast-back-header"></script>
+  <script defer src="giao-dien-moi-app/js/lich-su-lam-bai.js?v=20261018-report-fixes"></script>
+  <script defer src="giao-dien-moi-app/js/tai-khoan-hoc-tap.js?v=20261011-grade-limit"></script>
+  <script defer src="giao-dien-moi-app/js/tai-khoan-phu-huynh.js?v=20261011-grade-limit"></script>
+  <script defer src="giao-dien-moi-app/js/tai-khoan.js?v=20261018-report-fixes"></script>
+  <script defer src="giao-dien-moi-app/js/lo-trinh.js?v=7"></script>
+  <script defer src="giao-dien-moi-app/js/catalog-rows.js?v=20261014-fast-back-header"></script>
+  <script defer src="giao-dien-moi-app/js/luyen-them.js?v=20261018-topic7-open"></script>
+  <script defer src="giao-dien-moi-app/js/toan-loi-van.js?v=20261013-icons"></script>
+  <script defer src="giao-dien-moi-app/js/bao-cao-huy-hieu.js?v=20261018-report-fixes"></script>
+  <script defer src="giao-dien-moi-app/js/quiz-context-title.js?v=20261015-context-title-v2"></script>
+  <link rel="stylesheet" href="giao-dien-moi-app/css/quiz-context-title.css?v=20261015-context-title-v2">
+  <script defer src="giao-dien-moi-app/js/lam-bai-chuan-bi.js?v=20261017-single-answer"></script>
+  <script defer src="giao-dien-moi-app/js/solution-view.js?v=20261018-dollar-math"></script>
+  <script defer src="giao-dien-moi-app/js/loi-giai.js?v=20261015-solution-a"></script>
+  <script defer src="giao-dien-moi-app/js/yeu-thich.js?v=20261017-single-answer"></script>
+  <script defer src="giao-dien-moi-app/js/loi-giai-goi-y.js?v=20261017-single-answer"></script>
+  <script defer src="giao-dien-moi-app/js/cau-dac-biet.js?v=20261015-solution-a-fix"></script>
+  <script defer src="giao-dien-moi-app/js/song-sinh-nhan-de-thi.js?v=20261017-single-answer"></script>
+  <script defer src="giao-dien-moi-app/js/on-cau-sai.js?v=20261017-single-answer"></script>
+  <script defer src="giao-dien-moi-app/js/bo-cuc-lam-bai.js?v=20261012-v2"></script>
+  <script defer src="giao-dien-moi-app/js/lam-bai.js?v=20261017-single-answer"></script>
+  <script defer src="giao-dien-moi-app/js/term-exam.js?v=20261014-clock"></script>
+  <script defer src="giao-dien-moi-app/js/su-kien-tro-giup.js?v=20261017-single-answer"></script>
+  <link rel="stylesheet" href="giao-dien-moi-app/timo.css?v=20261016-competition-chips">
+  <script defer src="giao-dien-moi-app/js/timo-catalog-view.js?v=20261018-real-paper-source"></script>
+  <script defer src="giao-dien-moi-app/js/timo.js?v=20261016-competition-chips"></script>
+  <script defer src="giao-dien-moi-app/js/timo-mock.js?v=20261015-context-title-v2"></script>
+  <link rel="stylesheet" href="giao-dien-moi-app/entrance-fixed.css?v=20261013-local">
+  <link rel="stylesheet" href="giao-dien-moi-app/css/entrance-entry.css?v=20261014-part-strands">
+  <link rel="stylesheet" href="giao-dien-moi-app/css/entrance-remediation.css?v=20261014-reviewed-1158">
+  <script defer src="giao-dien-moi-app/js/entrance-set.js?v=20261014-hints-title"></script>
+  <script defer src="giao-dien-moi-app/js/entrance-practice.js?v=20261015-solution-a"></script>
+  <script defer src="giao-dien-moi-app/js/entrance-remediation.js?v=20261017-single-answer"></script>
+  <script defer src="giao-dien-moi-app/js/entrance-level-catalog.js?v=20261014-entrance-level-tabs"></script>
+  <script defer src="giao-dien-moi-app/js/entrance-type-run.js?v=20261014-entrance-level-tabs"></script>
+  <script defer src="giao-dien-moi-app/js/entrance-entry.js?v=20261014-part-strands"></script>
+<script defer src="giao-dien-moi-app/js/hsg-subject-icons.js?v=20261014-hsg-card-icons"></script>
+<script defer src="giao-dien-moi-app/js/hsg.js?v=20261018-hsg-secondary-placement"></script>
+<script defer src="giao-dien-moi-app/js/entrance-fixed.js?v=20261014-timo-catalog"></script>
+  <script defer src="giao-dien-moi-app/js/entrance-fixed-view.js?v=20261016-competition-chips"></script>
+  <script defer src="giao-dien-moi-app/js/entrance-fixed-result.js?v=20261017-entrance-assets"></script>
+  <script defer src="giao-dien-moi-app/app.js?v=20261018-report-fixes"></script>
+  <script defer src="giao-dien-moi-app/js/giao-vien-nhac-bai.js?v=20261017-single-answer"></script>
+  <script defer src="giao-dien-moi-app/js/giao-vien-thoi-gian.js?v=20261007-dot2"></script>
+  <script defer src="giao-dien-moi-app/js/giao-vien-kiem-tra.js?v=20261008-security"></script>
+  <script defer src="giao-dien-moi-app/js/giao-vien-hoc-sinh.js?v=20261017-single-answer"></script>
+  <script defer src="giao-dien-moi-app/js/giao-vien-dong-y-hoc-sinh.js?v=20261009-consent"></script>
+  <script defer src="giao-dien-moi-app/js/giao-vien-tu-luan-tu-cham.js?v=20261009-dot2"></script>
+  <script defer src="giao-dien-moi-app/js/giao-vien-nop-tu-luan.js?v=20261010-v2"></script>
+  <link rel="stylesheet" href="giao-dien-moi-app/giao-vien-nop-tu-luan.css?v=20261010-v2">
+  <script defer src="giao-dien-moi-app/js/giao-vien-menu-vai.js?v=20261007"></script>
+  <link rel="stylesheet" href="giao-dien-moi-app/giao-vien-dot2.css?v=20261007-dot2">
+  <link rel="stylesheet" href="giao-dien-moi-app/tai-khoan-dot3.css?v=20261011-grade-login">
+  <link rel="stylesheet" href="giao-dien-moi-app/trang-hoc-rong-nen.css?v=20261014-fast-back-header">
+  <link rel="stylesheet" href="giao-dien-moi-app/bo-cuc-lam-bai.css?v=20261012-v2">
+<link rel="stylesheet" href="giao-dien-moi-app/css/hsg.css?v=20261014-timo-catalog">
+  <link rel="stylesheet" href="giao-dien-moi-app/css/solution-view.css?v=20261017-entrance-assets">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand imath-brand" href="#path" aria-label="iMath.vn, về Lộ trình học"><span class="imath-brand-mark"><img src="giao-dien-moi-app/imath-owl-3d-2026.webp" alt=""></span><span class="imath-brand-copy"><span class="imath-brand-name">iMath<span>.vn</span></span><span class="imath-brand-tagline">Học toán thông minh · Bứt phá tư duy</span></span></a>
+    <nav class="main-nav" aria-label="Điều hướng chính" hidden>
+      <button data-page="path"><img src="giao-dien-moi/icon/svg/learning_path.svg" alt=""><span class="nav-label">Lộ trình học</span></button>
+      <button data-page="practice"><img src="giao-dien-moi/icon/svg/practice_advanced.svg" alt=""><span class="nav-label">Luyện thêm - Nâng cao</span></button>
+      <a class="wide-nav-link" href="/dau-truong" target="_blank" rel="noopener"><span aria-hidden="true">🏆</span><span class="nav-label">Đấu trường</span></a>
+      <a class="wide-nav-link" href="/tai-lieu" target="_blank" rel="noopener"><span aria-hidden="true">📖</span><span class="nav-label">Tài liệu</span></a>
+      <div class="utility-menu-wrap wide-utility">
+        <button id="utility-menu-toggle" type="button" class="utility-menu-toggle" aria-expanded="false" aria-controls="utility-menu-main">
+          <span aria-hidden="true">☀️</span><span class="nav-label">Tiện ích</span><img class="utility-chevron" src="giao-dien-moi/icon/svg/chevron_down.svg" alt="">
+        </button>
+        <div id="utility-menu-main" class="utility-dropdown" role="region" aria-labelledby="utility-menu-toggle" data-no-ui-translate hidden>
+          <div class="utility-catalog"></div>
+          <a class="utility-all" href="/tien-ich" target="_blank" rel="noopener"><span aria-hidden="true">🧰</span><span data-utility-all-label>Xem toàn bộ tiện ích</span><span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </nav>
+    <div class="top-actions" hidden>
+      <div id="language-switcher" class="language-switcher"><label for="language-select">Ngôn ngữ</label><select id="language-select" aria-label="Ngôn ngữ"><option value="vi">Tiếng Việt</option><option value="en">English</option><option value="bi">Song ngữ</option></select></div>
+      <button id="search-toggle" class="icon-btn" aria-label="Tìm kiếm" title="Tìm kiếm"><img src="giao-dien-moi/icon/svg/search.svg" alt=""></button>
+      <!-- TODO(30/09/2026): hiện lại chuông khi có nguồn thông báo thật. -->
+      <button id="account-toggle" class="account-btn"><img src="giao-dien-moi/icon/svg/avatar.svg" alt=""><span id="account-name">Học sinh</span></button>
+      <button id="guest-login-top" class="guest-login-top" type="button" hidden>Đăng nhập</button>
+    </div>
+  </header>
+  <div id="search-panel" class="popover" hidden><label for="search-input">Tìm đề trong lớp đang chọn</label><input id="search-input" type="search" placeholder="Tên đề hoặc chuyên đề"><div id="search-results"></div></div>
+  <div id="account-panel" class="popover account-pop" hidden>
+    <span id="account-detail"></span>
+    <button type="button" data-account-tab="profile">Tài khoản của em</button>
+    <button type="button" data-account-tab="report">Báo cáo học tập</button>
+    <button type="button" data-account-tab="history">Lịch sử làm bài</button>
+    <button type="button" data-account-tab="favorites">Câu hỏi yêu thích</button>
+    <button type="button" data-account-tab="parent">Phụ huynh</button>
+    <!-- Vai người lớn chỉ hiện khi máy chủ xác nhận phiên Google; học sinh không chọn vai giáo viên. -->
+    <div id="teacher-adult-menu" hidden><strong>Lớp học</strong>
+      <a class="account-menu-item" href="giao-vien.html" data-teacher-adult-link>Trang giáo viên</a>
+      <a class="account-menu-item" href="giao-vien-dong-y.html" data-teacher-consent-link hidden>Đồng ý cho con vào lớp</a></div>
+    <button type="button" data-teacher-home="join">Vào lớp bằng mã</button>
+    <button type="button" data-account-tab="assignments">Bài cô/thầy giao</button>
+    <button type="button" data-account-tab="password">Đổi mật khẩu</button>
+    <button id="logout-btn">Đăng xuất</button>
+  </div>
+  <main id="login-screen" class="login-shell" hidden>
+    <section class="login-panel"><a class="imath-brand login-brand" href="#path" aria-label="iMath.vn, về Lộ trình học"><span class="imath-brand-mark"><img src="giao-dien-moi-app/imath-owl-3d-2026.webp" alt=""></span><span class="imath-brand-copy"><span class="imath-brand-name">iMath<span>.vn</span></span><span class="imath-brand-tagline">Học toán thông minh · Bứt phá tư duy</span></span></a><h1>Chào mừng em trở lại</h1><p>Đăng nhập để tiếp tục lộ trình học của mình.</p><form id="login-form"><label for="username">Tên đăng nhập</label><input id="username" autocomplete="username" required><label for="password">Mật khẩu</label><input id="password" type="password" autocomplete="current-password"><p id="login-error" class="error" role="alert"></p><button class="primary" type="submit">Đăng nhập</button></form></section>
+  </main>
+  <div id="app-shell" class="app-shell" hidden>
+    <aside id="sidebar" class="sidebar"><div class="side-heading"><img src="giao-dien-moi/icon/svg/graduation_cap.svg" alt="">Chọn lớp học</div><div id="grade-list" class="grade-list"></div><div class="side-heading term-heading"><img src="giao-dien-moi/icon/svg/calendar.svg" alt="">Chọn học kỳ</div><div id="term-list" class="term-list"><button data-term="1">Học kỳ I <small>Tuần 1–18</small></button><button data-term="2">Học kỳ II <small>Tuần 19–35</small></button></div><div class="side-heading advanced-heading"><img src="giao-dien-moi/icon/svg/graduation_cap.svg" alt="">Nâng cao &amp; thi</div><div id="advanced-nav" class="advanced-nav"></div></aside>
+    <div id="content" class="content" aria-live="polite"></div>
+  </div>
+</body>
+</html>
