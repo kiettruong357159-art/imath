@@ -1,0 +1,21 @@
+/* Thẻ chuyển cấp: chiều sâu theo theme xanh; hai cột tablet, số liệu và mức nằm trong thẻ. */
+.entrance-entry-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+.entrance-entry-card { min-width:0; padding:24px; border:1px solid #cfe1fc; border-radius:22px;
+  background:linear-gradient(135deg,#eef6ff,#fff 70%); box-shadow:0 5px 0 #dce8fa,0 12px 26px #234b8610; }
+.entrance-entry-card.vao_10 { background:linear-gradient(135deg,#f2f0ff,#fff 70%); border-color:#dcd8f9; }
+.entrance-entry-heading { display:flex; align-items:center; gap:18px;min-height:90px; }
+.entrance-entry-symbol { width:76px; height:76px; flex:0 0 76px; display:grid; place-items:center;
+  border:1px solid #b8d5ff; border-radius:22px; background:linear-gradient(145deg,#fff,#c9e3ff); box-shadow:0 5px 0 #b3cfee; }
+.entrance-entry-symbol img { display:block;width:100%;height:100%;max-width:76px;max-height:76px;object-fit:contain;border-radius:inherit; }
+.entrance-entry-eyebrow { font-size:11px; letter-spacing:.6px; color:#6383ac; font-weight:700; }
+.entrance-entry-heading h3 { margin:6px 0 0; font-size:25px; color:#153e79; }
+.entrance-entry-card > p { font-size:14px; color:#6480a3; margin:18px 0; line-height:1.5; }
+.entrance-entry-metrics { display:flex; align-items:baseline; gap:8px; padding:8px 0; }
+.entrance-entry-metrics strong { font-size:25px; color:#174178; }
+.entrance-entry-metrics span { font-size:12px; color:#6e85a5; }
+.entrance-entry-levels { display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+.entrance-entry-levels .outline { padding:9px 11px; font-size:12px; border-radius:11px; }
+@media(max-width:800px) { .entrance-entry-grid { gap:14px; } .entrance-entry-card { padding:18px; }
+  .entrance-entry-heading { gap:10px; } .entrance-entry-symbol { width:58px; height:58px; flex-basis:58px; }
+  .entrance-entry-symbol img { max-width:58px;max-height:58px; } .entrance-entry-heading h3 { font-size:21px; } }
+@media(max-width:600px) { .entrance-entry-grid { grid-template-columns:1fr; } }

@@ -1,8 +1,8 @@
 node_modules/
 .next/
 out/
-prisma/*.db
 prisma/*.db-journal
 .env.local
 .superpowers/
 rea/
+.vercel/

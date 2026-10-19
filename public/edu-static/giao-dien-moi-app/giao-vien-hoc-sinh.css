@@ -1,0 +1,28 @@
+/**
+ * giao-vien-hoc-sinh.css — Thẻ bài giao và trạng thái đã lưu của bài kiểm tra.
+ * Tách khỏi stylesheet người lớn để không đổi màu/font/layout giao diện học sinh.
+ * Kiểm tra không tô đúng/sai trước đóng, không hiện các cửa trợ giúp/kho câu trực tiếp.
+ */
+.gv-home-card { margin-bottom: 22px; }
+.gv-home-card input { max-width: 300px; padding: 10px; margin: 10px; }
+.gv-home-card .teacher-join-consent { display: flex; align-items: center; gap: 10px; margin: 12px 0; }
+.gv-home-card .teacher-join-consent input { width: 22px; height: 22px; margin: 0; padding: 0; flex: 0 0 22px; }
+.teacher-consent-row { margin: 12px 0; padding: 14px; border: 1px solid var(--line, #dce6f3); border-radius: 12px; }
+.gv-home-card .test-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.gv-home-card .test-row-copy { flex: 1; min-width: 160px; }
+.teacher-quiz .quiz-favorite, .teacher-quiz .feedback-favorite, .teacher-quiz .still-not-understood { display: none; }
+.teacher-quiz .jump button.jump-saved { background: #e4effa; color: #284c71; }
+.teacher-quiz .answer-feedback.pending { background: #eaf2fa; color: #284c71; }
+#account-panel > a { display: block; padding: 10px 14px; color: inherit; text-decoration: none; border-radius: 12px; }
+#account-panel > a:hover { background: #e7f3ea; }
+
+/* Ảnh câu riêng: giới hạn theo vùng làm bài, giữ tỷ lệ khi chuyển câu. */
+.teacher-private-image { display:block; max-width:100%; max-height:360px; object-fit:contain; margin:8px 0; }
+
+/* Liên kết nhóm người lớn dùng đúng style nút menu sẵn có trong theme.css (vòng 2, 07/10). */
+.account-pop .account-menu-item { display:block; width:100%; padding:10px 11px; border:0; border-radius:8px;
+  background:#fff; color:#264570; text-align:left; font:inherit; font-weight:600; text-decoration:none; }
+.account-pop .account-menu-item:hover,.account-pop .account-menu-item:focus-visible { background:#edf5ff; color:#075fc9; }
+#teacher-adult-menu[hidden], #teacher-adult-menu a[hidden] { display:none; }
+#teacher-adult-menu>strong { display:block; padding:10px 12px 4px; font-size:12px; color:#6580a9; }
+.teacher-menu-dot { display:inline-block; width:8px; height:8px; border-radius:50%; margin-left:8px; background:var(--score-retry); }

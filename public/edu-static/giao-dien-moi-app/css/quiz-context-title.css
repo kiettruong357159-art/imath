@@ -1,0 +1,13 @@
+/* Một dòng có ellipsis; cho phép cột tiêu đề co lại cạnh đồng hồ/nút. */
+.quiz-top>.quiz-context-heading{flex:1;min-width:0;max-width:100%}
+#content .quiz-context-title{display:block;min-width:0;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media(max-width:560px){
+  .quiz-top:has(>.quiz-context-heading){display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 10px}
+  .quiz-top>.quiz-context-heading{display:contents}
+  .quiz-top .quiz-context-title{grid-column:1/-1;margin-bottom:0}
+  .quiz-context-heading>strong{grid-column:1;grid-row:2;align-self:center}
+  .quiz-top>.quiz-top-actions,.quiz-top>.timo-mock-actions{grid-column:2;grid-row:2;max-width:100%;margin:0}
+  .timo-mock-panel .quiz-nav{flex-wrap:wrap}
+  .ef-exam-top:has(.quiz-context-title){grid-template-columns:minmax(0,1fr) auto}
+  .ef-exam-top:has(.quiz-context-title)>div:first-child{grid-column:1/-1}
+}

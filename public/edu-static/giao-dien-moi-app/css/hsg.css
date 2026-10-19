@@ -1,0 +1,13 @@
+/**
+ * hsg.css — Gợi ý và đồng hồ trên khung thi vào/quiz chung; danh mục dùng timo.css.
+ * Dùng theme và entrance-fixed.css có sẵn; tablet không tràn ngang.
+ * Quy tắc giao việc HSG/đồng hồ/bộ luyện ngày 14/10, chỉ localhost.
+ */
+.ef-hints { margin-top: 16px; }
+.ef-hint { padding: 14px 18px; margin-top: 12px; border-radius: 12px; background: #fff6da; color: #58400b; }
+.ef-hint strong { display: block; margin-bottom: 8px; }
+.ef-practice-review { border-top: 2px solid #dbe8fb; margin-top: 24px; padding-top: 20px; }
+.ef-problem-head .ef-points { margin-left: auto; }
+.ef-practice .ef-exam-top { grid-template-columns: minmax(0, 1fr) auto; }
+.term-exam-panel .quiz-top-actions { display: flex; gap: 14px; align-items: center; }
+.term-exam-panel .ef-timer { min-width: 150px; }

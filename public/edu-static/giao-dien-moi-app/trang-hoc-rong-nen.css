@@ -1,0 +1,57 @@
+/** Trang học sinh: nền A, khung màn rộng và khẩu hiệu dễ đọc.
+ * Chỉ nới bố cục trên 1440 px; khung làm bài giữ dòng chữ trong 1000 px.
+ * Không áp nền vào màn đăng nhập hoặc thay cỡ chữ/icon của thẻ kho.
+ */
+html:has(#app-shell:not([hidden])),
+body:has(#app-shell:not([hidden])) {
+  background-color: #edf5ff;
+  background-image:
+    radial-gradient(circle 360px at -35px 330px,
+      rgba(147, 196, 253, .62) 0%, rgba(172, 210, 255, .38) 50%, transparent 78%),
+    radial-gradient(circle 380px at calc(100% + 35px) 76vh,
+      rgba(255, 215, 135, .56) 0%, rgba(255, 229, 175, .34) 52%, transparent 78%),
+    linear-gradient(115deg, #e0efff 0%, #f6faff 48%, #fff0d4 100%);
+  background-attachment: fixed;
+}
+
+#app-shell .handwritten {
+  font-family: inherit;
+  font-style: normal;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: normal;
+  color: #235c9e;
+}
+
+@media (max-width: 1180px) {
+  #app-shell .handwritten { font-size: 17px; }
+}
+
+@media (min-width: 1441px) {
+  #app-shell:not(.in-quiz) {
+    max-width: 1760px;
+    padding: 20px 28px 42px;
+    gap: 24px;
+  }
+
+  #app-shell .catalog-grid {
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  }
+
+  #app-shell .topic-card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  #app-shell.in-quiz {
+    max-width: 1760px;
+    padding-inline: 28px;
+  }
+
+  #app-shell .quiz-panel,
+  #app-shell .result-panel {
+    width: 100%;
+    max-width: 1000px;
+    margin-inline: auto;
+  }
+}

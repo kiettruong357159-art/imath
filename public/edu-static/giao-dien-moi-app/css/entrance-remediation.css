@@ -1,0 +1,13 @@
+/* Kết quả thi: dạng sai và hai cửa luyện. Theme/nút dùng chung, tablet không tràn. */
+.ef-remediation { margin:18px 0; }
+.ef-remediation>p { color:var(--muted,#60799f); }
+.ef-remediation-grid { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px; }
+.ef-remediation-grid article { padding:18px;border:1px solid #cfe1fa;border-radius:16px;background:linear-gradient(145deg,#f3f8ff,#fff);box-shadow:0 4px 0 #dae7f8; }
+.ef-remediation-grid h3 { margin:0 0 8px;font-size:18px; }
+.ef-remediation-grid p { margin:8px 0 12px; }
+.ef-remediation-actions { display:flex;flex-wrap:wrap;gap:10px; }
+.ef-remediation-actions button { white-space:normal;max-width:100%; }
+.ef-remediation-return { margin:12px 0; }
+.ef-praise { padding:18px;border:1px solid #bce4d3;border-radius:16px;background:#edf9f3;color:#176b47;font-weight:600; }
+@media(max-width:850px){.ef-remediation-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:550px){.ef-remediation-grid{grid-template-columns:1fr;}}

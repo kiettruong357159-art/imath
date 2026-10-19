@@ -1,0 +1,86 @@
+#login-screen.login-shell{font-family:"Be Vietnam Pro",Arial,sans-serif;color:#123a7a}.topbar.dn-login-header{height:92px;padding:0 clamp(24px,4.6vw,76px);background:#e5f4ff;border-bottom:1px solid #cae7ff;position:relative;z-index:2}.topbar.dn-login-header .brand{align-items:center}.topbar.dn-login-header .brand .imath-brand-mark{width:62px;height:62px}.topbar.dn-login-header .brand .imath-brand-name{font-size:35px;color:#123a7a}.topbar.dn-login-header .brand .imath-brand-name span,.topbar.dn-login-header .brand .imath-brand-tagline{color:#1683f8}.topbar.dn-login-header .brand .imath-brand-tagline{font-size:15px;font-weight:600}.topbar.dn-login-header .dn-support{display:flex;align-items:center;gap:32px;color:#123a7a;font-size:15px;font-weight:600}.topbar.dn-login-header .dn-support a{display:flex;align-items:center;gap:10px}.topbar.dn-login-header .dn-support a:hover{color:#0875e8}.topbar.dn-login-header .dn-support i{height:26px;border-left:1px solid #8dbcea}.topbar.dn-login-header .dn-support .dn-icon{width:27px;height:27px}#login-screen.login-shell{height:calc(100svh - 92px);min-height:700px;overflow:hidden;position:relative;isolation:isolate;padding:22px 20px 30px;background:radial-gradient(ellipse at 2% 42%,#fff 0 4%,transparent 17%),radial-gradient(ellipse at 99% 35%,#fff 0 4%,transparent 18%),radial-gradient(ellipse at 48% 105%,#fff 0 5%,transparent 30%),linear-gradient(150deg,#d8efff,#edf7ff 55%,#d8efff)}#login-screen.login-shell:before,#login-screen.login-shell:after{content:"";position:absolute;z-index:-1;pointer-events:none;width:310px;height:110px;background:radial-gradient(ellipse at 22% 68%,#fff 0 24%,transparent 25%),radial-gradient(ellipse at 47% 40%,#fff 0 31%,transparent 32%),radial-gradient(ellipse at 72% 62%,#fff 0 27%,transparent 28%);opacity:.8}#login-screen.login-shell:before{left:-90px;top:5%}#login-screen.login-shell:after{right:-90px;top:17%}#login-screen .dn-decoration{position:absolute;z-index:-1;bottom:0;width:min(37vw,555px);height:min(87%,740px);object-fit:contain;object-position:bottom;filter:drop-shadow(0 14px 18px #2c72ba22);pointer-events:none}#login-screen .dn-decoration-left{left:0}#login-screen .dn-decoration-right{right:0}#login-screen.login-shell{display:grid;place-items:center}#login-screen .dn-card{width:min(572px,100%);max-height:100%;border:1px solid #ffffff;border-radius:36px;background:rgba(255,255,255,.94);box-shadow:0 22px 56px #1b5da426;padding:36px 42px 34px;position:relative;z-index:1}#login-screen .dn-card-scroll{max-height:calc(100svh - 185px);overflow:auto;scrollbar-width:thin}#login-screen .dn-card-brand{display:flex;width:max-content;margin:0 auto 18px;gap:12px;align-items:center}#login-screen .dn-card-brand .imath-brand-mark{width:58px;height:58px}#login-screen .dn-card-brand .imath-brand-name{font-size:32px;color:#123a7a}#login-screen .dn-card-brand .imath-brand-name span{color:#1683f8}#login-screen .dn-card-brand .imath-brand-tagline{font-size:12px;color:#123a7a}#login-screen .dn-card h1{text-align:center;font-size:34px;line-height:1.2;letter-spacing:-.7px;margin:18px 0 12px;font-weight:800;color:#123a7a}#login-screen .dn-card h1 span{color:#1683f8}#login-screen .dn-subtitle{text-align:center;color:#647caa;font-size:16px;line-height:1.55;margin:0 auto 22px;max-width:430px}#login-screen #login-form>label,#login-screen #registration-form>label{display:block;margin:15px 0 7px;font-size:17px;font-weight:700;color:#123a7a}#login-screen .dn-input-wrap{height:61px;border:1px solid #91bbff;border-radius:12px;background:#eff6ff;box-shadow:inset 0 1px 2px #174e9610;display:flex;align-items:center;gap:14px;padding:0 17px}#login-screen .dn-input-wrap:focus-within{outline:3px solid #1683f827;border-color:#1683f8}#login-screen .dn-icon{width:25px;height:25px;object-fit:contain;flex:none}#login-screen .dn-input-wrap input{width:100%;min-width:0;height:100%;border:0;outline:0;background:transparent;color:#183d76;font-size:17px}#login-screen .dn-input-wrap input::placeholder{color:#91a6c5}#login-screen .dn-eye{border:0;background:transparent;padding:6px;display:grid;place-items:center}#login-screen .dn-options{display:flex;justify-content:space-between;align-items:center;margin:15px 0 7px;font-size:14px}#login-screen .dn-remember{display:flex;gap:10px;align-items:center;cursor:pointer}#login-screen .dn-remember input{position:absolute;opacity:0;width:1px;height:1px}#login-screen .dn-check{width:21px;height:21px;border:1px solid #1683f8;border-radius:4px;display:grid;place-items:center;color:transparent;background:#fff;font-weight:800}#login-screen .dn-remember input:checked+.dn-check{color:#fff;background:#1683f8}#login-screen .dn-remember input:focus-visible+.dn-check{outline:3px solid #1683f855}#login-screen .dn-text-button{border:0;background:none;color:#0875e8;font-weight:700;padding:6px 0}#login-screen .dn-error{min-height:0;margin:0;color:#d3404d;font-size:13px;font-weight:600}#login-screen .dn-error:not(:empty){min-height:26px;margin:5px 0;display:flex;align-items:center;gap:6px}#login-screen .dn-error:not(:empty):before{content:"";width:18px;height:18px;display:inline-block;background:center/contain no-repeat url("img/icon_error.webp")}#login-screen .dn-submit,#login-screen .dn-register-open{height:64px;width:100%;border-radius:28px;font-family:inherit;font-size:20px;font-weight:800;display:flex;justify-content:center;align-items:center;gap:12px;transition:transform .12s,box-shadow .12s,filter .12s}#login-screen .dn-submit{border:1px solid #56a8ff;color:#fff;background:linear-gradient(105deg,#239cff,#0768e9);box-shadow:0 7px 0 #0754c2,0 14px 23px #0875e82c}#login-screen .dn-submit span{font-size:29px;line-height:1}#login-screen .dn-submit:hover{filter:brightness(1.04)}#login-screen .dn-submit:active{transform:translateY(5px);box-shadow:0 2px 0 #0754c2}#login-screen .dn-submit:disabled{opacity:.75}#login-screen .dn-register-open{margin-top:15px;border:1.5px solid #1683f8;color:#0875e8;background:#f7fbff;box-shadow:0 3px 0 #d1e4ff}#login-screen .dn-register-open:hover,#login-screen .dn-register-back:hover{background:#edf6ff}#login-screen .dn-register-open:active{transform:translateY(2px)}#login-screen .dn-register-open .dn-icon{width:24px;height:24px}#login-screen #registration-form select,#login-screen #registration-form>.dn-extra+label+input{width:100%}#login-screen #registration-form select,#login-screen .dn-extra input{height:49px;border:1px solid #91bbff;border-radius:10px;background:#eff6ff;padding:0 13px;color:#123a7a;font:inherit}#login-screen #registration-form label small{font-size:11px;color:#8095b6;font-weight:500}#login-screen .dn-extra{margin:12px 0;color:#0875e8}#login-screen .dn-extra summary{cursor:pointer;font-weight:600;margin:8px 0}#login-screen .dn-extra label{display:block;margin:8px 0 4px;color:#123a7a;font-size:14px;font-weight:600}#login-screen .dn-extra input{width:100%}#login-screen .dn-register-back{margin-top:14px;display:block;width:100%;border:0;background:transparent;color:#0875e8;font-weight:700;padding:10px}#login-screen .dn-forgot-pop{position:absolute;z-index:5;right:calc(50% - 360px);top:48%;width:min(300px,calc(100% - 28px));padding:23px 20px 18px;background:#fff;border:1px solid #b9d6fb;border-radius:16px;box-shadow:0 18px 44px #123a7a2e;color:#123a7a;line-height:1.5}#login-screen .dn-forgot-pop a{display:block;color:#0875e8;font-weight:700;margin-top:14px}#login-screen .dn-pop-close{position:absolute;right:9px;top:6px;border:0;background:none;font-size:23px;color:#57749c}.topbar.dn-login-header .dn-support .dn-icon{width:27px;height:27px}
+@media(max-width:1180px) and (min-width:801px){#login-screen.login-shell{min-height:0;padding:14px 10px}#login-screen .dn-card{width:500px;padding:24px 34px}#login-screen .dn-card-scroll{max-height:calc(100svh - 145px)}#login-screen .dn-card-brand{margin-bottom:10px}#login-screen .dn-card-brand .imath-brand-mark{width:46px;height:46px}#login-screen .dn-card h1{font-size:29px;margin:10px 0}#login-screen .dn-subtitle{font-size:14px;margin-bottom:12px}#login-screen #login-form>label{margin:10px 0 5px;font-size:15px}#login-screen .dn-input-wrap{height:51px}#login-screen .dn-submit,#login-screen .dn-register-open{height:54px;font-size:18px}#login-screen .dn-register-open{margin-top:12px}#login-screen .dn-decoration{width:min(31vw,390px);height:74%}}
+@media(max-width:800px){.topbar.dn-login-header{height:68px;padding:0 20px}.topbar.dn-login-header .brand .imath-brand-mark{width:46px;height:46px}.topbar.dn-login-header .brand .imath-brand-name{font-size:27px}.topbar.dn-login-header .brand .imath-brand-tagline{display:none}.topbar.dn-login-header .dn-support{gap:14px;font-size:13px}.topbar.dn-login-header .dn-support .dn-icon{width:22px;height:22px}.topbar.dn-login-header .dn-support i{height:21px}#login-screen.login-shell{height:calc(100svh - 68px);min-height:0;padding:20px 14px;background:radial-gradient(ellipse at 30% 105%,#fff 0 5%,transparent 34%),linear-gradient(145deg,#e1f3ff,#f3f9ff 55%,#e3f4ff)}#login-screen .dn-decoration{display:none}#login-screen .dn-card{width:min(540px,100%);padding:29px clamp(22px,7vw,42px);border-radius:30px}#login-screen .dn-card-scroll{max-height:calc(100svh - 126px)}#login-screen .dn-card-brand{margin-bottom:14px}#login-screen .dn-card h1{font-size:clamp(26px,5vw,33px)}#login-screen .dn-subtitle{font-size:14px}#login-screen .dn-forgot-pop{right:14px;top:auto;bottom:18px}}
+@media(max-width:480px){.topbar.dn-login-header{padding:0 13px}.topbar.dn-login-header .dn-support{gap:10px;font-size:11px}.topbar.dn-login-header .dn-support a{gap:5px}.topbar.dn-login-header .dn-support i{height:18px}#login-screen .dn-card{padding:23px 20px;border-radius:25px}#login-screen .dn-card-brand .imath-brand-mark{width:46px;height:46px}#login-screen .dn-card-brand .imath-brand-name{font-size:27px}#login-screen .dn-card-brand .imath-brand-tagline{font-size:10px}#login-screen .dn-options{font-size:12px}#login-screen .dn-input-wrap{height:55px}#login-screen .dn-submit,#login-screen .dn-register-open{height:57px;font-size:18px}}
+.dn-parent-login {
+  margin: 0 0 12px;
+  text-align: center;
+  color: #60708f;
+  font-size: 14px;
+}
+.dn-or-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 10px;
+  color: #75849e;
+  font-size: 13px;
+}
+.dn-or-divider::before,
+.dn-or-divider::after { content: ""; height: 1px; flex: 1; background: #d8e1ec; }
+.dn-parent-copy strong { display: block; color: #17346f; font-size: 17px; }
+.dn-parent-copy p { margin: 4px 0 12px; color: #657590; line-height: 1.45; }
+.dn-google-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 52px;
+  padding: 11px 18px;
+  border: 1px solid #b8c1cc;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 4px 12px #183d7618;
+  color: #202124;
+  text-decoration: none;
+  font-weight: 700;
+  transition: border-color .15s, box-shadow .15s, transform .15s, background .15s;
+}
+.dn-google-button:hover {
+  background: #f8faff;
+  border-color: #8ba8cf;
+  box-shadow: 0 7px 18px #183d7626;
+  transform: translateY(-1px);
+}
+.dn-google-button:focus,
+.dn-google-button:focus-visible {
+  outline: 3px solid #1a73e866;
+  outline-offset: 3px;
+}
+.dn-google-logo { width: 24px; height: 24px; flex: 0 0 24px; }
+/* 1024×768 là khổ chính: thu khoảng trắng để nút Google nằm trọn trong thẻ, không phải cuộn. */
+@media (max-width: 1180px) and (min-width: 801px) and (max-height: 820px) {
+  #login-screen .dn-card { padding: 16px 34px; }
+  #login-screen .dn-card-scroll { max-height: calc(100svh - 122px); }
+  #login-screen .dn-card-brand { margin-bottom: 4px; }
+  #login-screen .dn-card h1 { margin: 5px 0; font-size: 27px; }
+  #login-screen .dn-subtitle { margin-bottom: 7px; line-height: 1.4; }
+  #login-screen #login-form > label { margin: 6px 0 4px; }
+  #login-screen .dn-input-wrap { height: 46px; }
+  #login-screen .dn-options { margin: 9px 0 5px; }
+  #login-screen .dn-submit,
+  #login-screen .dn-register-open { height: 48px; }
+  #login-screen .dn-register-open { margin-top: 8px; }
+  #login-screen .dn-parent-login { margin-bottom: 7px; }
+  #login-screen .dn-or-divider { margin-bottom: 7px; }
+  #login-screen .dn-parent-copy p { margin: 2px 0 7px; }
+  #login-screen .dn-google-button { min-height: 48px; }
+}
+/* Màn thấp vẫn cuộn được trong thẻ để nút Đăng nhập không bị vùng nền cắt mất. */
+#login-screen .dn-card-scroll{max-height:calc(100svh - 210px);overflow-y:auto;scrollbar-width:thin}
+#login-screen .dn-return-learning{display:block;margin:0 0 4px;padding:7px 10px;border:0;border-radius:9px;background:transparent;color:#0875e8;font:700 14px "Be Vietnam Pro",sans-serif;cursor:pointer}
+#login-screen .dn-return-learning:hover,#login-screen .dn-return-learning:focus-visible{background:#eaf4ff;outline:3px solid #1683f838;outline-offset:2px}
+
+/* Google và Đăng ký cùng hàng; Đăng ký vẫn hiện khi máy chủ chưa cấu hình Google. */
+#login-screen .dn-parent-copy { text-align: center; }
+#login-screen .dn-entry-actions { display: flex; align-items: stretch; gap: 10px; margin: 0 0 15px; }
+#login-screen .dn-entry-actions .dn-parent-login { flex: 2; min-width: 0; margin: 0; }
+#login-screen .dn-entry-actions .dn-google-button { height: 52px; min-height: 52px; padding: 8px 12px; border-radius: 14px; font-size: 14px; }
+#login-screen .dn-entry-actions .dn-register-open { flex: 1; min-width: 0; width: auto; height: 52px; margin: 0; padding: 8px 12px; border-radius: 14px; font-size: 15px; gap: 7px; }
+#login-screen .dn-entry-actions .dn-register-open .dn-icon { width: 20px; height: 20px; }
+@media (max-width: 480px) {
+  #login-screen .dn-entry-actions { gap: 8px; }
+  #login-screen .dn-entry-actions .dn-google-button { padding: 8px; font-size: 12px; gap: 7px; }
+  #login-screen .dn-entry-actions .dn-register-open { padding: 8px; font-size: 13px; }
+}

@@ -1,0 +1,74 @@
+/* Bản 2 đã duyệt: đề/hình trên, phương án dưới; chỉ tăng cỡ trên 1440 px. */
+body:has(#app-shell .quiz-layout) { min-height: 100vh; }
+#app-shell .quiz-panel.quiz-layout { min-height: 0; height: auto; }
+.quiz-layout .quiz-main { display: block; }
+.quiz-layout .quiz-question { margin-bottom: 20px; }
+.quiz-layout .quiz-answer { width: 100%; }
+.quiz-layout .options:not(.typed-options):not(:has(.true-false-list,.essay-panel)) {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 14px;
+}
+.quiz-progress-row { display: flex; align-items: center; gap: 22px; margin: 14px 0 24px; min-width: 0; }
+.quiz-layout .quiz-progress-row .jump {
+  margin: 0;
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: calc(100% - 130px);
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 4px;
+  scrollbar-width: thin;
+}
+.quiz-progress-row .jump button { flex: none; }
+.quiz-layout .quiz-progress-row .progress { margin: 0; flex: 1; max-width: 320px; min-width: 100px; }
+.quiz-check-actions { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.quiz-layout .quiz-nav .quiz-hint-action { font-size: 15px; min-height: 42px; padding: 8px 14px; }
+.quiz-layout .hint-box[hidden] { display: none; }
+.quiz-layout .hint-box { margin: 18px 0 0; }
+.quiz-layout #quiz-error:empty,.quiz-layout #timo-error:empty { display: none; }
+.quiz-layout .typed-answer { max-width: 620px; margin-inline: auto; }
+.quiz-layout .confidence-picker { margin-top: 10px; }
+.quiz-layout .confidence-picker,.quiz-layout .essay-panel {
+  scroll-margin-bottom: calc(var(--quiz-actions-height,84px) + 24px);
+}
+@media (min-width: 1441px) {
+  #app-shell .quiz-panel.quiz-layout { max-width: 1500px; margin-inline: auto; padding: 28px 32px; }
+  .in-quiz .quiz-layout .question-text { font-size: 32px; line-height: 1.45; }
+  .in-quiz .quiz-layout .question-media { max-height: 330px; margin: 12px 0 18px; }
+  .in-quiz .quiz-layout .question-media svg,
+  .in-quiz .quiz-layout .question-media img { width: 100%; max-width: 760px; max-height: 330px; height: auto; object-fit: contain; }
+  .in-quiz .quiz-layout .option { font-size: 23px; min-height: 92px; padding: 18px 22px; }
+  .in-quiz .quiz-layout .option-letter { width: 44px; height: 44px; font-size: 20px; }
+  .in-quiz .quiz-layout .quiz-nav button:not(.quiz-hint-action) { min-height: 60px; font-size: 20px; padding: 14px 24px; }
+  .quiz-layout .typed-input,.quiz-layout .timo-answer { height: 76px; width: min(100%,420px); font-size: 30px; }
+  .quiz-layout .typed-answer-label,.quiz-layout .timo-answer-label { font-size: 17px; }
+  .quiz-layout .typed-unit { font-size: 20px; }
+  .quiz-layout .true-false-row,.quiz-layout .essay-panel { font-size: 19px; }
+  .quiz-layout .true-false-buttons button { min-height: 58px; min-width: 100px; font-size: 19px; }
+  .quiz-layout .essay-panel button { min-height: 54px; font-size: 18px; padding: 12px 20px; }
+}
+@media (max-width: 1440px) {
+  .quiz-progress-row { gap: 16px; margin: 8px 0 14px; }
+  .quiz-layout .quiz-question { margin-bottom: 14px; }
+  .in-quiz .quiz-layout .option { min-height: 64px; }
+  .in-quiz .quiz-layout:not(.upper-grade-quiz) .question-media,
+  .in-quiz .quiz-layout:not(.upper-grade-quiz) .question-media svg,
+  .in-quiz .quiz-layout:not(.upper-grade-quiz) .question-media img { max-height: 170px; }
+  .quiz-layout .quiz-top-actions { flex-direction: row; align-items: center; }
+}
+@media (min-width: 561px) and (max-width: 1199px) {
+  #app-shell:has(.quiz-layout) { padding-bottom: 20px; }
+  #app-shell .quiz-panel.quiz-layout { padding-bottom: calc(var(--quiz-actions-height,84px) + 28px); }
+  .quiz-layout .quiz-nav { gap: 12px; }
+}
+@media (max-width: 800px) {
+  .quiz-progress-row { gap: 10px; }
+  .quiz-layout .quiz-progress-row .progress { min-width: 70px; }
+  .quiz-layout .quiz-progress-row .jump { max-width: calc(100% - 90px); }
+  .quiz-layout .quiz-nav .quiz-hint-action { padding-inline: 9px; }
+}
+@media (max-width: 560px) {
+  .quiz-layout .options:not(.typed-options):not(:has(.true-false-list,.essay-panel)) { grid-template-columns: 1fr; }
+  .quiz-check-actions { gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+}

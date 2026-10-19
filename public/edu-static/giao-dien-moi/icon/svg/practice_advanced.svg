@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="practice-bg" x1="8" y1="4" x2="55" y2="61" gradientUnits="userSpaceOnUse"><stop stop-color="#F0F8FF"/><stop offset="1" stop-color="#C7E4FF"/></linearGradient>
+    <linearGradient id="practice-book" x1="15" y1="17" x2="41" y2="54" gradientUnits="userSpaceOnUse"><stop stop-color="#379AFF"/><stop offset="1" stop-color="#0966D5"/></linearGradient>
+    <linearGradient id="practice-pencil" x1="38" y1="24" x2="48" y2="31" gradientUnits="userSpaceOnUse"><stop stop-color="#FFE49B"/><stop offset="1" stop-color="#F5A623"/></linearGradient>
+  </defs>
+  <rect x="3" y="5" width="58" height="56" rx="17" fill="#99C7EE" opacity=".6"/>
+  <rect x="3" y="2" width="58" height="56" rx="17" fill="url(#practice-bg)" stroke="#B6DBFA"/>
+  <path d="M14 21a5 5 0 0 1 5-5h23v38H19a5 5 0 0 1-5-5V21Z" fill="#0756B2" opacity=".18" transform="translate(1 2)"/>
+  <path d="M13 20a5 5 0 0 1 5-5h23v37H18a5 5 0 0 1-5-5V20Z" fill="url(#practice-book)"/>
+  <path d="M18 16h22v31H18V16Z" fill="#fff"/>
+  <path d="M18 47h23v5H18a2.5 2.5 0 0 1 0-5Z" fill="#D7EBFF"/>
+  <path d="M24 24h10M24 30h8M24 36h6" stroke="#8ABDED" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="m33 42 3-10 13-16a4.1 4.1 0 0 1 6.4 5.2L42 37l-9 5Z" fill="#BA7B13" opacity=".18" transform="translate(0 2)"/>
+  <path d="m33 42 3-10 13-16a4.1 4.1 0 0 1 6.4 5.2L42 37l-9 5Z" fill="url(#practice-pencil)" stroke="#D08A1D" stroke-width="1.2"/>
+  <path d="m36 32 6 5-9 5 3-10Z" fill="#FFF2D7"/>
+  <path d="m34 38-1 4 4-2-3-2Z" fill="#335C83"/>
+  <path d="m47 18 6.4 5.2" stroke="#FFFCED" stroke-width="2"/>
+  <path d="m48 6 2.3 4.7 5.2.8-3.8 3.6.9 5.2L48 17.8l-4.6 2.5.9-5.2-3.8-3.6 5.2-.8L48 6Z" fill="#FFC53D" stroke="#EAA018" stroke-width="1.2" stroke-linejoin="round"/>
+</svg>

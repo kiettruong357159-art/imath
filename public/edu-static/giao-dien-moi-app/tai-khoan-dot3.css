@@ -1,0 +1,63 @@
+/* Thẻ gia đình và học tập — giao việc 08/10 đợt 3, dùng biến màu của theme.css. */
+.account-parent-child.account-child-v3 { display: block; min-width: 0; padding: 22px; }
+.account-child-header { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.account-child-avatar { width: 56px; height: 56px; flex: 0 0 56px; border-radius: 16px;
+  background: #e4f1ff; color: var(--blue); display: grid; place-items: center; font-size: 26px; font-weight: 800; }
+.account-child-avatar img { width: 52px; height: 52px; object-fit: contain; }
+.account-child-header .account-parent-child-copy { min-width: 0; flex: 1; display: grid; gap: 4px; }
+.account-child-header h3 { margin: 0; font-size: 22px; overflow-wrap: anywhere; }
+.account-child-header small { font-size: 12px; color: #627797; }
+.account-child-status { border-radius: 20px; background: #e5f8ef; color: #087744; font-size: 12px; padding: 6px 10px; font-weight: 700; }
+.account-progress-block { margin: 20px 0; }
+.account-progress-block p { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 12px; }
+.account-progress-block p span { color: #627797; }
+.account-child-progress { position: relative; height: 12px; border-radius: 20px; background: #eaf0f8; overflow: hidden; }
+.account-child-progress > span, .account-child-progress > b { position: absolute; inset: 0 auto 0 0; border-radius: inherit; }
+.account-child-progress > span { background: #b2d5ff; }
+.account-child-progress > b { background: #1479ed; }
+.account-child-learning, .account-child-view { padding: 16px; margin-top: 16px; border: 1px solid #dce6f3; border-radius: 14px; }
+.account-child-learning h3, .account-child-view h3 { margin: 0 0 14px; font-size: 16px; }
+.account-child-learning form { display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  padding: 12px 0; border-top: 1px solid #eef2f8; }
+.account-child-learning form label { flex: 1; min-width: 150px; display: grid; gap: 8px; font-weight: 700; font-size: 13px; }
+.account-child-learning select { width: 100%; min-height: 44px; border: 1px solid #cbdaee; border-radius: 10px; background: #fff; padding: 8px; }
+.account-child-learning small { font-size: 11px; color: #627797; font-weight: 400; }
+.account-child-learning .account-form-status:empty { display: none; }
+.account-self-grade-form .account-form-status { flex-basis: 100%; color: #a13c46; }
+/* Banner ở lộ trình sau reload, đủ chữ để hiểu kết quả dù không phân biệt màu. */
+.account-grade-notice { padding: 14px 18px; margin: 0 0 16px; border: 1px solid #a7d7bf; border-radius: 14px; background: #edf9f1; color: #185a3a; font-weight: 600; line-height: 1.6; }
+.account-child-view-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 10px; }
+.account-child-card { min-height: 96px; width: 100%; padding: 12px 8px; border: 1px solid #dce6f3; border-radius: 12px;
+  background: #f7fbff; color: #194275; display: flex; align-items: center; justify-content: center; flex-direction: column;
+  gap: 10px; font-family: inherit; font-size: 12px; text-align: center; cursor: pointer; overflow-wrap: anywhere; }
+.account-child-card > svg, .account-child-card > img { width: 30px; height: 30px; }
+.account-child-card:nth-child(2) { background: #f2f0ff; }
+.account-child-card:nth-child(3) { background: #fff8e9; }
+.account-child-card:nth-child(4) { background: #eafaf3; }
+.account-child-card:hover { border-color: #1479ed; box-shadow: 0 4px 14px #1479ed16; }
+.account-child-card:focus-visible, .account-action-dialog button:focus-visible { outline: 3px solid #177bf1; outline-offset: 3px; }
+.account-child-history-note { color: #ad4425; font-size: 12px; font-weight: 700; }
+.account-child-history-note > span { color: #db4343; }
+.account-grade-history { margin-top: 16px; font-size: 12px; color: #627797; }
+.account-grade-history summary { cursor: pointer; font-weight: 700; color: #194275; }
+.account-grade-history li { margin: 8px 0; line-height: 1.6; }
+.account-parent-tools { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; margin-top: 18px; }
+.account-action-dialog { width: min(480px,calc(100vw - 32px)); max-height: calc(100dvh - 40px); overflow: auto;
+  padding: 24px; border: 1px solid #dce6f3; border-radius: 20px; color: #173560; font-family: inherit; }
+.account-action-dialog::backdrop { background: #142f5260; }
+.account-dialog-heading { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.account-dialog-heading h2 { margin: 0; font-size: 20px; }
+.account-action-dialog .account-form { margin-top: 18px; grid-template-columns: 1fr; }
+@media (max-width: 800px) {
+  .account-child-view-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .account-parent-child.account-child-v3 { padding: 16px; }
+}
+@media (max-width: 480px) {
+  .account-child-header h3 { font-size: 18px; }
+  .account-child-header .account-child-status { margin-left: 68px; }
+  .account-parent-tools { grid-template-columns: 1fr; }
+  .account-parent-tools .account-child-card { min-height: 66px; flex-direction: row; }
+  .account-child-learning { padding: 12px; }
+  .account-child-learning button { width: 100%; }
+  .account-action-dialog { padding: 18px; }
+}

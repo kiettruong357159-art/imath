@@ -4,6 +4,9 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
+  outputFileTracingIncludes: {
+    '/**': ['./prisma/dev.db'],
+  },
   images: {
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: 60 * 60 * 24 * 7,
@@ -16,6 +19,14 @@ const nextConfig: NextConfig = {
   },
   experimental: {
     optimizePackageImports: ['lucide-react', 'date-fns'],
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/tienich/cau-do-lich-su',
+        destination: '/tienich/cau-do-lich-su.html',
+      },
+    ];
   },
 };
 

@@ -6,59 +6,30 @@ export default async function EduPortalPage() {
   const tools = await prisma.interactiveTool.findMany({
     where: { isActive: true },
     orderBy: { sortOrder: 'asc' },
-    take: 24,
+    take: 25,
   });
 
   return (
-    <main style={{ maxWidth: 1280, margin: '0 auto', padding: '2rem 1.25rem' }}>
+    <main style={{ maxWidth: 1440, margin: '0 auto', padding: '1.5rem 1.25rem 3rem' }}>
       <div
         style={{
-          background: 'linear-gradient(135deg, #1e40af, #2477f3)',
-          borderRadius: 'var(--radius-lg)',
-          padding: '2.5rem 2rem',
-          color: '#fff',
-          marginBottom: '2rem',
-          boxShadow: 'var(--shadow-md)',
+          background: '#fff',
+          border: '1px solid #d5e8ec',
+          borderRadius: 22,
+          overflow: 'hidden',
+          boxShadow: '0 14px 34px rgba(32, 85, 156, 0.10)',
+          marginBottom: '2.5rem',
         }}
       >
-        <h1 style={{ margin: '0 0 0.5rem', fontSize: '2.1rem', fontWeight: 900, fontFamily: 'var(--font-display)' }}>
-          🎓 Cổng Học Tập Thông Minh — edu.imath.vn
-        </h1>
-        <p style={{ margin: '0 0 1.25rem', fontSize: '1.05rem', opacity: 0.92, maxWidth: 720 }}>
-          Lộ trình học toán cá nhân hóa từ Lớp 1 đến Lớp 12, kết hợp Đấu trường thi đấu trực tuyến và 24 phòng luyện tập tương tác.
-        </p>
-        <div style={{ display: 'flex', gap: '0.85rem', flexWrap: 'wrap' }}>
-          <Link
-            href="/dau-truong"
-            style={{
-              padding: '0.65rem 1.4rem',
-              borderRadius: 'var(--radius-pill)',
-              background: '#58cc02',
-              color: '#fff',
-              fontWeight: 900,
-              textDecoration: 'none',
-            }}
-          >
-            🏆 Vào Đấu Trường Super Arena
-          </Link>
-          <Link
-            href="/tai-lieu"
-            style={{
-              padding: '0.65rem 1.4rem',
-              borderRadius: 'var(--radius-pill)',
-              background: 'rgba(255,255,255,0.18)',
-              color: '#fff',
-              fontWeight: 800,
-              textDecoration: 'none',
-            }}
-          >
-            📖 Kho Tài Liệu Tuần
-          </Link>
-        </div>
+        <iframe
+          src="/edu-static/index.html"
+          title="Cổng Học Tập Thông Minh — edu.imath.vn"
+          style={{ width: '100%', height: '82vh', minHeight: 680, border: 'none', display: 'block' }}
+        />
       </div>
 
-      <h2 style={{ fontSize: '1.5rem', fontWeight: 900, marginBottom: '1rem' }}>
-        Chọn Lớp & Phòng Luyện Tập Trực Tuyến
+      <h2 style={{ fontSize: '1.5rem', fontWeight: 900, marginBottom: '1rem', color: '#12366d' }}>
+        Chọn Nhanh Phòng Luyện Tập Trực Tuyến ({tools.length} Tiện Ích)
       </h2>
       <div className="grid-3col-safe">
         {tools.map((tool) => (

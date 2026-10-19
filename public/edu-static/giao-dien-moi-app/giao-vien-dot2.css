@@ -1,0 +1,12 @@
+/* Tiện ích đợt 2: bảng, xu hướng và SVG dùng màu/nút chung, ưu tiên máy tính bảng. */
+.gv-student-trend { display:flex; align-items:flex-end; gap:8px; min-width:160px; height:70px; }
+.gv-student-trend > span { display:flex; flex-direction:column; justify-content:flex-end; align-items:center; height:100%; flex:1; }
+.gv-student-trend i { display:block; min-height:4px; height:var(--trend-height); width:18px; background:var(--trend-color); border-radius:4px; }
+.gv-student-trend small { font-size:10px; }
+.gv-integrity-alert { background:#fff1d6; color:#894600; font-weight:700; }
+.gv-checkbox { display:flex !important; flex-direction:row !important; align-items:center; gap:10px; }
+.gv-checkbox input { width:22px !important; height:22px; flex:0 0 auto; }
+#gv-svg-dialog label { display:block; margin:16px 0; }
+#gv-svg-dialog textarea { width:100%; box-sizing:border-box; }
+#gv-student-detail { scroll-margin-top:90px; }
+.teacher-integrity-notice { padding:12px 18px; background:#fff4dc; color:#754500; }

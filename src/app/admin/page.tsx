@@ -7,6 +7,8 @@ import {
   FileText,
   BookOpen,
   FolderTree,
+  Wrench,
+  MessageSquare,
   LogOut,
   Trash2,
   RefreshCw,
@@ -20,7 +22,7 @@ import { EmptyState } from '@/components/ui/EmptyState';
 import { useToast } from '@/context/ToastContext';
 import { formatVnDate } from '@/lib/date-utils';
 
-type TabId = 'dashboard' | 'posts' | 'documents' | 'categories';
+type TabId = 'dashboard' | 'posts' | 'documents' | 'categories' | 'tools' | 'comments';
 
 interface AdminStats {
   totalPosts: number;
@@ -56,6 +58,29 @@ interface CategoryRow {
   _count: { posts: number };
 }
 
+interface ToolRow {
+  id: string;
+  slug: string;
+  title: string;
+  groupCode: string;
+  gradeSlug: string;
+  toolUrl: string;
+  iconText: string;
+  isActive: boolean;
+}
+
+interface CommentRow {
+  id: string;
+  authorName: string;
+  authorEmail: string;
+  content: string;
+  isApproved: boolean;
+  createdAt: string;
+  post?: { title: string; slug: string } | null;
+}
+
+const VALID_TABS: TabId[] = ['dashboard', 'posts', 'documents', 'categories', 'tools', 'comments'];
+
 export default function AdminPortalPage() {
   const router = useRouter();
   const toast = useToast();
@@ -66,6 +91,8 @@ export default function AdminPortalPage() {
     posts: false,
     documents: false,
     categories: false,
+    tools: false,
+    comments: false,
   });
 
   // Parent loads initial state as undefined (never [] to avoid infinite refetch on empty tables)
@@ -73,12 +100,16 @@ export default function AdminPortalPage() {
   const [postsData, setPostsData] = useState<{ items: PostRow[]; total: number; totalPages: number } | undefined>(undefined);
   const [docsData, setDocsData] = useState<{ items: DocRow[]; total: number; totalPages: number } | undefined>(undefined);
   const [categoriesData, setCategoriesData] = useState<CategoryRow[] | undefined>(undefined);
+  const [toolsData, setToolsData] = useState<ToolRow[] | undefined>(undefined);
+  const [commentsData, setCommentsData] = useState<CommentRow[] | undefined>(undefined);
 
   const [postSearch, setPostSearch] = useState('');
+  const [debouncedPostSearch, setDebouncedPostSearch] = useState('');
   const [postStatus, setPostStatus] = useState('');
   const [postPage, setPostPage] = useState(1);
 
   const [docSearch, setDocSearch] = useState('');
+  const [debouncedDocSearch, setDebouncedDocSearch] = useState('');
   const [docGrade, setDocGrade] = useState('');
   const [docPage, setDocPage] = useState(1);
 
@@ -86,12 +117,29 @@ export default function AdminPortalPage() {
   const [deleting, setDeleting] = useState(false);
   const [loggingOut, setLoggingOut] = useState(false);
 
+  // 400ms debounce for postSearch and docSearch
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedPostSearch(postSearch);
+      setPostPage(1);
+    }, 400);
+    return () => clearTimeout(timer);
+  }, [postSearch]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedDocSearch(docSearch);
+      setDocPage(1);
+    }, 400);
+    return () => clearTimeout(timer);
+  }, [docSearch]);
+
   // Sync ?tab= with URL and localStorage
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const urlTab = params.get('tab') as TabId | null;
     const savedTab = (localStorage.getItem('imath_admin_tab') as TabId | null) || 'dashboard';
-    const initialTab = urlTab && ['dashboard', 'posts', 'documents', 'categories'].includes(urlTab) ? urlTab : savedTab;
+    const initialTab = urlTab && VALID_TABS.includes(urlTab) ? urlTab : VALID_TABS.includes(savedTab) ? savedTab : 'dashboard';
     setActiveTab(initialTab);
     setVisitedTabs((prev) => ({ ...prev, [initialTab]: true }));
   }, []);
@@ -148,6 +196,22 @@ export default function AdminPortalPage() {
     }
   }, []);
 
+  const fetchTools = useCallback(async () => {
+    const res = await fetch('/api/tools');
+    if (res.ok) {
+      const data = (await res.json()) as { items: ToolRow[] };
+      setToolsData(data.items);
+    }
+  }, []);
+
+  const fetchComments = useCallback(async () => {
+    const res = await fetch('/api/comments');
+    if (res.ok) {
+      const data = (await res.json()) as { items: CommentRow[] };
+      setCommentsData(data.items);
+    }
+  }, []);
+
   useEffect(() => {
     if (visitedTabs.dashboard && stats === undefined) {
       void fetchStats();
@@ -156,21 +220,33 @@ export default function AdminPortalPage() {
 
   useEffect(() => {
     if (visitedTabs.posts) {
-      void fetchPosts(postPage, postSearch, postStatus);
+      void fetchPosts(postPage, debouncedPostSearch, postStatus);
     }
-  }, [visitedTabs.posts, postPage, postStatus, fetchPosts]);
+  }, [visitedTabs.posts, postPage, debouncedPostSearch, postStatus, fetchPosts]);
 
   useEffect(() => {
     if (visitedTabs.documents) {
-      void fetchDocs(docPage, docSearch, docGrade);
+      void fetchDocs(docPage, debouncedDocSearch, docGrade);
     }
-  }, [visitedTabs.documents, docPage, docGrade, fetchDocs]);
+  }, [visitedTabs.documents, docPage, debouncedDocSearch, docGrade, fetchDocs]);
 
   useEffect(() => {
     if (visitedTabs.categories && categoriesData === undefined) {
       void fetchCategories();
     }
   }, [visitedTabs.categories, categoriesData, fetchCategories]);
+
+  useEffect(() => {
+    if (visitedTabs.tools && toolsData === undefined) {
+      void fetchTools();
+    }
+  }, [visitedTabs.tools, toolsData, fetchTools]);
+
+  useEffect(() => {
+    if (visitedTabs.comments && commentsData === undefined) {
+      void fetchComments();
+    }
+  }, [visitedTabs.comments, commentsData, fetchComments]);
 
   const handleConfirmDelete = async () => {
     if (!deleteTarget || deleting) return;
@@ -180,7 +256,7 @@ export default function AdminPortalPage() {
         const res = await fetch(`/api/posts/${deleteTarget.id}`, { method: 'DELETE' });
         if (res.ok) {
           toast.success('Đã xóa bài viết thành công.');
-          await fetchPosts(postPage, postSearch, postStatus);
+          await Promise.all([fetchPosts(postPage, debouncedPostSearch, postStatus), fetchStats()]);
         } else {
           toast.error('Không thể xóa bài viết.');
         }
@@ -189,7 +265,7 @@ export default function AdminPortalPage() {
         const data = (await res.json()) as { message?: string };
         if (res.ok) {
           toast.success('Đã xóa chuyên mục.');
-          await fetchCategories();
+          await Promise.all([fetchCategories(), fetchStats()]);
         } else {
           toast.error(data.message || 'Không thể xóa chuyên mục.');
         }
@@ -207,6 +283,20 @@ export default function AdminPortalPage() {
     router.replace('/login');
   };
 
+  const navBtnStyle = (tab: TabId): React.CSSProperties => ({
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.65rem',
+    padding: '0.7rem 0.9rem',
+    borderRadius: 'var(--radius-sm)',
+    border: 'none',
+    background: activeTab === tab ? 'var(--color-primary)' : 'transparent',
+    color: '#fff',
+    fontWeight: 800,
+    cursor: 'pointer',
+    textAlign: 'left',
+  });
+
   return (
     <div className="admin-shell">
       <aside className="admin-sidebar">
@@ -214,88 +304,34 @@ export default function AdminPortalPage() {
           iMath<span style={{ color: '#38bdf8' }}>CMS</span>
         </div>
 
-        <button
-          type="button"
-          onClick={() => switchTab('dashboard')}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.65rem',
-            padding: '0.7rem 0.9rem',
-            borderRadius: 'var(--radius-sm)',
-            border: 'none',
-            background: activeTab === 'dashboard' ? 'var(--color-primary)' : 'transparent',
-            color: '#fff',
-            fontWeight: 800,
-            cursor: 'pointer',
-            textAlign: 'left',
-          }}
-        >
+        <button type="button" onClick={() => switchTab('dashboard')} style={navBtnStyle('dashboard')}>
           <LayoutDashboard size={18} />
           <span>Tổng quan hệ thống</span>
         </button>
 
-        <button
-          type="button"
-          onClick={() => switchTab('posts')}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.65rem',
-            padding: '0.7rem 0.9rem',
-            borderRadius: 'var(--radius-sm)',
-            border: 'none',
-            background: activeTab === 'posts' ? 'var(--color-primary)' : 'transparent',
-            color: '#fff',
-            fontWeight: 800,
-            cursor: 'pointer',
-            textAlign: 'left',
-          }}
-        >
+        <button type="button" onClick={() => switchTab('posts')} style={navBtnStyle('posts')}>
           <FileText size={18} />
-          <span>Bài viết & Bài học (322)</span>
+          <span>Bài viết ({stats ? stats.totalPosts : 322})</span>
         </button>
 
-        <button
-          type="button"
-          onClick={() => switchTab('documents')}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.65rem',
-            padding: '0.7rem 0.9rem',
-            borderRadius: 'var(--radius-sm)',
-            border: 'none',
-            background: activeTab === 'documents' ? 'var(--color-primary)' : 'transparent',
-            color: '#fff',
-            fontWeight: 800,
-            cursor: 'pointer',
-            textAlign: 'left',
-          }}
-        >
+        <button type="button" onClick={() => switchTab('documents')} style={navBtnStyle('documents')}>
           <BookOpen size={18} />
-          <span>Tài liệu & Đề thi (244)</span>
+          <span>Tài liệu & Đề thi ({stats ? stats.totalDocs : 244})</span>
         </button>
 
-        <button
-          type="button"
-          onClick={() => switchTab('categories')}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.65rem',
-            padding: '0.7rem 0.9rem',
-            borderRadius: 'var(--radius-sm)',
-            border: 'none',
-            background: activeTab === 'categories' ? 'var(--color-primary)' : 'transparent',
-            color: '#fff',
-            fontWeight: 800,
-            cursor: 'pointer',
-            textAlign: 'left',
-          }}
-        >
+        <button type="button" onClick={() => switchTab('categories')} style={navBtnStyle('categories')}>
           <FolderTree size={18} />
-          <span>Chuyên mục (11)</span>
+          <span>Chuyên mục ({stats ? stats.totalCategories : 11})</span>
+        </button>
+
+        <button type="button" onClick={() => switchTab('tools')} style={navBtnStyle('tools')}>
+          <Wrench size={18} />
+          <span>Tiện ích Toán ({stats ? stats.totalTools : 25})</span>
+        </button>
+
+        <button type="button" onClick={() => switchTab('comments')} style={navBtnStyle('comments')}>
+          <MessageSquare size={18} />
+          <span>Bình luận & Hỏi đáp</span>
         </button>
 
         <div style={{ marginTop: 'auto', paddingTop: '1rem', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
@@ -385,7 +421,7 @@ export default function AdminPortalPage() {
               <h1 style={{ margin: 0, fontSize: '1.65rem', fontWeight: 900 }}>Quản Lý Bài Viết & Chuyên Đề</h1>
               <button
                 type="button"
-                onClick={() => void fetchPosts(postPage, postSearch, postStatus)}
+                onClick={() => void fetchPosts(postPage, debouncedPostSearch, postStatus)}
                 style={{
                   padding: '0.55rem 1rem',
                   borderRadius: 'var(--radius-sm)',
@@ -407,11 +443,7 @@ export default function AdminPortalPage() {
               <input
                 type="search"
                 value={postSearch}
-                onChange={(e) => {
-                  setPostSearch(e.target.value);
-                  setPostPage(1);
-                  void fetchPosts(1, e.target.value, postStatus);
-                }}
+                onChange={(e) => setPostSearch(e.target.value)}
                 placeholder="Tìm theo tiêu đề bài viết..."
                 style={{
                   padding: '0.6rem 0.9rem',
@@ -542,11 +574,7 @@ export default function AdminPortalPage() {
               <input
                 type="search"
                 value={docSearch}
-                onChange={(e) => {
-                  setDocSearch(e.target.value);
-                  setDocPage(1);
-                  void fetchDocs(1, e.target.value, docGrade);
-                }}
+                onChange={(e) => setDocSearch(e.target.value)}
                 placeholder="Tìm kiếm tài liệu..."
                 style={{
                   padding: '0.6rem 0.9rem',
@@ -587,32 +615,40 @@ export default function AdminPortalPage() {
                     </tr>
                   </thead>
                   <tbody>
-                    {docsData?.items.map((doc) => (
-                      <tr key={doc.id}>
-                        <td style={{ fontWeight: 800 }}>{doc.title}</td>
-                        <td>{doc.gradeName || '—'}</td>
-                        <td>{doc.topicName || '—'}</td>
-                        <td>{formatVnDate(doc.publishedAt)}</td>
-                        <td>
-                          <div className="admin-table-actions">
-                            <a
-                              href={`/tai-lieu/${doc.slug}`}
-                              target="_blank"
-                              rel="noreferrer"
-                              style={{
-                                padding: '0.4rem 0.65rem',
-                                borderRadius: 'var(--radius-sm)',
-                                border: '1px solid var(--color-border)',
-                                color: 'var(--color-primary)',
-                                textDecoration: 'none',
-                              }}
-                            >
-                              <ExternalLink size={15} />
-                            </a>
-                          </div>
+                    {docsData && docsData.items.length === 0 ? (
+                      <tr>
+                        <td colSpan={5}>
+                          <EmptyState title="Không có tài liệu" description="Không tìm thấy phiếu bài tập nào khớp với bộ lọc." />
                         </td>
                       </tr>
-                    ))}
+                    ) : (
+                      docsData?.items.map((doc) => (
+                        <tr key={doc.id}>
+                          <td style={{ fontWeight: 800 }}>{doc.title}</td>
+                          <td>{doc.gradeName || '—'}</td>
+                          <td>{doc.topicName || '—'}</td>
+                          <td>{formatVnDate(doc.publishedAt)}</td>
+                          <td>
+                            <div className="admin-table-actions">
+                              <a
+                                href={`/tai-lieu/${doc.slug}`}
+                                target="_blank"
+                                rel="noreferrer"
+                                style={{
+                                  padding: '0.4rem 0.65rem',
+                                  borderRadius: 'var(--radius-sm)',
+                                  border: '1px solid var(--color-border)',
+                                  color: 'var(--color-primary)',
+                                  textDecoration: 'none',
+                                }}
+                              >
+                                <ExternalLink size={15} />
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                      ))
+                    )}
                   </tbody>
                 </table>
               </div>
@@ -674,6 +710,152 @@ export default function AdminPortalPage() {
                         </td>
                       </tr>
                     ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* TAB 5: INTERACTIVE TOOLS */}
+        {visitedTabs.tools && (
+          <div style={{ display: activeTab === 'tools' ? 'block' : 'none' }}>
+            <div className="admin-action-header">
+              <h1 style={{ margin: 0, fontSize: '1.65rem', fontWeight: 900 }}>Quản Lý Tiện Ích Toán Học Tương Tác</h1>
+              <button
+                type="button"
+                onClick={() => void fetchTools()}
+                style={{
+                  padding: '0.55rem 1rem',
+                  borderRadius: 'var(--radius-sm)',
+                  border: '1px solid var(--color-border-strong)',
+                  background: 'var(--color-surface)',
+                  fontWeight: 800,
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.4rem',
+                  cursor: 'pointer',
+                }}
+              >
+                <RefreshCw size={15} />
+                <span>Làm mới</span>
+              </button>
+            </div>
+
+            <div className="admin-table-card">
+              <div className="table-responsive">
+                <table className="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Biểu tượng</th>
+                      <th>Tên tiện ích</th>
+                      <th>Nhóm</th>
+                      <th>Khối lớp</th>
+                      <th>Đường dẫn</th>
+                      <th style={{ textAlign: 'right' }}>Mở</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {toolsData && toolsData.length === 0 ? (
+                      <tr>
+                        <td colSpan={6}>
+                          <EmptyState title="Chưa có tiện ích" description="Danh sách tiện ích trống." />
+                        </td>
+                      </tr>
+                    ) : (
+                      toolsData?.map((tool) => (
+                        <tr key={tool.id}>
+                          <td style={{ fontSize: '1.35rem' }}>{tool.iconText}</td>
+                          <td style={{ fontWeight: 800 }}>{tool.title}</td>
+                          <td>{tool.groupCode}</td>
+                          <td>{tool.gradeSlug}</td>
+                          <td style={{ fontSize: '0.82rem', color: 'var(--color-text-secondary)' }}>{tool.toolUrl}</td>
+                          <td>
+                            <div className="admin-table-actions">
+                              <a
+                                href={tool.toolUrl}
+                                target="_blank"
+                                rel="noreferrer"
+                                style={{
+                                  padding: '0.4rem 0.65rem',
+                                  borderRadius: 'var(--radius-sm)',
+                                  border: '1px solid var(--color-border)',
+                                  color: 'var(--color-primary)',
+                                  textDecoration: 'none',
+                                  display: 'inline-flex',
+                                  alignItems: 'center',
+                                }}
+                              >
+                                <ExternalLink size={15} />
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                      ))
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* TAB 6: COMMENTS */}
+        {visitedTabs.comments && (
+          <div style={{ display: activeTab === 'comments' ? 'block' : 'none' }}>
+            <div className="admin-action-header">
+              <h1 style={{ margin: 0, fontSize: '1.65rem', fontWeight: 900 }}>Quản Lý Bình Luận & Hỏi Đáp</h1>
+              <button
+                type="button"
+                onClick={() => void fetchComments()}
+                style={{
+                  padding: '0.55rem 1rem',
+                  borderRadius: 'var(--radius-sm)',
+                  border: '1px solid var(--color-border-strong)',
+                  background: 'var(--color-surface)',
+                  fontWeight: 800,
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.4rem',
+                  cursor: 'pointer',
+                }}
+              >
+                <RefreshCw size={15} />
+                <span>Làm mới</span>
+              </button>
+            </div>
+
+            <div className="admin-table-card">
+              <div className="table-responsive">
+                <table className="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Người gửi</th>
+                      <th>Nội dung</th>
+                      <th>Bài viết</th>
+                      <th>Ngày gửi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {commentsData && commentsData.length === 0 ? (
+                      <tr>
+                        <td colSpan={4}>
+                          <EmptyState
+                            title="Chưa có bình luận mới"
+                            description="Tất cả bình luận của học sinh và phụ huynh sẽ hiển thị tại đây."
+                          />
+                        </td>
+                      </tr>
+                    ) : (
+                      commentsData?.map((comment) => (
+                        <tr key={comment.id}>
+                          <td style={{ fontWeight: 800 }}>{comment.authorName}</td>
+                          <td>{comment.content}</td>
+                          <td>{comment.post?.title || '—'}</td>
+                          <td>{formatVnDate(comment.createdAt)}</td>
+                        </tr>
+                      ))
+                    )}
                   </tbody>
                 </table>
               </div>

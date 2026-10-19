@@ -1,0 +1,28 @@
+/* Ảnh tự luận vòng 1: panel riêng, nút dễ chạm, ảnh giữ tỷ lệ trên máy tính bảng. */
+.teacher-essay-upload { padding: 18px; margin: 16px 0; border: 1px solid var(--line, #cbdcf3); border-radius: 18px; background: var(--card, #fff); }
+.teacher-essay-upload h3 { margin: 0 0 10px; color: var(--ink, #132b5c); }
+.teacher-essay-images { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.teacher-essay-images figure { margin: 0; min-width: 0; }
+.teacher-essay-images a { display: block; padding: 5px; border: 1px solid #cfdbed; border-radius: 12px; background: #f4f8ff; }
+.teacher-essay-images img { display: block; width: 100%; height: 220px; object-fit: contain; }
+.teacher-essay-images figcaption { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 8px; }
+.teacher-essay-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; align-items: center; }
+.teacher-essay-file { position: relative; display: inline-flex; align-items: center; min-height: 44px;
+  padding: 10px 16px; border: 1px solid #82adff; border-radius: 12px; color: #0866dc; cursor: pointer; }
+/* Input thật giữ Tab/label, phủ nút nhưng không hiện chữ Choose File của trình duyệt. */
+.teacher-essay-file input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+.teacher-essay-file:focus-within { outline: 3px solid #1875e8; outline-offset: 3px; }
+.teacher-essay-file:has(input:disabled) { opacity: .55; cursor: default; }
+.teacher-essay-actions button, .teacher-essay-images button { min-height: 44px; }
+.teacher-essay-help { font-size: .85rem; color: var(--muted, #536582); line-height: 1.6; }
+.teacher-essay-images a:focus-visible { outline: 3px solid #1875e8; outline-offset: 3px; }
+@media (max-width: 600px) { .teacher-essay-images { grid-template-columns: 1fr; } .teacher-essay-images img { height: 240px; } }
+/* Nhận xét chữ thuần giữ xuống dòng; không diễn giải HTML hoặc công thức chưa kiểm. */
+.teacher-essay-returned {background:var(--score-good-bg,#edf5ff);border-radius:12px;padding:14px;margin:12px 0}
+.teacher-essay-returned p,.teacher-essay-comment {white-space:pre-wrap;overflow-wrap:anywhere}
+.gv-parent-returned-row {padding:12px 0;border-bottom:1px solid #d7e4f5}
+.gv-parent-returned-row button {font:inherit;font-size:.9rem;min-height:40px;padding:8px 14px;color:#0965d4;
+  background:linear-gradient(#fff,#edf5ff);border:1px solid #a8c8f8;border-radius:11px;box-shadow:0 3px 0 #c5d9f4;cursor:pointer}
+.gv-parent-returned-row button:hover {filter:brightness(.96)}
+.gv-parent-returned-row button:focus-visible {outline:3px solid #167bf0;outline-offset:3px}
+.gv-parent-returned-row button:disabled {opacity:.55;cursor:wait}
