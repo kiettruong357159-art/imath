@@ -2,7 +2,9 @@ node_modules/
 .next/
 out/
 prisma/*.db-journal
+prisma/sqlite_dump.json
 .env.local
 .superpowers/
 rea/
 .vercel/
+
